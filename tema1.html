@@ -34,6 +34,19 @@
     </div>
     <button class="menu-mobil" id="menuMobil" type="button" aria-label="Obri el menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
+  <div class="barra-temes no-print" role="navigation" aria-label="Menú de temes">
+    <a class="barra-temes__casa" href="index.html" title="Portada del curs">🏠 Portada</a>
+    <a href="tema0.html" title="Tema 0 · Què és programar?">T0</a>
+    <a aria-current="page" href="tema1.html" title="Tema 1 · Variables">T1</a>
+    <a href="tema2.html" title="Tema 2 · Prendre decisions">T2</a>
+    <a href="tema3.html" title="Tema 3 · Els bucles">T3</a>
+    <a href="tema4.html" title="Tema 4 · Arrays">T4</a>
+    <a href="tema5.html" title="Tema 5 · Mètodes">T5</a>
+    <a href="tema6.html" title="Tema 6 · Classes i objectes">T6</a>
+    <a href="tema7.html" title="Tema 7 · Programa complet">T7</a>
+    <a href="tema8.html" title="Tema 8 · Programar amb IA">T8</a>
+    <a href="tema9.html" title="Tema 9 · El futur">T9</a>
+  </div>
 </header>
 
 <main>
@@ -380,6 +393,19 @@ System.out.println("Sobren " + euros % 3 + " euros");</code></pre></div>
         <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
         <div class="pregunta__solucio"><strong>Solució: A.</strong> El mòdul dona el que sobra: 14 % 4 = 2. (Amb <code>/</code> sabríem quants toca cadascú: 3.)</div>
       </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 10</div>
+        <p class="pregunta__enunciat">Què guarda la variable <code>mig</code>?</p>
+        <div class="codi" style="margin-top:.5rem"><pre><code>double mig = 7 / 2;</code></pre></div>
+        <div class="pregunta__opcions" style="margin-top:.8rem">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>3.5</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>3.0</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>4.0</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>No compila</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> <code>7 / 2</code> és divisió d'enters i dona 3; després es passa a double: 3.0. Per a obtindre 3.5 cal <code>7.0 / 2</code>.</div>
+      </article>
     </div>
 
     <div id="panell-fes" role="tabpanel" aria-labelledby="tab-fes" hidden>
@@ -469,6 +495,27 @@ public class Fitxa {
     }
 }</code></pre></div>
       </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 4</div>
+        <h4>Canviador de diners 💶</h4>
+        <p>Demana una quantitat d'euros i mostra: quants cèntims són, quants dòlars (canvi 1 € = 1.08 $) i quants billets de 50 € pots formar (i quants euros en sobren).</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Canvi.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>import java.util.Scanner;
+
+public class Canvi {
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        System.out.print("Quants euros tens? ");
+        int euros = tec.nextInt();
+
+        System.out.println("Són " + (euros * 100) + " cèntims");
+        System.out.println("Són " + (euros * 1.08) + " dòlars");
+        System.out.println("Billets de 50: " + (euros / 50));
+        System.out.println("I en sobren: " + (euros % 50) + " €");
+    }
+}</code></pre></div>
+      </article>
     </div>
 
     <div id="panell-reptes" role="tabpanel" aria-labelledby="tab-reptes" hidden>
@@ -481,6 +528,11 @@ public class Fitxa {
         <div class="exercici__num">Repte 2</div>
         <h4>⏱️ Comptador de minuts</h4>
         <p>Demana una quantitat total de minuts (per exemple, 135) i mostra quantes hores i quants minuts són, usant <code>/</code> i <code>%</code>: «135 minuts són 2 h i 15 min».</p>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte 3</div>
+        <h4>La nòmina 🧾</h4>
+        <p>Demana les hores treballades i el preu per hora. Calcula el salari brut, la retenció d'IRPF (15%) i el net. Imprimeix-ho com un tiquet de nòmina, amb línies de guions i etiquetes alineades. Pista: per a calcular el 15%, multiplica per 0.15.</p>
       </article>
     </div>
   </div>

@@ -35,6 +35,7 @@
   --radi: 18px;
   --radi-s: 12px;
   --capcalera-h: 70px;
+  --temes-h: 44px;
   --font: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
   --mono: "JetBrains Mono", "SF Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
   --degradat: linear-gradient(100deg, #1d5de8, #089cc0);
@@ -106,19 +107,38 @@ code:not(pre code) {
 /* ---------- Capçalera ---------- */
 .capcalera {
   position: fixed; inset: 0 0 auto 0; z-index: 80;
-  height: var(--capcalera-h);
+  height: calc(var(--capcalera-h) + var(--temes-h));
   background: color-mix(in srgb, var(--fons) 82%, transparent);
   -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--vora);
 }
 .capcalera__inner {
-  width: min(1300px, 96%); margin-inline: auto; height: 100%;
+  width: min(1300px, 96%); margin-inline: auto; height: var(--capcalera-h);
   display: flex; align-items: center; gap: 1.1rem;
 }
 .marca { display: flex; align-items: center; gap: .55rem; font-weight: 800; font-size: 1.05rem; color: var(--tinta); }
 .marca:hover { text-decoration: none; }
 .marca svg { width: 27px; height: 27px; }
 .marca em { font-style: normal; color: var(--tinta-3); font-weight: 600; }
+
+/* ---------- Barra de temes (menú superior de navegació ràpida) ---------- */
+.barra-temes {
+  height: var(--temes-h); display: flex; align-items: center; gap: .35rem;
+  width: min(1300px, 96%); margin-inline: auto;
+  overflow-x: auto; scrollbar-width: thin; padding: .15rem 0;
+}
+.barra-temes a {
+  flex: 0 0 auto; font-size: .76rem; font-weight: 700; letter-spacing: .01em;
+  color: var(--tinta-2); background: var(--superficie-2);
+  border: 1px solid var(--vora); border-radius: 999px;
+  padding: .32rem .72rem; white-space: nowrap;
+}
+.barra-temes a:hover { color: var(--tinta); border-color: var(--vora-forta); text-decoration: none; }
+.barra-temes a[aria-current="page"] {
+  color: #fff; background: var(--blau); border-color: var(--blau);
+}
+[data-tema="fosc"] .barra-temes a[aria-current="page"] { color: #08101f; background: #6db4ff; border-color: #6db4ff; }
+.barra-temes .barra-temes__casa { background: transparent; border-style: dashed; }
 
 .nav { display: flex; gap: .15rem; margin-left: auto; }
 .nav a {
@@ -166,7 +186,7 @@ code:not(pre code) {
 /* ---------- Hero (sempre fosc, text blanc: contrast màxim) ---------- */
 .hero {
   min-height: 92svh; display: flex; align-items: center;
-  position: relative; overflow: hidden; padding-top: var(--capcalera-h);
+  position: relative; overflow: hidden; padding-top: calc(var(--capcalera-h) + var(--temes-h));
   background: #060a13;
 }
 .hero__fons { position: absolute; inset: 0; background: url("../assets/img/hero.jpg") center 65% / cover no-repeat; opacity: .9; }
@@ -204,7 +224,7 @@ code:not(pre code) {
 @keyframes flota { 0%,100% { transform: translate(-50%,0);} 50% { transform: translate(-50%,9px);} }
 
 /* ---------- Seccions ---------- */
-.seccio { padding: 5.5rem 0 2.5rem; scroll-margin-top: calc(var(--capcalera-h) + 8px); }
+.seccio { padding: 5.5rem 0 2.5rem; scroll-margin-top: calc(var(--capcalera-h) + var(--temes-h) + 8px); }
 .seccio + .seccio { border-top: 1px solid var(--vora); }
 .seccio--tintada { background: var(--fons-2); }
 .seccio__cap { margin-bottom: 1.4rem; }
@@ -600,7 +620,7 @@ a.tema-card:hover h3, a.tema-card:hover .tema-card__titol { color: var(--blau-fo
   }
   .nav.oberta {
     display: flex; flex-direction: column; position: fixed;
-    top: var(--capcalera-h); left: 0; right: 0; background: var(--fons);
+    top: calc(var(--capcalera-h) + var(--temes-h)); left: 0; right: 0; background: var(--fons);
     border-bottom: 1px solid var(--vora); padding: 1rem 4%;
   }
   .autoria { font-size: .6rem; max-width: 120px; white-space: normal; line-height: 1.3; }
