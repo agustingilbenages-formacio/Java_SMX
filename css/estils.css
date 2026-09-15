@@ -468,6 +468,34 @@ code:not(pre code) {
 .llista--xecs li::before { background: var(--verd); border-radius: 50%; }
 .llista li strong { color: var(--tinta); }
 
+/* ---------- Núvol d'exemples i frases de classe ---------- */
+.nubol { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.2rem 0 1.8rem; }
+.tag {
+  font-size: .86rem; font-weight: 700; color: var(--tinta-2);
+  background: var(--superficie); border: 1.5px solid var(--vora);
+  border-radius: 999px; padding: .45rem 1.05rem; box-shadow: var(--ombra-suau);
+  transition: transform .18s, border-color .18s, color .18s;
+}
+.tag:hover { transform: translateY(-2px); border-color: var(--blau); color: var(--blau-fosc); }
+[data-tema="fosc"] .tag:hover { color: #8db6ff; }
+
+.frases { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin: 1.2rem 0; }
+.frase {
+  background: var(--superficie-2); border-left: 4px solid var(--taronja);
+  padding: .85rem 1.1rem; border-radius: 0 12px 12px 0;
+  font-weight: 600; color: var(--tinta); font-size: .97rem;
+}
+.frase small { display: block; color: var(--tinta-3); font-weight: 500; margin-top: .2rem; }
+
+/* ---------- Norma del codi ---------- */
+.prohibit { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .7rem; margin: 1.4rem 0; }
+.prohibit span {
+  text-align: center; font-family: var(--mono); font-size: .85rem; font-weight: 600;
+  color: var(--vermell); background: color-mix(in srgb, var(--vermell) 7%, var(--superficie));
+  border: 1.5px dashed color-mix(in srgb, var(--vermell) 45%, transparent);
+  border-radius: 12px; padding: .6rem .5rem;
+}
+
 /* ---------- Peu ---------- */
 .peu { border-top: 1px solid var(--vora); background: var(--fons-2); padding: 3.2rem 0 2.4rem; margin-top: 5rem; }
 .peu__grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; }

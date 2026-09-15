@@ -70,7 +70,7 @@
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['fonaments', 'control', 'dades', 'poo', 'practiques', 'recursos'].forEach((id) => {
+    ['curs', 'temari', 'estructura', 'norma', 'arquitectura', 'recursos'].forEach((id) => {
       const s = document.getElementById(id);
       if (s) spy.observe(s);
     });

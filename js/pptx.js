@@ -43,8 +43,8 @@
       return t + ': ' + d;
     });
     dias.push({ tipus: 'contingut', titol: 'Com entenem este curs', vinyetes: filos });
-    const cita = $('.cita');
-    if (cita) dias.push({ tipus: 'cita', text: neteja(cita.childNodes[0] ? cita.textContent : '') });
+    const cites = $$('.cita');
+    if (cites[0]) dias.push({ tipus: 'cita', text: neteja(cites[0].textContent) });
 
     /* Torn de 3 hores */
     const torn = $$('#curs .torn li').map((li) => {
@@ -54,6 +54,17 @@
       return temps + ' — ' + t + ': ' + d;
     });
     dias.push({ tipus: 'contingut', titol: 'Una sessió de 3 hores, pas a pas', vinyetes: torn });
+
+    /* Exemples propers */
+    const tags = $$('#curs .nubol .tag').map((t) => neteja(t.textContent));
+    if (tags.length) {
+      dias.push({ tipus: 'contingut', titol: 'Exemples que parlen el seu idioma (1/2)', vinyetes: tags.slice(0, 7) });
+      dias.push({ tipus: 'contingut', titol: 'Exemples que parlen el seu idioma (2/2)', vinyetes: tags.slice(7) });
+    }
+
+    /* Frases de classe */
+    const frases = $$('#curs .frase').map((f) => neteja(f.textContent));
+    if (frases.length) dias.push({ tipus: 'contingut', titol: 'A classe parlem així', vinyetes: frases });
 
     /* Temari: una diapositiva per tema */
     $$('#temari .tema-card').forEach((card) => {
@@ -66,6 +77,24 @@
         vinyetes: $$('ul li', card).map((li) => neteja(li.textContent))
       });
     });
+
+    /* Ordre final del curs */
+    const taulaOrdre = $('#temari table[data-pptx]');
+    if (taulaOrdre) {
+      const files = $$('tr', taulaOrdre).map((tr) => $$('th,td', tr).map((cel) => neteja(cel.textContent)));
+      dias.push({ tipus: 'taula', titol: 'Ordre final del curs', files });
+    }
+    if (cites[1]) dias.push({ tipus: 'cita', text: neteja(cites[1].textContent) });
+
+    /* Norma del codi */
+    const proh = $$('#norma .prohibit span').map((s) => neteja(s.textContent));
+    if (proh.length) {
+      dias.push({
+        tipus: 'contingut',
+        titol: 'Res abans d’hora',
+        vinyetes: proh.concat(['«De moment no necessitem entendre esta part; ja arribarem més avant.»'])
+      });
+    }
 
     /* Estructura fixa, en dues diapositives */
     const parts = $$('#estructura .estructura li').map((li) => {
@@ -159,6 +188,18 @@
         s.addShape('roundRect', { x: 0.6, y: 1.45, w: 12.1, h: 5.5, rectRadius: 0.12, fill: { color: '0B1120' }, line: { color: '24345C', width: 1 } });
         s.addText([{ text: d.codi, options: { color: 'E4ECFF', fontFace: 'Consolas', fontSize: 16 } }], { x: 0.9, y: 1.7, w: 11.5, h: 5.0, valign: 'top' });
         peu(pptx, s, true);
+        break;
+      }
+      case 'taula': {
+        capcaleraDiapo(s, d.titol, C.taronja);
+        const files = d.files.map((fila, fi) => fila.map((cel) => ({
+          text: cel,
+          options: fi === 0
+            ? { bold: true, color: 'FFFFFF', fill: { color: '1D5DE8' }, fontSize: 18, fontFace: FONT_T }
+            : { color: C.tinta, fill: { color: fi % 2 ? 'FFFFFF' : 'EAF0FB' }, fontSize: 16, fontFace: FONT_C }
+        })));
+        s.addTable(files, { x: 0.7, y: 1.75, w: 11.9, border: { type: 'solid', pt: 1, color: C.vora }, colW: [1.6, 7.6, 2.7], rowH: 0.44, valign: 'middle', margin: 6 });
+        peu(pptx, s, false);
         break;
       }
       case 'credits': {
