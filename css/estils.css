@@ -121,6 +121,35 @@ code:not(pre code) {
 .marca svg { width: 27px; height: 27px; }
 .marca em { font-style: normal; color: var(--tinta-3); font-weight: 600; }
 
+/* ---------- Què eixiria per pantalla? (prediccions) ---------- */
+.prediccions { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1.1rem; margin-top: 1rem; }
+.prediccio {
+  background: var(--superficie); border: 1px solid var(--vora);
+  border-radius: 16px; padding: 1.1rem 1.2rem 1.2rem;
+  box-shadow: var(--ombra-suau);
+}
+.prediccio__etiqueta {
+  display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--cian-text); background: rgba(7, 110, 140, .08);
+  border: 1px solid rgba(7, 110, 140, .25); border-radius: 999px; padding: .2rem .7rem;
+  margin-bottom: .8rem;
+}
+[data-tema="fosc"] .prediccio__etiqueta { color: #6fd2ea; background: rgba(111, 210, 234, .1); border-color: rgba(111, 210, 234, .3); }
+.prediccio .codi { margin: 0 0 .9rem; }
+.prediccio__pregunta { font-weight: 700; color: var(--tinta); margin-bottom: .8rem; }
+.prediccio .solucio-bloq { display: none; margin-top: .9rem; }
+.prediccio .solucio-bloq.oberta { display: block; }
+.consola {
+  background: #0c1424; border: 1px solid #24335a; border-radius: 12px;
+  padding: .8rem 1rem; font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .84rem; line-height: 1.55; color: #d7e6ff; white-space: pre-wrap;
+}
+.consola::before {
+  content: "EIXIDA PER PANTALLA"; display: block; font-family: var(--lletra);
+  font-size: .62rem; font-weight: 800; letter-spacing: .12em; color: #6fd2ea;
+  margin-bottom: .45rem;
+}
+
 /* ---------- Barra de temes (menú superior de navegació ràpida) ---------- */
 .barra-temes {
   height: var(--temes-h); display: flex; align-items: center; gap: .35rem;
@@ -640,7 +669,7 @@ a.tema-card:hover h3, a.tema-card:hover .tema-card__titol { color: var(--blau-fo
    IMPRESSIÓ — manual docent professional
    ============================================================ */
 @media print {
-  @page { margin: 1cm; size: auto; }
+  @page { margin: 0; size: auto; }   /* marge 0: així el navegador no imprimeix la ruta/URL a la capçalera-peu */
 
   :root, [data-tema="fosc"], [data-tema="clar"] {
     --fons: #ffffff; --fons-2: #ffffff; --superficie: #ffffff; --superficie-2: #f2f5fb;
@@ -651,7 +680,13 @@ a.tema-card:hover h3, a.tema-card:hover .tema-card__titol { color: var(--blau-fo
   }
 
   html { scroll-behavior: auto; }
-  body { background: #fff !important; color: #0e1a33; font-size: 12.5pt; line-height: 1.6; }
+  body {
+    background: #fff !important; color: #0e1a33; font-size: 12.5pt; line-height: 1.6;
+    padding: 1.1cm 1.2cm;   /* reemplaça el marge de @page perquè el contingut no toque la vora */
+  }
+  p, li { orphans: 3; widows: 3; }
+  h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+  .seccio__cap { break-after: avoid; page-break-after: avoid; }
 
   .barra-progres, .capcalera, .hero__scroll, .hero__ctes, .toast, button,
   .pestanyes, .prediü__fila, .test__accions, .menu-mobil, .no-print { display: none !important; }
@@ -679,7 +714,11 @@ a.tema-card:hover h3, a.tema-card:hover .tema-card__titol { color: var(--blau-fo
   .tema-grid, .principis, .torn, .blocs-act { display: block; }
   .tema-grid > *, .principis > *, .torn > *, .blocs-act > * { margin-bottom: .5cm; }
 
-  .codi { background: #f6f8fd; }
+  .codi {
+    background: #f6f8fd;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .codi pre { white-space: pre-wrap; word-break: break-word; }
   .codi__cap { background: #e8edf8; }
   .codi pre { color: #17233f; background: #f6f8fd; font-size: 10pt; }
   .codi__copia, .codi__dots { display: none !important; }
@@ -693,6 +732,13 @@ a.tema-card:hover h3, a.tema-card:hover .tema-card__titol { color: var(--blau-fo
   #panell-test { display: block !important; }
   #panell-test .pregunta:nth-of-type(n+4) { display: none !important; }
   .pregunta__solucio, .pregunta__boto { display: none !important; }
+
+  /* Prediccions: s'imprimix l'enunciat i el codi, mai la resposta */
+  .prediccions { grid-template-columns: 1fr 1fr; }
+  .prediccio { border: 1px solid #c9d2e2; box-shadow: none; break-inside: avoid; page-break-inside: avoid; }
+  .prediccio .solucio-bloq { display: none !important; }
+  .consola { background: #f2f5fb; border-color: #c9d2e2; color: #17233f; }
+  .consola::before { color: #076e8c; }
 
   a { color: #0e1a33; text-decoration: none; }
   .peu { margin-top: 1cm; background: #fff; }

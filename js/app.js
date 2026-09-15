@@ -203,7 +203,7 @@
       const bloc = boto.parentElement.querySelector('.solucio-bloq');
       if (!bloc) return;
       const oberta = bloc.classList.toggle('oberta');
-      boto.textContent = oberta ? 'Amagar solució' : 'Mostrar solució';
+      boto.textContent = oberta ? (boto.dataset.amaga || 'Amagar solució') : (boto.dataset.mostra || 'Mostrar solució');
     });
   });
 
