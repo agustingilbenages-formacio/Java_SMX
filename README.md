@@ -1,47 +1,40 @@
-# Java_SMX · Java en 3 hores ☕
+# Java_SMX · Introducció a la Programació amb Java ☕
 
 **Material creat per Agustín Gil - IES La vereda 2026**
-Optativa SMX · Introducció a la programació — Masterclass intensiva d'una sola sessió (≈3 hores).
-Llicència: [Creative Commons Reconeixement-NoComercial 4.0 Internacional (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.ca)
+Optativa SMX · Introducció a la programació — curs complet per a alumnat de 16 anys que ix de zero.
+Llicència: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.ca)
 
-## Què és
+## El curs
 
-Una pàgina web autocontinguda (HTML + CSS + JS vanilla, sense cap framework que necessite Node)
-pensada per a projectar-se a l'aula, estudiar-se a casa i exportar-se en dos formats docents:
+- **Tema 0** (introducció motivadora) **+ 9 temes de 3 hores** ≈ 27 h lectives.
+- Progressió molt gradual: variables → decisions → bucles → arrays → mètodes → objectes →
+  programa complet → IA → futur. La POO no apareix fins que l'alumnat té eines per a entendre-la.
+- Cada sessió de 3 h combina: explicació (30–45 min), programació guiada (60–75 min),
+  exercicis (60–75 min) i repàs/autoavaluació/repte (15–30 min).
 
-- **📄 Imprimir PDF** — dossier de teoria en estil llibre de text (lletra gran, esquemes quadrats i
-  al seu lloc, `@page { margin: 1cm; size: auto; }`), on només s'imprimeixen les 3 primeres
-  preguntes del test; la resta del test, «Fes el programa» i els reptes queden ocults.
-- **📽 Crear PowerPoint** — presentació `.pptx` generada automàticament llegint la teoria del DOM
-  (PptxGenJS via CDN amb còpia local de reserva a `js/vendor/`): portada amb autor i llicència,
-  índex, diapositives divisores, bullet points grans, taules, codi acolorit i tots els esquemes
-  incrustats a la diapositiva que els toca.
+## Estat del material
 
-## Contingut
+`index.html` és la **portada-arquitectura** del curs: filosofia, torn de sessió, temari complet
+(Tema 0–9), estructura fixa d'onze peces de cada tema i arquitectura de fitxers.
+**Cap tema està desenvolupat encara**: cada tema es crearà a petició («Desenvolupa el Tema X»)
+com a pàgina pròpia (`tema0.html` … `tema9.html`) amb teoria, exemples pas a pas, programació
+guiada, mini exercicis, exercicis principals, repte, errors habituals, resum visual i les tres
+sales d'activitats (autoavaluació de 9 preguntes, «Fes el programa» i reptes sense solució),
+més els botons **Imprimir PDF** i **Crear PowerPoint** (PptxGenJS via CDN + còpia local).
 
-1. **Introducció i fonaments** — per què Java, JVM/bytecode, variables, tipus, sintaxi, Scanner.
-2. **Estructures de control** — `if`/`switch`, `for`/`while`/`do-while`, break/continue, diagrames de flux.
-3. **Estructures de dades i modularitat** — arrays, for-each, ArrayList, mètodes.
-4. **Una pinzellada de POO i IA** — classe/objecte, constructor, i com usar la IA com a copilot.
-5. **Pràctiques** — tres pestanyes: autoavaluació (9 preguntes amb solució raonada),
-   «Fes el programa» (7 exercicis amb pista i solució) i reptes sense solució (6 casos reals).
+## Execució
 
-Extres: widget «Prediu l'eixida», tema clar/fosc, barra de progrés de lectura, scroll-reveal,
-glossari i avís legal CC BY-NC 4.0.
-
-## Com executar-la
-
-No cal res: obri `index.html` al navegador (funciona també des d'un USB o servida amb
-`python3 -m http.server`). La connexió a internet només fa falta per a les fonts i el CDN de
-PptxGenJS (si falla, es carrega la còpia local de `js/vendor/`).
+Sense Node ni frameworks: obri `index.html` al navegador o servisca la carpeta
+(`python3 -m http.server`). Internet només cal per a fonts/CDN (hi ha reserva local).
 
 ## Estructura
 
 ```
-index.html            Pàgina única amb tota la teoria i els tallers
-css/estils.css        Disseny premium + estils d'impressió (@media print)
-js/app.js             Interacció: test, pestanyes, sintaxi, widgets, impressió
-js/pptx.js            Generador del PowerPoint (llegix el DOM)
+index.html            Portada-arquitectura del curs
+css/estils.css        Sistema de disseny compartit (clar per defecte, fosc opcional)
+js/app.js             Interaccions comunes (tema, test, pestanyes, sintaxi, impressió)
+js/pptx.js            Generador de PowerPoint llegint el DOM
 js/vendor/            PptxGenJS 4.0.1 (reserva fora de línia)
-assets/img/           Imatges de capçalera i de la secció d'IA
+assets/img/           Imatgeria
+tema0.html…tema9.html Pàgines de tema, a petició
 ```

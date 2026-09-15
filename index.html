@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ca" data-tema="fosc">
+<html lang="ca" data-tema="clar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Java en 3 hores · Optativa SMX — IES La Vereda</title>
-<meta name="description" content="Masterclass intensiva de Java per a l'optativa SMX - Introducció a la programació. Material creat per Agustín Gil - IES La vereda 2026. Llicència CC BY-NC 4.0.">
+<title>Introducció a la Programació amb Java · Optativa SMX — IES La Vereda</title>
+<meta name="description" content="Curs complet d'introducció a la programació amb Java per a l'optativa SMX: Tema 0 + 9 temes de 3 hores. Material creat per Agustín Gil - IES La vereda 2026. Llicència CC BY-NC 4.0.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -18,15 +18,14 @@
 <header class="capcalera">
   <div class="capcalera__inner">
     <a class="marca" href="#inici" aria-label="Inici">
-      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#gmar)"/><path d="M12 10l-3.5 6H12l-3.5 6M20 10l3.5 6H20l3.5 6" stroke="#04101f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gmar" x1="2" y1="2" x2="30" y2="30"><stop stop-color="#2f7bff"/><stop offset="1" stop-color="#35d6ff"/></linearGradient></defs></svg>
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#gmar)"/><path d="M12 10l-3.5 6H12l-3.5 6M20 10l3.5 6H20l3.5 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gmar" x1="2" y1="2" x2="30" y2="30"><stop stop-color="#1d5de8"/><stop offset="1" stop-color="#089cc0"/></linearGradient></defs></svg>
       Java <em>· SMX</em>
     </a>
     <nav class="nav" id="nav" aria-label="Seccions">
-      <a href="#fonaments" data-seccio="fonaments">Fonaments</a>
-      <a href="#control" data-seccio="control">Control</a>
-      <a href="#dades" data-seccio="dades">Dades</a>
-      <a href="#poo" data-seccio="poo">POO i IA</a>
-      <a href="#practiques" data-seccio="practiques">Pràctiques</a>
+      <a href="#curs" data-seccio="curs">El curs</a>
+      <a href="#temari" data-seccio="temari">Temari</a>
+      <a href="#estructura" data-seccio="estructura">Estructura</a>
+      <a href="#arquitectura" data-seccio="arquitectura">Arquitectura</a>
       <a href="#recursos" data-seccio="recursos">Recursos</a>
     </nav>
     <div class="accions">
@@ -34,11 +33,11 @@
       <button class="boto-tema" id="btnTema" type="button" title="Canvia el tema" aria-label="Canvia el tema">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <button class="boto boto--sec" id="btnImprimir" type="button" title="Genera el llibre en PDF">
+      <button class="boto boto--sec" id="btnImprimir" type="button" title="Imprimeix la guia del curs en PDF">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
         Imprimir PDF
       </button>
-      <button class="boto boto--pri" id="btnPptx" type="button" title="Descarrega la presentació">
+      <button class="boto boto--pri" id="btnPptx" type="button" title="Descarrega la presentació del curs">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M9 7l3 3 3-3M12 10V7"/></svg>
         Crear PowerPoint
       </button>
@@ -55,17 +54,17 @@
   <div class="hero__fons" aria-hidden="true"></div>
   <div class="contenidor hero__inner">
     <span class="hero__kicker">Optativa SMX · Introducció a la programació</span>
-    <h1>Aprén <span class="grad">Java</span> en una sola sessió.</h1>
-    <p class="hero__sub">Una masterclass intensiva de 3 hores per a perdre-li la por al codi: des de la primera variable fins als objectes i la IA que t'ajuda a escriure'ls. Sense embolics, anem al gra.</p>
-    <div class="hero__metes">
-      <span class="xip">⏱ Sessió única · 3 hores</span>
-      <span class="xip">🎯 Nivell inicial</span>
-      <span class="xip">☕ Java 21 LTS</span>
-      <span class="xip xip--taronja">📄 Teoria + 3 tallers pràctics</span>
+    <h1>Aprén a <span class="grad">programar</span> en Java. Pas a pas.</h1>
+    <p class="hero__sub">El curs complet de l'optativa: Tema 0 + 9 temes de 3 hores, pensat per a qui ix de zero. Primer el pensament de programador; després, tot el demés. Java és només l'eina.</p>
+    <div class="hero__metes" data-pptx>
+      <span class="xip">📚 Tema 0 + 9 temes</span>
+      <span class="xip">⏱ 3 hores per tema</span>
+      <span class="xip">🎓 ≈ 27 h lectives</span>
+      <span class="xip xip--taronja">🌱 Des de zero, sense presses</span>
     </div>
     <div class="hero__ctes no-print">
-      <a class="boto boto--pri" href="#fonaments">Comença la masterclass ↓</a>
-      <a class="boto boto--sec" href="#practiques">Ves directe als reptes</a>
+      <a class="boto boto--pri" href="#temari">Descobreix el temari ↓</a>
+      <a class="boto boto--sec" href="#curs">Com ho farem?</a>
     </div>
     <p class="hero__autor">Material creat per Agustín Gil - IES La vereda 2026 · Llicència CC BY-NC 4.0</p>
   </div>
@@ -74,1073 +73,264 @@
   </div>
 </section>
 
-<nav class="toc-print contenidor" aria-hidden="true">
-  <h2>Índex del dossier</h2>
-  <ol>
-    <li>Introducció i fonaments: per què Java?</li>
-    <li>Estructures de control: condicionals i bucles</li>
-    <li>Estructures de dades i modularitat</li>
-    <li>Una pinzellada de POO i IA</li>
-    <li>Autoavaluació (preguntes 1–3)</li>
-  </ol>
-</nav>
-
-<!-- ══════════════ BLOC 1 · FONAMENTS ══════════════ -->
-<section class="bloc" id="fonaments">
+<!-- ══════════════ EL CURS ══════════════ -->
+<section class="seccio" id="curs">
   <div class="contenidor">
-    <header class="bloc__cap reveal">
-      <span class="bloc__num">01</span>
-      <div>
-        <span class="bloc__etiqueta">Primera hora</span>
-        <h2>Introducció i fonaments</h2>
-      </div>
+    <header class="seccio__cap reveal">
+      <span class="seccio__etiqueta">La nostra manera de fer</span>
+      <h2>Un curs per a pensar com a programadors</h2>
     </header>
-    <p class="bloc__intro reveal">Abans de picar codi, cal saber on ens meterem. Java és com el valencià de la informàtica: el parlen a tot arreu i qui el domina té mig camí fet.</p>
+    <p class="seccio__intro reveal">Açò no és un resum accelerat de Java: és una introducció de veres. Preferim que entengues perfectament una variable, que sàpies plantejar un <code>if</code> i que comprengues per què necessites un bucle, abans de mostrar-te res «avançat». Cada concepte nou es recolza en els anteriors, i els exemples són dels teus: videojocs, notes, música, esports, botigues, contrasenyes, IA…</p>
 
-    <h3 class="reveal">1.1 · Per què Java?</h3>
-    <ul class="llista" data-pptx>
-      <li><strong>«Escriu-ho una vegada, executa-ho a tot arreu»:</strong> el teu codi es converteix en <em>bytecode</em> i qualsevol màquina amb una JVM el fa córrer (Windows, macOS, Linux, Android…).</li>
-      <li><strong>Estàndard de la indústria:</strong> banca, grans empreses, servidors i Android. Hi ha milions de llocs de treball que el demanen.</li>
-      <li><strong>Ecosistema enorme:</strong> llibreries per a tot, documentació oficial i respostes a qualsevol dubte en dos minuts.</li>
-      <li><strong>Et fa escriure bé:</strong> la seua sintaxi estricta t'obliga a ordenar el cap; després, passar a C#, Kotlin o JavaScript és molt més fàcil.</li>
-      <li><strong>Gratuït i estable:</strong> versions LTS (Long Term Support) amb anys de suport, com la 21 que farem servir.</li>
-    </ul>
-
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Del codi font al bytecode i de la JVM a cada sistema operatiu">
-          <defs><marker id="m1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#2f7bff"/></marker></defs>
-          <rect x="20" y="112" width="200" height="76" rx="14" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2"/>
-          <text x="120" y="143" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#12244a">El teu codi</text>
-          <text x="120" y="168" text-anchor="middle" font-family="monospace" font-size="14" fill="#41598c">HolaMon.java</text>
-          <line x1="222" y1="150" x2="296" y2="150" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m1)"/>
-          <text x="259" y="132" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f7bff">javac</text>
-          <text x="259" y="176" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5a688a">(compilador)</text>
-          <rect x="300" y="112" width="200" height="76" rx="14" fill="#e6fbff" stroke="#0aa8cc" stroke-width="2"/>
-          <text x="400" y="143" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="#0b3c4a">Bytecode</text>
-          <text x="400" y="168" text-anchor="middle" font-family="monospace" font-size="14" fill="#31707f">HolaMon.class</text>
-          <line x1="502" y1="150" x2="576" y2="150" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m1)"/>
-          <text x="539" y="132" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#2f7bff">java</text>
-          <text x="539" y="176" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5a688a">(la JVM)</text>
-          <rect x="580" y="104" width="150" height="92" rx="16" fill="#123c8c"/>
-          <text x="655" y="143" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="800" fill="#ffffff">JVM</text>
-          <text x="655" y="168" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#bcd0ff">Màquina Virtual</text>
-          <line x1="732" y1="130" x2="800" y2="62" stroke="#0aa8cc" stroke-width="2.5" marker-end="url(#m1)"/>
-          <line x1="732" y1="150" x2="800" y2="150" stroke="#0aa8cc" stroke-width="2.5" marker-end="url(#m1)"/>
-          <line x1="732" y1="170" x2="800" y2="238" stroke="#0aa8cc" stroke-width="2.5" marker-end="url(#m1)"/>
-          <rect x="804" y="34" width="136" height="56" rx="12" fill="#f4f7ff" stroke="#8fa3c8" stroke-width="1.5"/>
-          <text x="872" y="68" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="#2c3a5c">Windows</text>
-          <rect x="804" y="122" width="136" height="56" rx="12" fill="#f4f7ff" stroke="#8fa3c8" stroke-width="1.5"/>
-          <text x="872" y="156" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="#2c3a5c">macOS</text>
-          <rect x="804" y="210" width="136" height="56" rx="12" fill="#f4f7ff" stroke="#8fa3c8" stroke-width="1.5"/>
-          <text x="872" y="244" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="#2c3a5c">Linux / Android</text>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 1.</strong> El mateix <em>bytecode</em> funciona a qualsevol sistema: la JVM fa de traductora.</figcaption>
-    </figure>
-
-    <h3 class="reveal">1.2 · El teu primer programa</h3>
-    <p class="reveal">Tot programa Java viu dins d'una <strong>classe</strong> i arrenca pel mètode <code>main</code>. Memoritza esta estructura, perquè la escriuràs mil vegades:</p>
-    <div class="codi reveal" data-pptx data-fitxer="HolaMon.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">HolaMon.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>public class HolaMon {
-    public static void main(String[] args) {
-        // El meu primer programa en Java
-        System.out.println("Hola, món! Ja programe en Java!");
-    }
-}</code></pre>
-    </div>
-    <p class="reveal">A la terminal, dos passos: <code>javac HolaMon.java</code> (compila i genera el <code>.class</code>) i <code>java HolaMon</code> (executa). Si veus el missatge a pantalla… ja eres programador o programadora. 🎉</p>
-
-    <div class="targeta targeta--astucia reveal no-print">
-      <div class="targeta__titol"><span class="icona">🧰</span> Abans de començar a classe</div>
-      <ul class="llista llista--xecs" data-pptx>
-        <li>Instal·la el <strong>JDK 21 LTS</strong> des d'adoptium.net i comprova-ho amb <code>java -version</code>.</li>
-        <li>Baixa't un editor seriós: <strong>VS Code</strong> o <strong>IntelliJ IDEA Community</strong> (gratuïts).</li>
-        <li>Aprén a obrir la <strong>terminal</strong>: compilar a mà t'ensenya què fa l'IDE per darrere.</li>
-      </ul>
+    <div class="principis reveal">
+      <div class="principi"><span class="icona">🐢</span><h4>Sense presses</h4><p>La dificultat puja molt a poc a poc. Entendre bé poques coses val més que «vore» moltes.</p></div>
+      <div class="principi"><span class="icona">🪜</span><h4>Un escaló darrere l'altre</h4><p>Variables → decisions → bucles → arrays → mètodes → objectes. Ningú salta abans d'hora.</p></div>
+      <div class="principi"><span class="icona">💡</span><h4>Una idea → un exemple</h4><p>Res de pàgines de teoria seguida: cada concepte es veu immediatament en codi que funciona.</p></div>
+      <div class="principi"><span class="icona">🎮</span><h4>Exemples dels teus</h4><p>Punts d'un videojoc, la nota mitjana, el saldo, la contrasenya del mòbil… programar el que toques.</p></div>
+      <div class="principi"><span class="icona">🧠</span><h4>Pensar &gt; sintaxi</h4><p>L'objectiu no és «saber molt Java»: és agafar un problema, dividir-lo en passos i convertir-lo en programa.</p></div>
     </div>
 
-    <h3 class="reveal">1.3 · Variables i tipus de dades</h3>
-    <p class="reveal">Una <strong>variable</strong> és una capsa amb etiqueta on guardem una dada. En Java cal dir sempre <strong>quin tipus de dada</strong> hi cabrà dins: això es diu que és un llenguatge <em>fortament tipat</em>.</p>
+    <blockquote class="cita reveal">«Programar és donar instruccions ordenades a l'ordinador.»<small>La idea fonamental de tot el curs — la repetirem fins que la somies. 😄</small></blockquote>
 
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomia d'una variable: tipus, nom i valor">
-          <rect x="40" y="70" width="200" height="90" rx="14" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2.5"/>
-          <text x="140" y="127" text-anchor="middle" font-family="monospace" font-size="34" font-weight="700" fill="#12244a">17</text>
-          <text x="140" y="52" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#2f7bff">nom → edat</text>
-          <text x="140" y="188" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#5a688a">tipus → int</text>
-          <text x="420" y="105" font-family="monospace" font-size="24" fill="#12244a">int edat = 17;</text>
-          <path d="M300 46 Q 350 40 405 88" fill="none" stroke="#0aa8cc" stroke-width="2" stroke-dasharray="5 4"/>
-          <path d="M252 170 Q 320 185 402 116" fill="none" stroke="#0aa8cc" stroke-width="2" stroke-dasharray="5 4"/>
-          <path d="M244 115 L 400 112" fill="none" stroke="#2f7bff" stroke-width="2" stroke-dasharray="5 4"/>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 2.</strong> Declaració d'una variable: tipus, nom i valor inicial.</figcaption>
-    </figure>
+    <h3 class="reveal">Com passa una sessió de 3 hores</h3>
+    <p class="reveal">Cada tema és una sessió de classe que combina explicar, mirar, fer i equivocar-se. Esta és la distribució orientativa (cada tema l'adapta un poc):</p>
+    <ol class="torn reveal" data-pptx>
+      <li><span class="temps">30–45 min</span><h4>Explicació i demostracions</h4><p>Teoria amb la regla d'or «una idea, un exemple» i codi en viu del professor.</p></li>
+      <li><span class="temps">60–75 min</span><h4>Programació guiada</h4><p>Construïm un programa pas a pas, junts. El codi complet no apareix de colp: creix.</p></li>
+      <li><span class="temps">60–75 min</span><h4>Exercicis pràctics</h4><p>Ara tu: mini exercicis curts i exercicis principals de menor a major dificultat.</p></li>
+      <li><span class="temps">15–30 min</span><h4>Repàs, correcció i repte</h4><p>Errors habituals a la pissarra, autoavaluació de 9 preguntes i repte final per a casa.</p></li>
+    </ol>
+  </div>
+</section>
 
-    <table class="taula reveal" data-pptx>
-      <thead><tr><th>Tipus</th><th>Què guarda</th><th>Exemple</th><th>Mida aprox.</th></tr></thead>
-      <tbody>
-        <tr><td><code>int</code></td><td>Enters</td><td><code>int edat = 17;</code></td><td>±2.147 milions</td></tr>
-        <tr><td><code>long</code></td><td>Enters gegants</td><td><code>long km = 384400L;</code></td><td>fins a 9,2·10¹⁸</td></tr>
-        <tr><td><code>double</code></td><td>Decimals</td><td><code>double altura = 1.75;</code></td><td>15–16 xifres</td></tr>
-        <tr><td><code>float</code></td><td>Decimals curts</td><td><code>float nota = 7.5f;</code></td><td>6–7 xifres</td></tr>
-        <tr><td><code>char</code></td><td>Un caràcter</td><td><code>char grup = 'B';</code></td><td>2 bytes</td></tr>
-        <tr><td><code>boolean</code></td><td>Cert / fals</td><td><code>boolean aprovat = true;</code></td><td>1 bit</td></tr>
-        <tr><td><code>String</code></td><td>Text (classe!)</td><td><code>String nom = "Marina";</code></td><td>—</td></tr>
-      </tbody>
-    </table>
+<!-- ══════════════ TEMARI ══════════════ -->
+<section class="seccio seccio--tintada" id="temari">
+  <div class="contenidor">
+    <header class="seccio__cap reveal">
+      <span class="seccio__etiqueta">Tema 0 + 9 temes</span>
+      <h2>El temari del curs</h2>
+    </header>
+    <p class="seccio__intro reveal">Deu parades, un camí. Fins al Tema 5 construïm el pensament de programador; al 6 arriba la POO, quan ja tens eines per a entendre-la; i els dos últims temes connecten el que has aprés amb la programació real de 2026: la IA i cap a on va el sector. Cada tema tindrà la seua pròpia pàgina web (<code>tema0.html</code> … <code>tema9.html</code>) amb teoria, activitats, PDF i PowerPoint.</p>
 
-    <div class="codi reveal" data-pptx data-fitxer="Variables.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Variables.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>int edat = 17;                 // enters
-double altura = 1.75;          // decimals
-char inicial = 'A';            // un sol caràcter, entre cometes simples
-boolean aprovat = true;        // cert o fals
-String nom = "Marina";         // text, amb majúscula: és una classe!
+    <div class="tema-grid">
+      <article class="tema-card tema-card--intro reveal" data-pptx data-num="0" data-dur="Introducció motivadora">
+        <div class="tema-card__cap"><span class="tema-card__num">0</span><span class="tema-card__titol">Què és programar?</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">INTRODUCCIÓ</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Perdre la por: programar és donar instruccions ordenades a l'ordinador.</p>
+        <ul>
+          <li>Què és un programa i un llenguatge de programació</li>
+          <li>Codi font → compilació → execució, sense complicacions</li>
+          <li>Primer programa: <code>System.out.println("Hola món!");</code></li>
+          <li>Interpretar errors bàsics i modificar el programa</li>
+        </ul>
+      </article>
 
-final double IVA = 0.21;       // constant: mai més canviarà
+      <article class="tema-card reveal" data-pptx data-num="1" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">1</span><span class="tema-card__titol">Variables: guardar informació</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Entendre què és una variable i fer programes que guarden, modifiquen i mostren informació.</p>
+        <ul>
+          <li>Variables com a caixes: <code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>, <code>String</code></li>
+          <li>Declarar, assignar, modificar i mostrar per pantalla</li>
+          <li>Operadors <code>+ - * / %</code> i concatenació de text</li>
+          <li>Primera entrada de dades amb <code>Scanner</code></li>
+        </ul>
+      </article>
 
-System.out.println(nom + " té " + edat + " anys");</code></pre>
-    </div>
+      <article class="tema-card reveal" data-pptx data-num="2" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">2</span><span class="tema-card__titol">Prendre decisions</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Programes que decideixen segons la informació que reben.</p>
+        <ul>
+          <li>Comparacions: <code>== != &lt; &gt; &lt;= &gt;=</code></li>
+          <li><code>if</code>, <code>else</code>, <code>else if</code> i condicions combinades</li>
+          <li>Operadors lògics <code>&amp;&amp; || !</code></li>
+          <li>Introducció senzilla a <code>switch</code></li>
+        </ul>
+      </article>
 
-    <h3 class="reveal">1.4 · Regles d'or de la sintaxi</h3>
-    <ul class="llista" data-pptx>
-      <li><strong>Punt i coma</strong> al final de cada instrucció. Si l'oblides, l'error pot aparéixer línies més avall: no et fies del número de línia!</li>
-      <li><strong>Majúscules i minúscules importen:</strong> <code>Edat</code>, <code>edat</code> i <code>EDAT</code> són tres variables diferents.</li>
-      <li><strong>camelCase</strong> per a variables i mètodes (<code>notaFinal</code>), <strong>PascalCase</strong> per a classes (<code>HolaMon</code>).</li>
-      <li><strong>Comentaris:</strong> <code>// línia</code> i <code>/* bloc */</code>. Comentar el «perquè», no l'obvi.</li>
-      <li><strong>Les claus <code>{ }</code></strong> delimiten blocs: classe, mètode, condició, bucle. Indenta sempre: el codi es llig més del que s'escriu.</li>
-    </ul>
+      <article class="tema-card reveal" data-pptx data-num="3" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">3</span><span class="tema-card__titol">Repetir: els bucles</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Descobrir per què els ordinadors són tan bons repetint tasques.</p>
+        <ul>
+          <li><code>while</code> i <code>for</code>: quan usem cadascun</li>
+          <li>Comptadors i acumuladors</li>
+          <li>Condicions d'eixida i bucles infinits (i com evitar-los)</li>
+          <li>El número secret, taules de multiplicar, intents de contrasenya…</li>
+        </ul>
+      </article>
 
-    <h3 class="reveal">1.5 · Entrades i eixides</h3>
-    <p class="reveal">Per a parlar amb l'usuari usem <code>System.out.println</code> (imprimeix i salta línia), <code>print</code> (sense salt) i <code>printf</code> (formatat). Per a llegir del teclat, la classe <code>Scanner</code>:</p>
-    <div class="codi reveal" data-pptx data-fitxer="DemanaNom.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">DemanaNom.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>import java.util.Scanner;
+      <article class="tema-card reveal" data-pptx data-num="4" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">4</span><span class="tema-card__titol">Treballar amb moltes dades</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Passar de guardar una dada a guardar col·leccions senceres.</p>
+        <ul>
+          <li>Del problema de moltes variables a l'array</li>
+          <li>Posicions, índexs i recorreguts amb <code>for</code></li>
+          <li>Buscar, comptar, sumar, màxims i mínims</li>
+          <li>Primer treball útil amb <code>String</code></li>
+        </ul>
+      </article>
 
-public class DemanaNom {
-    public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
+      <article class="tema-card reveal" data-pptx data-num="5" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">5</span><span class="tema-card__titol">Dividir un programa en parts</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Un programa gran no s'escriu tot seguit: es divideix en parts xicotetes.</p>
+        <ul>
+          <li>Què és un mètode i per què el necessitem</li>
+          <li>Paràmetres, <code>return</code> i <code>void</code></li>
+          <li>Reutilitzar codi: <code>calcularMitjana()</code>, <code>mostrarMenu()</code>…</li>
+          <li>La modularitat, pas previ als objectes</li>
+        </ul>
+      </article>
 
-        System.out.print("Com et diuges? ");
-        String nom = tec.nextLine();       // llig una línia de text
+      <article class="tema-card reveal" data-pptx data-num="6" data-dur="3 hores (mínim)">
+        <div class="tema-card__cap"><span class="tema-card__num">6</span><span class="tema-card__titol">Objectes i classes</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES (MÍNIM)</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Comprendre de manera intuïtiva i visual què és una classe i què és un objecte.</p>
+        <ul>
+          <li>Del món real al codi: la classe <code>Jugador</code></li>
+          <li>Atributs, mètodes, constructors i <code>new</code></li>
+          <li>Diversos objectes de la mateixa classe</li>
+          <li>POO sense convertir-la en classe d'universitat</li>
+        </ul>
+      </article>
 
-        System.out.println("Bon dia, " + nom + "!");
-    }
-}</code></pre>
-    </div>
+      <article class="tema-card reveal" data-pptx data-num="7" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">7</span><span class="tema-card__titol">Construir un programa complet</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Integrar-ho tot: variables, decisions, bucles, arrays, mètodes i objectes.</p>
+        <ul>
+          <li>Entendre el problema i dividir-lo en parts</li>
+          <li>Programar cada part, provar-la i detectar errors</li>
+          <li>Un programa que creix: gestor d'alumnes, inventari, videojoc textual…</li>
+          <li>Poca teoria nova: l'objectiu és construir</li>
+        </ul>
+      </article>
 
-    <div class="prediü reveal no-print">
-      <div class="prediü__titol">🔮 Prediu l'eixida #1 — abans d'executar, pensa!</div>
-      <div class="codi" style="margin:0"><pre><code>int a = 7, b = 2;
-System.out.println(a / b + " i sobren " + a % b);</code></pre></div>
-      <div class="prediü__fila">
-        <input type="text" placeholder="Què eixirà per pantalla?" data-esperat="3 i sobren 1" aria-label="La teua resposta">
-        <button class="boto boto--pri prediü__comprova" type="button">Comprova</button>
-      </div>
-      <p class="prediü__feedback" data-explicacio="Entre enters, la divisió descarta els decimals: 7 / 2 val 3, i el mòdul (residu) 7 % 2 val 1."></p>
+      <article class="tema-card reveal" data-pptx data-num="8" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">8</span><span class="tema-card__titol">Programar en l'era de la IA</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Usar la IA com a assistent sense deixar de comprendre el codi.</p>
+        <ul>
+          <li>Generar, explicar, corregir i documentar codi amb IA</li>
+          <li>«Explica'm este error», «simplifica este mètode»…</li>
+          <li>La IA s'equivoca: analitzem codi seu millorable o erroni</li>
+          <li>Programador + IA: la nova manera de treballar</li>
+        </ul>
+      </article>
+
+      <article class="tema-card reveal" data-pptx data-num="9" data-dur="3 hores">
+        <div class="tema-card__cap"><span class="tema-card__num">9</span><span class="tema-card__titol">Cap a on va la programació?</span></div>
+        <div class="tema-card__meta"><span class="tema-card__dur">3 HORES</span><span class="estat">Es desenvolupa a petició</span></div>
+        <p class="tema-card__objectiu">Obrir portes: què pots construir damunt dels fonaments que ja tens.</p>
+        <ul>
+          <li>IA, web, mòbils, IoT, robòtica, núvol, ciberseguretat, videojocs</li>
+          <li>Les eines canvien; els fonaments es queden</li>
+          <li>Reconeixeràs variables, bucles i objectes en tecnologies de 2026</li>
+          <li>Mini projecte final obert per a tancar el curs</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ BLOC 2 · CONTROL ══════════════ -->
-<section class="bloc" id="control">
+<!-- ══════════════ ESTRUCTURA ══════════════ -->
+<section class="seccio" id="estructura">
   <div class="contenidor">
-    <header class="bloc__cap reveal">
-      <span class="bloc__num">02</span>
-      <div>
-        <span class="bloc__etiqueta">Segona hora · part 1</span>
-        <h2>Estructures de control</h2>
-      </div>
+    <header class="seccio__cap reveal">
+      <span class="seccio__etiqueta">Sempre el mateix esquelet</span>
+      <h2>Cada tema, onze peces</h2>
     </header>
-    <p class="bloc__intro reveal">Fins ara el codi sempre fa el mateix. Les estructures de control li donen <strong>criteri</strong> (decidir) i <strong>resistència</strong> (repetir). Dos poders, quatre paraules clau.</p>
+    <p class="seccio__intro reveal">Tots els temes tenen la mateixa estructura, perquè sàpies sempre on estàs i què ve després. La web és per a estudiar; el PowerPoint, perquè el professor explique.</p>
 
-    <h3 class="reveal">2.1 · Condicionals: if / else</h3>
-    <p class="reveal">La idea és la de tota la vida: <em>si</em> passa això, fes això; <em>si no</em>, fes allò altre. La condició va entre parèntesis i sempre dona <code>true</code> o <code>false</code>.</p>
-    <div class="codi reveal" data-pptx data-fitxer="Notes.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Notes.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>int nota = 7;
+    <ol class="estructura reveal" data-pptx>
+      <li><div><b>Introducció.</b> <p>Una situació o pregunta que done sentit al tema: «I si hem de guardar les notes de tota la classe?»</p></div></li>
+      <li><div><b>Què aprendrem?</b> <p>De 3 a 6 objectius explicats amb llenguatge de 16 anys.</p></div></li>
+      <li><div><b>Teoria progressiva.</b> <p>Una idea → un exemple. Mai teoria seguida sense veure codi.</p></div></li>
+      <li><div><b>Exemples pas a pas.</b> <p>Codi comentat línia a línia, explicant què passa i per què.</p></div></li>
+      <li><div><b>Programació guiada.</b> <p>Un programa construït amb el professor, pas a pas; mai el codi complet de colp.</p></div></li>
+      <li><div><b>Mini exercicis.</b> <p>De 4 a 8 activitats molt curtes per a assentar cada idea.</p></div></li>
+      <li><div><b>Exercicis principals.</b> <p>De 3 a 5, de menor a major dificultat.</p></div></li>
+      <li><div><b>Repte final.</b> <p>Un problema un poc més obert per a calfar el cap a soles.</p></div></li>
+      <li><div><b>Errors habituals.</b> <p>Què ha passat, per què, com detectar-ho i com corregir-ho.</p></div></li>
+      <li><div><b>Resum visual.</b> <p>Les 5–10 idees que han de quedar gravades.</p></div></li>
+      <li><div><b>Autoavaluació.</b> <p>9 preguntes: 3 senzilles, 3 intermèdies i 3 per a pensar — sense dir quina és quina.</p></div></li>
+    </ol>
 
-if (nota >= 9) {
-    System.out.println("Excel·lent!");
-} else if (nota >= 5) {
-    System.out.println("Aprovat: continua així!");
-} else {
-    System.out.println("Suspés: ho repassarem junts.");
-}</code></pre>
-    </div>
-
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de flux d'un condicional if else">
-          <defs><marker id="m2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#2f7bff"/></marker></defs>
-          <rect x="400" y="14" width="160" height="48" rx="24" fill="#123c8c"/>
-          <text x="480" y="44" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#ffffff">Inici</text>
-          <line x1="480" y1="62" x2="480" y2="106" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m2)"/>
-          <path d="M480 112 L680 190 L480 268 L280 190 Z" fill="#fff6ee" stroke="#ff8a4c" stroke-width="2.5"/>
-          <text x="480" y="185" text-anchor="middle" font-family="monospace" font-size="18" font-weight="700" fill="#7a3c14">nota &gt;= 5 ?</text>
-          <text x="480" y="210" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#a06535">condició (true / false)</text>
-          <line x1="680" y1="190" x2="790" y2="190" stroke="#0f9d63" stroke-width="2.5" marker-end="url(#m2)"/>
-          <text x="735" y="176" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="800" fill="#0f9d63">true</text>
-          <line x1="280" y1="190" x2="170" y2="190" stroke="#d1453f" stroke-width="2.5" marker-end="url(#m2)"/>
-          <text x="225" y="176" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="800" fill="#d1453f">false</text>
-          <rect x="794" y="160" width="150" height="60" rx="12" fill="#e7f9f0" stroke="#0f9d63" stroke-width="2"/>
-          <text x="869" y="196" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#0c5c3c">«Aprovat»</text>
-          <rect x="16" y="160" width="150" height="60" rx="12" fill="#fdecec" stroke="#d1453f" stroke-width="2"/>
-          <text x="91" y="196" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#8c2723">«Suspés»</text>
-          <line x1="869" y1="222" x2="869" y2="330" stroke="#8fa3c8" stroke-width="2"/>
-          <line x1="91" y1="222" x2="91" y2="330" stroke="#8fa3c8" stroke-width="2"/>
-          <line x1="91" y1="330" x2="392" y2="330" stroke="#8fa3c8" stroke-width="2" marker-end="url(#m2)"/>
-          <line x1="869" y1="330" x2="568" y2="330" stroke="#8fa3c8" stroke-width="2" marker-end="url(#m2)"/>
-          <rect x="400" y="306" width="160" height="48" rx="24" fill="#f4f7ff" stroke="#8fa3c8" stroke-width="2"/>
-          <text x="480" y="336" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="700" fill="#2c3a5c">Fi</text>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 3.</strong> El rombe pregunta; cada branca executa el seu camí i tots acaben al final.</figcaption>
-    </figure>
-
-    <h3 class="reveal">2.2 · switch: quan hi ha moltes opcions</h3>
-    <p class="reveal">Si comparesres una variable contra molts valors concrets, el <code>switch</code> és més net que una escala d'<code>if</code>. Des de Java 14 tenim la versió moderna amb fletxes <code>-&gt;</code>, que ja no necessita <code>break</code>:</p>
-    <div class="codi reveal" data-pptx data-fitxer="Grups.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Grups.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>char grup = 'B';
-
-switch (grup) {
-    case 'A' -&gt; System.out.println("Aula 1.01");
-    case 'B' -&gt; System.out.println("Aula 1.02");
-    case 'C' -&gt; System.out.println("Aula 2.01");
-    default  -&gt; System.out.println("Grup no reconegut");
-}</code></pre>
-    </div>
-    <p class="reveal">També tens l'<strong>operador ternari</strong>, un «if de butxaca» per a assignacions curtes: <code>String missatge = (nota &gt;= 5) ? "Aprovat" : "Suspés";</code></p>
-
-    <h3 class="reveal">2.3 · El bucle for</h3>
-    <p class="reveal">El <code>for</code> repeteix un bloc un nombre controlat de vegades. Té tres peces entre parèntesis: <strong>inicialització</strong>, <strong>condició</strong> i <strong>actualització</strong>.</p>
-    <div class="codi reveal" data-pptx data-fitxer="Voltes.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Voltes.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>for (int i = 1; i &lt;= 5; i++) {
-    System.out.println("Volta número " + i);
-}</code></pre>
-    </div>
-
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de flux d'un bucle for">
-          <defs><marker id="m3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#2f7bff"/></marker></defs>
-          <rect x="390" y="12" width="180" height="46" rx="23" fill="#123c8c"/>
-          <text x="480" y="41" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Inici</text>
-          <line x1="480" y1="58" x2="480" y2="86" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m3)"/>
-          <rect x="360" y="92" width="240" height="48" rx="10" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2"/>
-          <text x="480" y="122" text-anchor="middle" font-family="monospace" font-size="17" font-weight="700" fill="#12244a">int i = 1</text>
-          <line x1="480" y1="140" x2="480" y2="168" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m3)"/>
-          <path d="M480 174 L660 240 L480 306 L300 240 Z" fill="#fff6ee" stroke="#ff8a4c" stroke-width="2.5"/>
-          <text x="480" y="236" text-anchor="middle" font-family="monospace" font-size="17" font-weight="700" fill="#7a3c14">i &lt;= 5 ?</text>
-          <text x="480" y="258" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#a06535">es comprova ANTES de cada volta</text>
-          <line x1="480" y1="306" x2="480" y2="344" stroke="#0f9d63" stroke-width="2.5" marker-end="url(#m3)"/>
-          <text x="497" y="330" font-family="sans-serif" font-size="15" font-weight="800" fill="#0f9d63">true</text>
-          <rect x="360" y="350" width="240" height="50" rx="10" fill="#e7f9f0" stroke="#0f9d63" stroke-width="2"/>
-          <text x="480" y="381" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#0c5c3c">Cos del bucle (println)</text>
-          <line x1="660" y1="240" x2="830" y2="240" stroke="#d1453f" stroke-width="2.5" marker-end="url(#m3)"/>
-          <text x="740" y="226" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="800" fill="#d1453f">false</text>
-          <rect x="834" y="216" width="110" height="48" rx="24" fill="#f4f7ff" stroke="#8fa3c8" stroke-width="2"/>
-          <text x="889" y="246" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#2c3a5c">Fi</text>
-          <path d="M360 375 L150 375 L150 116 L352 116" fill="none" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m3)"/>
-          <rect x="60" y="230" width="180" height="44" rx="10" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2"/>
-          <text x="150" y="258" text-anchor="middle" font-family="monospace" font-size="16" font-weight="700" fill="#12244a">i++</text>
-          <line x1="150" y1="375" x2="150" y2="278" stroke="#2f7bff" stroke-width="2.5"/>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 4.</strong> Cada volta: es comprova la condició, s'executa el cos i s'actualitza <code>i</code>.</figcaption>
-    </figure>
-
-    <h3 class="reveal">2.4 · while i do-while</h3>
-    <p class="reveal">Quan no saps quantes voltes faràs (esperar fins que l'usuari encerte, per exemple), usem <code>while</code>: repeteix <strong>mentre</strong> la condició siga certa. El <code>do-while</code> és el germà que executa el cos <strong>almenys una vegada</strong> i després pregunta.</p>
-    <div class="codi reveal" data-pptx data-fitxer="Vides.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Vides.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>int vida = 3;
-
-while (vida &gt; 0) {
-    System.out.println("Vides restants: " + vida);
-    vida--;                  // sense això: bucle infinit!
-}
-System.out.println("Fi del joc");</code></pre>
-    </div>
-    <p class="reveal">Dins d'un bucle, <code>break</code> ix immediatament i <code>continue</code> salta a la següent volta.</p>
-
-    <h3 class="reveal">2.5 · El patró que ho arregla (gairebé) tot: comptador i acumulador</h3>
-    <div class="codi reveal" data-pptx data-fitxer="Gauss.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Gauss.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>int suma = 0;                     // l'acumulador comença a zero
-for (int i = 1; i &lt;= 100; i++) {
-    suma += i;                    // suma = suma + i
-}
-System.out.println("1+2+...+100 = " + suma);   // 5050</code></pre>
-    </div>
-
-    <div class="targeta targeta--error reveal no-print">
-      <div class="targeta__titol"><span class="icona">🚨</span> Errors típics del principi (tots hi hem caigut)</div>
-      <ul class="llista" data-pptx>
-        <li>Confondre <code>=</code> (assignar) amb <code>==</code> (comparar).</li>
-        <li>Posar un <code>;</code> just després del <code>for</code> o de l'<code>if</code>: el bloc queda despenjat.</li>
-        <li>Oblidar actualitzar la variable del <code>while</code> → bucle infinit.</li>
-        <li>En el <code>switch</code> clàssic, oblidar el <code>break</code> i «caure» al cas següent.</li>
-      </ul>
-    </div>
-
-    <div class="prediü reveal no-print">
-      <div class="prediü__titol">🔮 Prediu l'eixida #2</div>
-      <div class="codi" style="margin:0"><pre><code>for (int i = 0; i &lt; 5; i++) {
-    if (i == 3) continue;
-    System.out.print(i + " ");
-}</code></pre></div>
-      <div class="prediü__fila">
-        <input type="text" placeholder="Escriu els números separats per espais" data-esperat="0 1 2 4" aria-label="La teua resposta">
-        <button class="boto boto--pri prediü__comprova" type="button">Comprova</button>
-      </div>
-      <p class="prediü__feedback" data-explicacio="Quan i val 3, el continue salta directament a la següent volta: el 3 mai no s'imprimeix."></p>
+    <h3 class="reveal">I al final de cada tema, tres sales d'entrenament</h3>
+    <div class="blocs-act reveal">
+      <div class="bloc-act bloc-act--test"><span class="icona">✅</span><h4>Autoavaluació</h4><p>9 preguntes amb botó «Mostrar solució»: marca la correcta i explica breument per què.</p></div>
+      <div class="bloc-act bloc-act--fes"><span class="icona">⌨️</span><h4>Fes el programa</h4><p>Exercicis de programació amb solució desplegable en bloc de codi Java ben formatat.</p></div>
+      <div class="bloc-act bloc-act--reptes"><span class="icona">🔥</span><h4>Reptes</h4><p>Problemes oberts sense cap solució: l'objectiu és que l'alumnat pense per si mateix.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ BLOC 3 · DADES ══════════════ -->
-<section class="bloc" id="dades">
+<!-- ══════════════ ARQUITECTURA ══════════════ -->
+<section class="seccio seccio--tintada" id="arquitectura">
   <div class="contenidor">
-    <header class="bloc__cap reveal">
-      <span class="bloc__num">03</span>
-      <div>
-        <span class="bloc__etiqueta">Segona hora · part 2</span>
-        <h2>Estructures de dades i modularitat</h2>
-      </div>
+    <header class="seccio__cap reveal">
+      <span class="seccio__etiqueta">Com està construït</span>
+      <h2>Arquitectura del material</h2>
     </header>
-    <p class="bloc__intro reveal">Guardar una dada està bé; guardar-ne mil i saber-les manejar és una altra lliga. I si a més trocegem el programa en peces reutilitzables, ja parlem com a professionals.</p>
+    <p class="seccio__intro reveal">Una pàgina per tema, totes amb el mateix sistema de disseny i les mateixes superpoders: HTML5 + CSS + JS modern, sense frameworks pesants ni Node — s'obri el fitxer i funciona. Cada tema naix quan es demana: «Desenvolupa el Tema X».</p>
 
-    <h3 class="reveal">3.1 · Arrays: una fila de capses del mateix tipus</h3>
-    <p class="reveal">Un <strong>array</strong> guarda molts valors del mateix tipus en posicions numerades. Ull: <strong>la primera posició és la 0</strong>, i la mida és fixa: si en crees un de 5, tindrà 5 posicions tota la vida.</p>
-
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 960 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Memòria d'un array de cinc enters">
-          <defs><marker id="m4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#2f7bff"/></marker></defs>
-          <text x="60" y="60" font-family="monospace" font-size="22" font-weight="700" fill="#12244a">int[] notes</text>
-          <line x1="110" y1="74" x2="110" y2="104" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m4)"/>
-          <rect x="110" y="110" width="120" height="70" rx="10" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2.5"/>
-          <rect x="240" y="110" width="120" height="70" rx="10" fill="#e6fbff" stroke="#0aa8cc" stroke-width="3"/>
-          <rect x="370" y="110" width="120" height="70" rx="10" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2.5"/>
-          <rect x="500" y="110" width="120" height="70" rx="10" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2.5"/>
-          <rect x="630" y="110" width="120" height="70" rx="10" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2.5"/>
-          <text x="170" y="155" text-anchor="middle" font-family="monospace" font-size="26" font-weight="700" fill="#12244a">8</text>
-          <text x="300" y="155" text-anchor="middle" font-family="monospace" font-size="26" font-weight="700" fill="#0b3c4a">6</text>
-          <text x="430" y="155" text-anchor="middle" font-family="monospace" font-size="26" font-weight="700" fill="#12244a">9</text>
-          <text x="560" y="155" text-anchor="middle" font-family="monospace" font-size="26" font-weight="700" fill="#12244a">5</text>
-          <text x="690" y="155" text-anchor="middle" font-family="monospace" font-size="26" font-weight="700" fill="#12244a">7</text>
-          <text x="170" y="212" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#5a688a">[0]</text>
-          <text x="300" y="212" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#0aa8cc">[1]</text>
-          <text x="430" y="212" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#5a688a">[2]</text>
-          <text x="560" y="212" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#5a688a">[3]</text>
-          <text x="690" y="212" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#5a688a">[4]</text>
-          <rect x="800" y="118" width="140" height="54" rx="27" fill="#fff6ee" stroke="#ff8a4c" stroke-width="2"/>
-          <text x="870" y="151" text-anchor="middle" font-family="monospace" font-size="17" font-weight="700" fill="#7a3c14">length = 5</text>
-          <text x="300" y="240" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5a688a">notes[1] val 6 → l'índex comença en 0!</text>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 5.</strong> Cinc posicions contigües en memòria: de la [0] a la [4].</figcaption>
-    </figure>
-
-    <div class="codi reveal" data-pptx data-fitxer="Recorregut.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Recorregut.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>int[] notes = {8, 6, 9, 5, 7};
-
-System.out.println(notes[0]);        // 8: el primer!
-System.out.println(notes.length);    // 5
-
-for (int i = 0; i &lt; notes.length; i++) {
-    System.out.println("Posició " + i + ": " + notes[i]);
-}
-
-for (int n : notes) {                // for-each: quan no cal l'índex
-    System.out.println(n);
-}</code></pre>
-    </div>
-    <p class="reveal">Si demanes una posició que no existeix, Java et llança una <code>ArrayIndexOutOfBoundsException</code>: l'error més famós de la història del curs. 😅 Amb dues dimensions, <code>int[][] tauler = new int[3][3];</code> és una taula: <code>tauler[fila][columna]</code>.</p>
-    <p class="reveal">I la <strong>pinzellada pro</strong>: <code>ArrayList</code> és un array que creix i s'encongeix sol (<code>add</code>, <code>remove</code>, <code>size</code>, <code>get</code>). Quan no sàpies la mida d'entrada, és la teua amiga.</p>
-
-    <h3 class="reveal">3.2 · Mètodes: trocejar per a vèncer</h3>
-    <p class="reveal">Un <strong>mètode</strong> és un bloc de codi amb nom que fa una faena concreta. Rep dades per <strong>paràmetres</strong> i pot tornar un resultat amb <code>return</code>. Regla del departament: <em>un mètode, una faena; si necessites un «i» per a explicar què fa, parteix-lo en dos.</em></p>
-    <div class="codi reveal" data-pptx data-fitxer="Calculadora.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Calculadora.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>public class Calculadora {
-    public static void main(String[] args) {
-        System.out.println("3 + 4 = " + suma(3, 4));
-        System.out.println("Mitjana: " + mitjana(8, 6, 9));
-    }
-
-    static int suma(int a, int b) {          // torna un int
-        return a + b;
-    }
-
-    static double mitjana(double a, double b, double c) {
-        return (a + b + c) / 3;              // torna un double
-    }
-}</code></pre>
-    </div>
-    <ul class="llista" data-pptx>
-      <li><strong>Signatura</strong> = què rep i què torna: <code>static int suma(int a, int b)</code>.</li>
-      <li><code>void</code> significa «no torna res»: només fa (imprimir, guardar…).</li>
-      <li>Les variables creades dins d'un mètode <strong>moren en eixir</strong>: és l'àmbit local.</li>
-      <li><strong>Sobrecàrrega:</strong> pots tenir dos mètodes amb el mateix nom si canvien els paràmetres.</li>
-    </ul>
-
-    <div class="prediü reveal no-print">
-      <div class="prediü__titol">🔮 Prediu l'eixida #3</div>
-      <div class="codi" style="margin:0"><pre><code>static int doble(int n)  { return n * 2; }
-static int suma(int a, int b) { return a + b; }
-
-// al main:
-System.out.println(doble(3) + suma(1, 2));</code></pre></div>
-      <div class="prediü__fila">
-        <input type="text" placeholder="Quin número eixirà?" data-esperat="9" aria-label="La teua resposta">
-        <button class="boto boto--pri prediü__comprova" type="button">Comprova</button>
-      </div>
-      <p class="prediü__feedback" data-explicacio="doble(3) val 6 i suma(1,2) val 3; 6 + 3 = 9. Primer es resolen les crides de dins cap a fora."></p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ BLOC 4 · POO i IA ══════════════ -->
-<section class="bloc" id="poo">
-  <div class="contenidor">
-    <header class="bloc__cap reveal">
-      <span class="bloc__num">04</span>
-      <div>
-        <span class="bloc__etiqueta">Tercera hora</span>
-        <h2>Una pinzellada de POO i IA</h2>
-      </div>
-    </header>
-    <p class="bloc__intro reveal">Rematem la masterclass amb les dues idees que més es comenten al pati: la programació orientada a objectes i la IA que ja s'asseu al nostre costat a classe.</p>
-
-    <h3 class="reveal">4.1 · Classe i objecte, explicat per a tothom</h3>
-    <p class="reveal">Una <strong>classe</strong> és el plànol; un <strong>objecte</strong> és la casa construïda seguint-lo. El plànol no pots habitar-lo, però et deixa fer totes les cases iguals que vulgues. En Java, la classe defineix <strong>atributs</strong> (el que l'objecte <em>té</em>) i <strong>mètodes</strong> (el que l'objecte <em>sap fer</em>), i amb la paraula <code>new</code> fabriquem objectes.</p>
-
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="D'una classe es creen molts objectes amb new">
-          <defs><marker id="m5" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#2f7bff"/></marker></defs>
-          <rect x="40" y="60" width="300" height="280" rx="16" fill="#ffffff" stroke="#2f7bff" stroke-width="2.5"/>
-          <rect x="40" y="60" width="300" height="56" rx="16" fill="#123c8c"/>
-          <rect x="40" y="92" width="300" height="24" fill="#123c8c"/>
-          <text x="190" y="96" text-anchor="middle" font-family="monospace" font-size="20" font-weight="700" fill="#ffffff">class Cotxe</text>
-          <text x="64" y="148" font-family="monospace" font-size="17" fill="#12244a">String marca;</text>
-          <text x="64" y="178" font-family="monospace" font-size="17" fill="#12244a">int velocitat;</text>
-          <line x1="60" y1="200" x2="320" y2="200" stroke="#cdd6e8" stroke-width="1.5"/>
-          <text x="64" y="232" font-family="monospace" font-size="17" fill="#0b6c85">accelerar(int quant)</text>
-          <text x="64" y="262" font-family="monospace" font-size="17" fill="#0b6c85">presentarse()</text>
-          <text x="190" y="318" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#5a688a">EL PLÀNOL (només n'hi ha un)</text>
-          <line x1="344" y1="120" x2="560" y2="80" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m5)"/>
-          <line x1="344" y1="200" x2="560" y2="200" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m5)"/>
-          <line x1="344" y1="280" x2="560" y2="320" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m5)"/>
-          <text x="452" y="186" text-anchor="middle" font-family="monospace" font-size="15" font-weight="700" fill="#2f7bff">new</text>
-          <rect x="566" y="46" width="350" height="68" rx="12" fill="#e6fbff" stroke="#0aa8cc" stroke-width="2"/>
-          <text x="741" y="76" text-anchor="middle" font-family="monospace" font-size="16" font-weight="700" fill="#0b3c4a">meu: marca="Seat", v=50</text>
-          <text x="741" y="98" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#31707f">objecte 1</text>
-          <rect x="566" y="166" width="350" height="68" rx="12" fill="#e6fbff" stroke="#0aa8cc" stroke-width="2"/>
-          <text x="741" y="196" text-anchor="middle" font-family="monospace" font-size="16" font-weight="700" fill="#0b3c4a">teu: marca="Tesla", v=0</text>
-          <text x="741" y="218" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#31707f">objecte 2</text>
-          <rect x="566" y="286" width="350" height="68" rx="12" fill="#e6fbff" stroke="#0aa8cc" stroke-width="2"/>
-          <text x="741" y="316" text-anchor="middle" font-family="monospace" font-size="16" font-weight="700" fill="#0b3c4a">seu: marca="Fiat", v=120</text>
-          <text x="741" y="338" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#31707f">objecte 3</text>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 6.</strong> Una sola classe, tants objectes com vulgues: cadascun amb els seus propis valors.</figcaption>
-    </figure>
-
-    <div class="codi reveal" data-pptx data-fitxer="Cotxe.java">
-      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Cotxe.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>public class Cotxe {
-    String marca;              // atributs: el que TÉ
-    int velocitat;
-
-    Cotxe(String marca) {      // constructor: s'executa amb new
-        this.marca = marca;
-        this.velocitat = 0;
-    }
-
-    void accelerar(int quant) {          // mètodes: el que SAP FER
-        this.velocitat += quant;
-    }
-
-    String presentarse() {
-        return marca + " a " + velocitat + " km/h";
-    }
-}
-
-// Al main:
-Cotxe meu = new Cotxe("Seat");     // un OBJECTE
-Cotxe teu = new Cotxe("Tesla");    // un altre OBJECTE
-meu.accelerar(50);
-System.out.println(meu.presentarse());   // "Seat a 50 km/h"</code></pre>
-    </div>
-    <p class="reveal">Amb això ja en tens prou per a entendre el 80% del que veuràs. Si un dia et parlen d'<strong>herència</strong> (una classe filla que aprofita el codi de la mare) o de <strong>polimorfisme</strong> (tractar objectes diferents per la mateixa interfície), ja saps que existeixen: el resto és qüestió de pràctica.</p>
-
-    <h3 class="reveal">4.2 · La IA ja s'asseu a la teua taula</h3>
-    <p class="reveal">Eines com <strong>GitHub Copilot, ChatGPT, Claude o Gemini</strong> ja escriuen codi Java: t'expliquen un error en valencià si els ho demanes, et generen l'esquelet d'un exercici, et converteixen pseudocodi en Java i et proposen tests. Però vaig a ser clar amb tu: <strong>la IA és un copilot, no el pilot</strong>. Si copies sense entendre, el dia de l'examen el copilot no entra a l'aula.</p>
-
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <img src="assets/img/ia-codi.jpg" alt="Representació abstracta d'una intel·ligència artificial connectada a línies de codi lluminoses" loading="lazy">
-      </div>
-      <figcaption><strong>Figura 9.</strong> Un copilot digital que proposa, però mai no decideix per tu.</figcaption>
-    </figure>
-
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 960 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cicle de treball humà més IA">
-          <defs><marker id="m6" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#2f7bff"/></marker></defs>
-          <rect x="60" y="40" width="280" height="80" rx="16" fill="#e8f1ff" stroke="#2f7bff" stroke-width="2.5"/>
-          <text x="200" y="75" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#12244a">1 · Tu preguntes</text>
-          <text x="200" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#41598c">amb context i criteri</text>
-          <line x1="344" y1="80" x2="610" y2="80" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m6)"/>
-          <rect x="616" y="40" width="280" height="80" rx="16" fill="#e6fbff" stroke="#0aa8cc" stroke-width="2.5"/>
-          <text x="756" y="75" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#0b3c4a">2 · La IA proposa</text>
-          <text x="756" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#31707f">codi i explicacions</text>
-          <line x1="756" y1="124" x2="756" y2="216" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m6)"/>
-          <rect x="616" y="222" width="280" height="80" rx="16" fill="#fff6ee" stroke="#ff8a4c" stroke-width="2.5"/>
-          <text x="756" y="257" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#7a3c14">3 · Tu proves i revises</text>
-          <text x="756" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#a06535">executes, compares, dubtes</text>
-          <line x1="610" y1="262" x2="346" y2="262" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m6)"/>
-          <rect x="60" y="222" width="280" height="80" rx="16" fill="#e7f9f0" stroke="#0f9d63" stroke-width="2.5"/>
-          <text x="200" y="257" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#0c5c3c">4 · Aprens de veritat</text>
-          <text x="200" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#227952">i la propera volta vas més ràpid</text>
-          <line x1="200" y1="218" x2="200" y2="126" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#m6)"/>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 7.</strong> El cicle que funciona: la IA proposa, però qui aprèn (i qui s'examina) eres tu.</figcaption>
-    </figure>
-
-    <table class="taula reveal" data-pptx>
-      <thead><tr><th>Prompt pobre 😴</th><th>Prompt pro 🚀</th></tr></thead>
-      <tbody>
-        <tr><td>«Fes-me l'exercici»</td><td>«Tinc un array de notes en Java; vull un mètode que torne la mitjana. Explica'm cada línia com si fóra la primera vegada que la veig.»</td></tr>
-        <tr><td>«No em funciona»</td><td>«Este codi llança ArrayIndexOutOfBoundsException a la línia 12. Enganxe el codi i l'error complet. Per què passa i com ho evite?»</td></tr>
-        <tr><td>«Escriu-me un bucle»</td><td>«Necessite recórrer un array de 10 enters i comptar quants són parells, amb un for i un if. Dona'm el codi i dos pistes per a fer-lo jo després.»</td></tr>
-      </tbody>
-    </table>
-
-    <div class="targeta targeta--astucia reveal no-print">
-      <div class="targeta__titol"><span class="icona">🧠</span> Les 5 regles d'or de la IA a classe</div>
-      <ul class="llista llista--xecs" data-pptx>
-        <li><strong>Entén-ho abans de copiar-ho:</strong> si no ho saps explicar, no és teu.</li>
-        <li><strong>La IA s'equivoca</strong> (i amb molta seguretat): contrasta sempre executant.</li>
-        <li><strong>Dona-li context:</strong> enuncia't, el teu codi actual i l'error exacte.</li>
-        <li><strong>Demana pistes, no solucions:</strong> «guia'm sense donar-me el codi sencer».</li>
-        <li><strong>A l'examen, tu a soles:</strong> entrena sense copilot des del primer dia.</li>
-      </ul>
+    <div class="codi reveal" data-pptx data-fitxer="estructura de fitxers">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Java_SMX/</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>Java_SMX/
+├── index.html              &lt;- portada del curs (esta pàgina)
+├── tema0.html ... tema9.html   &lt;- un tema per pàgina, a petició
+├── css/estils.css          &lt;- sistema de disseny compartit
+├── js/app.js               &lt;- interaccions: test, pestanyes, sintaxi...
+├── js/pptx.js              &lt;- generador de PowerPoint (PptxGenJS)
+├── js/vendor/              &lt;- PptxGenJS local (per si falla el CDN)
+└── assets/img/             &lt;- imatges i esquemes</code></pre>
     </div>
 
-    <figure class="figura reveal" data-pptx>
-      <div class="figura__marc">
-        <svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="La IA com a copilot del programador">
-          <rect x="40" y="40" width="880" height="220" rx="20" fill="#0d1526"/>
-          <text x="70" y="86" font-family="monospace" font-size="16" fill="#6ea8ff">public class</text>
-          <text x="210" y="86" font-family="monospace" font-size="16" fill="#3ddc97">Futur</text>
-          <text x="270" y="86" font-family="monospace" font-size="16" fill="#dbe6ff">{</text>
-          <text x="70" y="118" font-family="monospace" font-size="16" fill="#dbe6ff">    String alumne = "tu";</text>
-          <text x="70" y="150" font-family="monospace" font-size="16" fill="#dbe6ff">    String copilot = "IA";</text>
-          <text x="70" y="182" font-family="monospace" font-size="16" fill="#5c6f93">    // qui condueix? sempre tu.</text>
-          <text x="70" y="214" font-family="monospace" font-size="16" fill="#c792ea">    aprendre(alumne, copilot);</text>
-          <text x="70" y="244" font-family="monospace" font-size="16" fill="#dbe6ff">}</text>
-          <circle cx="830" cy="150" r="52" fill="none" stroke="#35d6ff" stroke-width="2.5"/>
-          <circle cx="830" cy="150" r="34" fill="none" stroke="#35d6ff" stroke-width="1.5" opacity="0.55"/>
-          <circle cx="830" cy="150" r="16" fill="#35d6ff" opacity="0.9"/>
-          <text x="830" y="232" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#9fb0d4">copilot</text>
-        </svg>
-      </div>
-      <figcaption><strong>Figura 8.</strong> Copilot sí; pilot, mai.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ══════════════ PRÀCTIQUES ══════════════ -->
-<section class="bloc" id="practiques">
-  <div class="contenidor">
-    <header class="bloc__cap reveal">
-      <span class="bloc__num bloc__num--emoji">🛠️</span>
-      <div>
-        <span class="bloc__etiqueta">Taller final</span>
-        <h2>Pràctiques: ara et toca a tu</h2>
-      </div>
-    </header>
-    <p class="bloc__intro reveal">Tres sales d'entrenament. Passa per les tres en ordre: primer comprova que ho has entés, després pica codi de veres i, per últim, crema't el cap amb els reptes.</p>
-
-    <div class="pestanyes no-print" role="tablist" aria-label="Activitats">
-      <button class="pestanya" id="tab-test" role="tab" aria-selected="true" aria-controls="panell-test" type="button"><span class="num">1</span> Autoavaluació</button>
-      <button class="pestanya" id="tab-fes" role="tab" aria-selected="false" aria-controls="panell-fes" type="button"><span class="num">2</span> Fes el programa</button>
-      <button class="pestanya" id="tab-reptes" role="tab" aria-selected="false" aria-controls="panell-reptes" type="button"><span class="num">3</span> Reptes plantejats</button>
-    </div>
-
-    <!-- ── PESTANYA 1 · TEST ── -->
-    <div id="panell-test" role="tabpanel" aria-labelledby="tab-test">
-      <p class="reveal">Nou preguntes sense trampa ni cartó: llig-les, tria la teua resposta mentalment (o marcant-la) i després prem «Mostrar solució» per a comprovar. Cap nota ací: equivocar-se ací és gratis, a l'examen no. 😉</p>
-      <div class="test__accions no-print">
-        <button class="boto boto--pri" id="btnTotesSolucions" type="button">Mostra totes les solucions</button>
-        <button class="boto boto--sec" id="btnReiniciaTest" type="button">Reinicia el test</button>
-      </div>
-
-      <article class="pregunta reveal" data-solucio="1">
-        <div class="pregunta__num">Pregunta 01</div>
-        <p class="pregunta__enunciat">Quin tipus de dada és el més adequat per a guardar l'edat d'una persona?</p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>double</code></span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>int</code></span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>boolean</code></span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>char</code></span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: B.</strong> L'edat és un número enter i curtet: <code>int</code> és exactament el seu lloc. <code>double</code> seria per a decimals i <code>char</code> per a un sol caràcter.</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="0">
-        <div class="pregunta__num">Pregunta 02</div>
-        <p class="pregunta__enunciat">Quin és l'índex del primer element d'un array en Java?</p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>0</span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>1</span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Depén de la mida de l'array</span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>-1</span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: A.</strong> En Java (i en quasi tots els llenguatges) es compta des de zero: <code>notes[0]</code> és el primer element.</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="2">
-        <div class="pregunta__num">Pregunta 03</div>
-        <p class="pregunta__enunciat">Quina paraula clau repetix un bloc de codi <em>mentre</em> la condició siga certa?</p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>repeat</code></span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>loop</code></span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>while</code></span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>switch</code></span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: C.</strong> <code>while (condicio)</code> repetix el bloc mentre la condició es complisca; <code>switch</code> és per a decidir, no per a repetir.</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="1">
-        <div class="pregunta__num">Pregunta 04</div>
-        <p class="pregunta__enunciat">Què imprimeix <code>System.out.println(7 / 2);</code> ?</p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>3.5</span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>3</span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>4</span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Donaria error de compilació</span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: B.</strong> Entre enters, Java fa divisió entera i descarta els decimals: 7 / 2 = 3. Per a obtindre 3.5 caldria que algun operand fóra decimal (<code>7.0 / 2</code>).</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="2">
-        <div class="pregunta__num">Pregunta 05</div>
-        <p class="pregunta__enunciat">En un <code>switch</code> clàssic (amb <code>case:</code>), què passa si oblidem el <code>break</code>?</p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>El programa no compila</span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Només s'executa el cas correcte igualment</span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>S'executa el cas correcte i «cau» executant també els següents</span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>El switch es repetix en bucle</span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: C.</strong> És el famós <em>fall-through</em>: sense <code>break</code>, l'execució continua pels casos de baix encara que no coincidisquen. Per això la versió moderna amb <code>-&gt;</code> és tan còmoda.</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="2">
-        <div class="pregunta__num">Pregunta 06</div>
-        <p class="pregunta__enunciat">Quina és la signatura correcta d'un mètode que rep dos enters i en torna un altre?</p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>static void suma(int a, int b)</code></span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>static int suma(a, b)</code></span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>static int suma(int a, int b)</code></span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>int suma(return a + b)</code></span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: C.</strong> Ha d'indicar el tipus que torna (<code>int</code>, no <code>void</code>) i el tipus de cada paràmetre (<code>int a, int b</code>, mai sense tipus).</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="1">
-        <div class="pregunta__num">Pregunta 07</div>
-        <p class="pregunta__enunciat">Què imprimeix este codi? <code>int[] notes = new int[3]; System.out.println(notes[1]);</code></p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Donaria error, perquè no hem donat valors</span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>0</span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>null</span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Un número aleatori</span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: B.</strong> Java inicialitza sol els arrays numèrics a 0 (els <code>boolean</code> a <code>false</code>, etc.). No hi ha «brossa» en memòria com en altres llenguatges.</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="2">
-        <div class="pregunta__num">Pregunta 08</div>
-        <p class="pregunta__enunciat">Què imprimeix este codi? <code>char c = 'A'; System.out.println(c + 1);</code></p>
-        <div class="pregunta__opcions">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>B</span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>A1</span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>66</span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Error de compilació</span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: C.</strong> Un <code>char</code> és un número per dins ('A' val 65 en la taula Unicode). En sumar-hi 1, Java el tracta com a enter i imprimeix 66. Per a vore «B» caldria convertir: <code>(char)(c + 1)</code>.</div>
-      </article>
-
-      <article class="pregunta reveal" data-solucio="1">
-        <div class="pregunta__num">Pregunta 09</div>
-        <p class="pregunta__enunciat">Què imprimeix este bucle?</p>
-        <div class="codi" style="margin-top:.6rem"><pre><code>int total = 0;
-for (int i = 1; i &lt;= 4; i++) {
-    if (i % 2 == 0) {
-        total += i;
-    }
-}
-System.out.println(total);</code></pre></div>
-        <div class="pregunta__opcions" style="margin-top:.9rem">
-          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>10</span></button>
-          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>6</span></button>
-          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>4</span></button>
-          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>0</span></button>
-        </div>
-        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
-        <div class="pregunta__solucio"><strong>Solució: B.</strong> Només se sumen els parells de l'1 al 4: 2 + 4 = 6. El <code>i % 2 == 0</code> és el filtre que deixa passar els parells.</div>
-      </article>
-    </div>
-
-    <!-- ── PESTANYA 2 · FES EL PROGRAMA ── -->
-    <div id="panell-fes" role="tabpanel" aria-labelledby="tab-fes" hidden>
-      <p class="reveal">Set programes curts per a picar a classe o a casa. Intenta'ls primer sense mirar res: si et bloqueges, tens una pista plegable i, al final, la solució completa llesta per a comparar.</p>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Exercici 1 · Nivell calentament</div>
-        <h4>El salutador educat</h4>
-        <p>Deman a l'usuari el seu nom i el seu any de naixement amb un <code>Scanner</code>, i imprimeix: «Bon dia, NOM! L'any que ve faràs EDAT anys.» (pista: estem en 2026).</p>
-        <details><summary>💡 Pista</summary><p>Llig l'any amb <code>tec.nextInt()</code> i calcula <code>2027 - any</code>. Vigila: després de <code>nextInt()</code>, si lliges text, cal consumir el salt de línia.</p></details>
-        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
-        <div class="solucio-bloq">
-          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Salutador.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>import java.util.Scanner;
-
-public class Salutador {
-    public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
-
-        System.out.print("Com et diuges? ");
-        String nom = tec.nextLine();
-
-        System.out.print("En quin any vas nàixer? ");
-        int any = tec.nextInt();
-
-        int edatQueVe = 2027 - any;
-        System.out.println("Bon dia, " + nom + "! L'any que ve faràs "
-                           + edatQueVe + " anys.");
-    }
-}</code></pre>
-        </div>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Exercici 2 · Condicionals</div>
-        <h4>La mitjana que aprova</h4>
-        <p>Llig tres notes (decimals) i mostra la mitjana amb un decimal. Si és 5 o més, «Aprovat 🎉»; si no, «A recuperar-se 💪».</p>
-        <details><summary>💡 Pista</summary><p>Per a imprimir amb un decimal pots usar <code>System.out.printf("Mitjana: %.1f%n", mitjana);</code>.</p></details>
-        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
-        <div class="solucio-bloq">
-          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Mitjana.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>import java.util.Scanner;
-
-public class Mitjana {
-    public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
-        double suma = 0;
-
-        for (int i = 1; i &lt;= 3; i++) {
-            System.out.print("Nota " + i + ": ");
-            suma += tec.nextDouble();
-        }
-
-        double mitjana = suma / 3;
-        System.out.printf("Mitjana: %.1f%n", mitjana);
-
-        if (mitjana &gt;= 5) {
-            System.out.println("Aprovat!");
-        } else {
-            System.out.println("A recuperar-se!");
-        }
-    }
-}</code></pre>
-        </div>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Exercici 3 · Bucles</div>
-        <h4>La taula de multiplicar</h4>
-        <p>Demana un número enter i imprimeix la seua taula de multiplicar de l'1 al 10 amb un <code>for</code>, amb el format <code>7 x 3 = 21</code>.</p>
-        <details><summary>💡 Pista</summary><p>Dins del bucle necessites la variable de volta <code>i</code> i el número triat: <code>num + " x " + i + " = " + (num * i)</code>.</p></details>
-        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
-        <div class="solucio-bloq">
-          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Taula.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>import java.util.Scanner;
-
-public class Taula {
-    public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
-        System.out.print("De quin número vols la taula? ");
-        int num = tec.nextInt();
-
-        for (int i = 1; i &lt;= 10; i++) {
-            System.out.println(num + " x " + i + " = " + (num * i));
-        }
-    }
-}</code></pre>
-        </div>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Exercici 4 · while + aleatoris</div>
-        <h4>Endevina el número</h4>
-        <p>L'ordinador pensa un número de l'1 al 100 (<code>new Random().nextInt(100) + 1</code>) i l'usuari l'ha d'endevinar. A cada intent, el programa dirà «més alt» o «més baix», i en encertar mostrarà quants intents ha calgut.</p>
-        <details><summary>💡 Pista</summary><p>Un <code>while (intent != secret)</code> amb un comptador d'intents que creix a cada volta.</p></details>
-        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
-        <div class="solucio-bloq">
-          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Endevina.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>import java.util.Random;
-import java.util.Scanner;
-
-public class Endevina {
-    public static void main(String[] args) {
-        Random atzar = new Random();
-        Scanner tec = new Scanner(System.in);
-
-        int secret = atzar.nextInt(100) + 1;
-        int intent = 0, voltes = 0;
-
-        while (intent != secret) {
-            System.out.print("Quin número pense? ");
-            intent = tec.nextInt();
-            voltes++;
-
-            if (intent &lt; secret)      System.out.println("Més alt!");
-            else if (intent &gt; secret) System.out.println("Més baix!");
-        }
-        System.out.println("Enhorabona! L'has encertat en "
-                           + voltes + " intents.");
-    }
-}</code></pre>
-        </div>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Exercici 5 · Cadenes i bucles</div>
-        <h4>El comptador de vocals</h4>
-        <p>Demana una frase i compta quantes vocals té (majúscules i minúscules). Recorre-la amb <code>charAt(i)</code> i un bucle.</p>
-        <details><summary>💡 Pista</summary><p>Converteix tota la frase a minúscules amb <code>frase.toLowerCase()</code> i compara cada caràcter contra "aeiou".</p></details>
-        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
-        <div class="solucio-bloq">
-          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Vocals.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>import java.util.Scanner;
-
-public class Vocals {
-    public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
-        System.out.print("Escriu una frase: ");
-        String frase = tec.nextLine().toLowerCase();
-
-        int comptador = 0;
-        for (int i = 0; i &lt; frase.length(); i++) {
-            char c = frase.charAt(i);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                comptador++;
-            }
-        }
-        System.out.println("La frase té " + comptador + " vocals.");
-    }
-}</code></pre>
-        </div>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Exercici 6 · Mètodes</div>
-        <h4>Cribrant nombres primers</h4>
-        <p>Crea un mètode <code>static boolean esPrimer(int n)</code> i usa'l des del <code>main</code> per a imprimir tots els primers entre 2 i 50.</p>
-        <details><summary>💡 Pista</summary><p>Dins d'<code>esPrimer</code>, prova a dividir <code>n</code> entre 2 i <code>n-1</code> (o fins a <code>n/2</code>): si alguna divisió és exacta, no és primer.</p></details>
-        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
-        <div class="solucio-bloq">
-          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Primers.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>public class Primers {
-    public static void main(String[] args) {
-        System.out.println("Primers fins a 50:");
-        for (int n = 2; n &lt;= 50; n++) {
-            if (esPrimer(n)) {
-                System.out.print(n + " ");
-            }
-        }
-    }
-
-    static boolean esPrimer(int n) {
-        for (int d = 2; d &lt;= n / 2; d++) {
-            if (n % d == 0) return false;   // divisible: no és primer
-        }
-        return true;
-    }
-}</code></pre>
-        </div>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Exercici 7 · POO</div>
-        <h4>La classe Alumne</h4>
-        <p>Crea la classe <code>Alumne</code> amb els atributs <code>nom</code> i <code>nota</code>, un constructor i un mètode <code>presentarse()</code> que torne un text. Al <code>main</code>, crea un array de 3 alumnes i mostra la presentació de cadascun.</p>
-        <details><summary>💡 Pista</summary><p><code>Alumne[] classe = new Alumne[3];</code> i després <code>classe[0] = new Alumne("Marina", 8.5);</code> etc.</p></details>
-        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
-        <div class="solucio-bloq">
-          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Alumne.java</span><button class="codi__copia" type="button">Copia</button></div>
-<pre><code>public class Alumne {
-    String nom;
-    double nota;
-
-    Alumne(String nom, double nota) {
-        this.nom = nom;
-        this.nota = nota;
-    }
-
-    String presentarse() {
-        return "Sóc " + nom + " i tinc un " + nota;
-    }
-
-    public static void main(String[] args) {
-        Alumne[] classe = new Alumne[3];
-        classe[0] = new Alumne("Marina", 8.5);
-        classe[1] = new Alumne("Pau", 6.25);
-        classe[2] = new Alumne("Aitana", 9.75);
-
-        for (Alumne a : classe) {
-            System.out.println(a.presentarse());
-        }
-    }
-}</code></pre>
-        </div>
-      </article>
-    </div>
-
-    <!-- ── PESTANYA 3 · REPTES ── -->
-    <div id="panell-reptes" role="tabpanel" aria-labelledby="tab-reptes" hidden>
-      <p class="reveal">Ací no hi ha solucions ni pistes: són casos reals, dels que et trobaràs si continues estudiant. Llig l'enunciat com si fóra un client que t'ho demana, dibuixa-ho en paper abans de picar i, si de veres et bloqueges, pregunta-li a la IA… però amb un prompt pro. 😉</p>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Repte 1 · Vida real</div>
-        <h4>📚 Gestor de notes de la classe</h4>
-        <p>El teu tutor vol un programa per a gestionar les notes d'avaluació de la classe de SMX. Ha de demanar quantes notes vol introduir (màxim 30), guardar-les en un array i oferir un menú: <strong>1</strong>) mostrar totes, <strong>2</strong>) mitjana, <strong>3</strong>) nota més alta, <strong>4</strong>) quantes hi ha suspeses, <strong>0</strong>) eixir.</p>
-        <ul class="llista llista--xecs">
-          <li>Valida que les notes estiguen entre 0 i 10.</li>
-          <li>El menú ha de repetir-se fins que es trie eixir.</li>
-          <li>Fes un mètode per a cada opció del menú.</li>
-        </ul>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Repte 2 · Vida real</div>
-        <h4>🏧 El caixer que mai no es queda sense paciència</h4>
-        <p>Simula un caixer automàtic: demana un PIN (correcte: 1234) amb tres intents màxims. Una volta dins, el saldo inicial és 100 € i l'usuari pot ingressar, retirar (mai més del que hi haja) i consultar saldo, fins que trie eixir. Mostra un «ticket» amb tots els moviments al final.</p>
-        <ul class="llista llista--xecs">
-          <li>Tres intents de PIN: al tercer fallit, el programa acaba.</li>
-          <li>Un retir no pot deixar el saldo en negatiu.</li>
-          <li>Guarda els moviments en dos arrays paral·lels (tipus i quantitat).</li>
-        </ul>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Repte 3 · Vida real</div>
-        <h4>🎯 El penjat de la sobretaula</h4>
-        <p>Implementa el joc del penjat: el programa tria una paraula secreta d'un array de paraules (per exemple, termes d'informàtica) i l'usuari diu lletres. Mostra els encerts com a guionets (<code>- - - -</code>), les lletres fallades i els intents restants (6). Guanya qui completa la paraula; perd qui esgota els intents.</p>
-        <ul class="llista llista--xecs">
-          <li>Un array de <code>char</code> o de <code>boolean</code> per a les lletres descobertes.</li>
-          <li>Controla que no es repetisca una lletra ja dita.</li>
-          <li>Bonus: dibuixa el penjat per pantalla amb caràcters ASCII.</li>
-        </ul>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Repte 4 · Vida real</div>
-        <h4>📇 L'agenda del delegat</h4>
-        <p>El delegat de classe vol una agenda de contactes: nom i telèfon. El programa ha de permetre afegir contactes (màxim 50), buscar per nom (mostrant el telèfon), llistar tots ordenats alfabèticament i esborrar-ne un. Quan busques o esborres, si el nom no existeix, missatge amable.</p>
-        <ul class="llista llista--xecs">
-          <li>Dos arrays paral·lels o un <code>ArrayList</code>: tria tu i justifica-ho.</li>
-          <li>Per a ordenar, pots investigar <code>Arrays.sort()</code>… però compte amb els arrays paral·lels!</li>
-          <li>Ignora majúscules/minúscules en les cerques (<code>equalsIgnoreCase</code>).</li>
-        </ul>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Repte 5 · Vida real + POO</div>
-        <h4>🛒 La tendeta del barri, en Java</h4>
-        <p>Crea la classe <code>Producte</code> (nom, preu sense IVA, estoc) amb els seus mètodes. Al <code>main</code>, munta una tendeta amb 5 productes: mostra el catàleg, demana quantes unitats vol el client de cada un i imprimeix el ticket final amb IVA (21%) i total. Si no hi ha estoc suficient, avisa i ven només el que hi haja.</p>
-        <ul class="llista llista--xecs">
-          <li>Mètode <code>double preuAmbIva()</code> a la classe.</li>
-          <li>Mètode <code>boolean potVendre(int unitats)</code> que consulte l'estoc.</li>
-          <li>El ticket ha de mostrar línia a línia: nom, unitats, import.</li>
-        </ul>
-      </article>
-
-      <article class="exercici reveal">
-        <div class="exercici__num">Repte 6 · Meta-repte</div>
-        <h4>🤖 Intercanvi de papers amb la IA</h4>
-        <p>Ara qui programa és l'altre: escriu un enunciat d'exercici de Java (com els d'esta pàgina) i demana-li a una IA que el resolga. Després, amb el teu criteri de futur desenvolupador, <strong>avalua la seua solució</strong>: compila? Fa el que demanava l'enunciat? L'explicació és correcta? Anota tres errors o millores que li detectes.</p>
-        <ul class="llista llista--xecs">
-          <li>Si no li trobes ni una pega… sospeita i prova el codi amb més casos.</li>
-          <li>Compara la solució de dues IA diferents: no sempre diuen el mateix!</li>
-          <li>Acaba reescrivint tu la versió definitiva, sense mirar cap de les dues.</li>
-        </ul>
-      </article>
+    <div class="principis reveal">
+      <div class="principi"><span class="icona">📄</span><h4>Imprimir PDF</h4><p>Cada pàgina genera el seu manual docent: lletra gran, codi llegible, esquemes al seu lloc i, del test, només les 3 primeres preguntes.</p></div>
+      <div class="principi"><span class="icona">📽️</span><h4>Crear PowerPoint</h4><p>Presentació per a projectar: portada amb autor i llicència, índex, bullet points grans, codi gran i esquemes. Mai paràgrafs interminables.</p></div>
+      <div class="principi"><span class="icona">🎨</span><h4>UI d'Apple, colors de veres</h4><p>Minimalista i molt visual, amb alt contrast: les lletres es veuen perfectament a l'aula, al mòbil i al projector.</p></div>
+      <div class="principi"><span class="icona">🚫</span><h4>Res abans d'hora</h4><p>Sense objectes, herència, excepcions complexes ni lambdes fins que pedagògicament toque. I si apareix algo tècnic obligatori: «de moment no cal entendre-ho».</p></div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════ RECURSOS ══════════════ -->
-<section class="bloc" id="recursos">
+<section class="seccio" id="recursos">
   <div class="contenidor">
-    <header class="bloc__cap reveal">
-      <span class="bloc__num bloc__num--emoji">🎒</span>
-      <div>
-        <span class="bloc__etiqueta">Per a emportar-te a casa</span>
-        <h2>Recursos i caixa de ferramentes</h2>
-      </div>
+    <header class="seccio__cap reveal">
+      <span class="seccio__etiqueta">Per a tindre a mà</span>
+      <h2>Recursos i caixa de ferramentes</h2>
     </header>
+
+    <h3 class="reveal">Prepara el teu ordinador</h3>
+    <ul class="llista llista--xecs reveal">
+      <li>Instal·la el <strong>JDK 21 LTS</strong> (adoptium.net) i comprova-ho a la terminal amb <code>java -version</code>.</li>
+      <li>Tria editor: <strong>VS Code</strong> amb l'extensió de Java, o <strong>IntelliJ IDEA Community</strong>. Tots dos gratuïts.</li>
+      <li>Aprén els tres moviments de la terminal: <code>javac Fitxer.java</code> (compilar), <code>java Fitxer</code> (executar) i respirar fondo quan veages un error roig. 😄</li>
+    </ul>
 
     <h3 class="reveal">Glossari de supervivència</h3>
     <table class="taula reveal">
       <thead><tr><th>Terme</th><th>Traducció a llenguatge de classe</th></tr></thead>
       <tbody>
-        <tr><td><strong>JDK</strong></td><td>El kit complet per a programar en Java (compilador + llibreries + JVM).</td></tr>
-        <tr><td><strong>JVM</strong></td><td>La «màquina virtual» que executa el teu bytecode en qualsevol ordinador.</td></tr>
-        <tr><td><strong>Bytecode</strong></td><td>El fitxer <code>.class</code>: ni codi font ni codi màquina, el punt intermedi.</td></tr>
-        <tr><td><strong>Variable</strong></td><td>Una capsa amb nom i tipus on guardem una dada.</td></tr>
-        <tr><td><strong>Mètode</strong></td><td>Un tros de codi amb nom que fa una faena concreta.</td></tr>
-        <tr><td><strong>Classe / Objecte</strong></td><td>El plànol / la casa construïda seguint-lo.</td></tr>
-        <tr><td><strong>Array</strong></td><td>Una fila de capses del mateix tipus, numerades des de 0.</td></tr>
-        <tr><td><strong>Bug</strong></td><td>Un error del programa. No és culpa teua… fins que demostren el contrari. 😄</td></tr>
-        <tr><td><strong>IDE</strong></td><td>L'entorn de desenvolupament (VS Code, IntelliJ): l'editor amb superpoders.</td></tr>
-        <tr><td><strong>Prompt</strong></td><td>La instrucció que li dones a una IA. Com més context, millor resposta.</td></tr>
+        <tr><td><strong>Programa</strong></td><td>Una llista d'instruccions que l'ordinador executa en ordre.</td></tr>
+        <tr><td><strong>Llenguatge de programació</strong></td><td>L'idioma en què escrivim eixes instruccions; ací, Java.</td></tr>
+        <tr><td><strong>Codi font</strong></td><td>El que escrius tu al fitxer <code>.java</code>.</td></tr>
+        <tr><td><strong>Compilar</strong></td><td>Traduir el teu codi a un idioma que la màquina entén (<code>javac</code>).</td></tr>
+        <tr><td><strong>Executar</strong></td><td>Posar el programa en marxa (<code>java</code>).</td></tr>
+        <tr><td><strong>Variable</strong></td><td>Una caixa amb nom on guardem una dada.</td></tr>
+        <tr><td><strong>Bug</strong></td><td>Un error del programa. No és culpa teua… fins que es demostre el contrari.</td></tr>
+        <tr><td><strong>IDE</strong></td><td>L'editor amb superpoders on escriurem el codi.</td></tr>
       </tbody>
     </table>
 
-    <h3 class="reveal">Com traure-li suc a esta pàgina</h3>
-    <ul class="llista reveal">
-      <li><strong>📄 Imprimir PDF:</strong> el botó de la capçalera prepara un dossier de lectura neta (teoria completa + les 3 primeres preguntes del test) i obri el diàleg d'impressió; tria «Guarda com a PDF».</li>
-      <li><strong>📽 Crear PowerPoint:</strong> el botó munta automàticament una presentació amb portada, índex, totes les diapositives de teoria, esquemes i codi, llesta per a projectar a l'aula.</li>
-      <li><strong> Tema clar/fosc:</strong> l'icona del sol canvia l'aspecte; per a estudiar de nit sense cremar els ulls.</li>
-      <li><strong>📋 Copia:</strong> cada bloc de codi té el seu botó per a portar-lo a l'editor d'un clic.</li>
-    </ul>
-
     <div class="targeta reveal">
       <div class="targeta__titol"><span class="icona">⚖️</span> Avís legal i llicència</div>
-      <p>Este material docent es publica sota la llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener"><strong>Creative Commons Reconeixement-NoComercial 4.0 Internacional (CC BY-NC 4.0)</strong></a>. Pots copiar-lo, redistribuir-lo i adaptar-lo sempre que en faces un ús <strong>no comercial</strong> i recongues l'autoria de <strong>Agustín Gil - IES La Vereda</strong>. Consulta el text legal complet en l'enllaç anterior.</p>
+      <p>Este material docent es publica sota la llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener"><strong>Creative Commons Reconeixement-NoComercial 4.0 Internacional (CC BY-NC 4.0)</strong></a>. Pots copiar-lo, redistribuir-lo i adaptar-lo sempre que en faces un ús <strong>no comercial</strong> i recongues l'autoria de <strong>Agustín Gil - IES La Vereda</strong>.</p>
     </div>
   </div>
 </section>
@@ -1152,26 +342,26 @@ public class Vocals {
     <div class="peu__grid">
       <div>
         <p class="peu__autor">Material creat per Agustín Gil - IES La vereda 2026</p>
-        <p>Optativa SMX · Introducció a la programació — Masterclass intensiva de Java en 3 hores. Fet amb calma des del departament d'informàtica, perquè a classe no es quede ningú arrere.</p>
+        <p>Optativa SMX · Introducció a la programació. Curs complet en Java: Tema 0 + 9 temes de 3 hores per a pensar com a programadors des del primer dia.</p>
         <div class="peu__llicencia">
           <span class="peu__cc">CC BY-NC 4.0</span>
           <p>Llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a>: ús lliure citant l'autoria, sense finalitat comercial.</p>
         </div>
       </div>
       <div>
-        <h4>Mapa de la masterclass</h4>
+        <h4>Mapa del curs</h4>
         <ul class="llista">
-          <li><a href="#fonaments">01 · Introducció i fonaments</a></li>
-          <li><a href="#control">02 · Estructures de control</a></li>
-          <li><a href="#dades">03 · Dades i modularitat</a></li>
-          <li><a href="#poo">04 · POO i IA</a></li>
-          <li><a href="#practiques">Taller de pràctiques</a></li>
+          <li><a href="#curs">El curs i la filosofia</a></li>
+          <li><a href="#temari">Temari (Tema 0–9)</a></li>
+          <li><a href="#estructura">Estructura de cada tema</a></li>
+          <li><a href="#arquitectura">Arquitectura del material</a></li>
+          <li><a href="#recursos">Recursos i llicència</a></li>
         </ul>
       </div>
     </div>
     <div class="peu__baix">
       <span>© 2026 Agustín Gil · IES La Vereda</span>
-      <span>Java en 3 hores · v1.0 · Fet amb ☕ i molta paciència</span>
+      <span>Introducció a la Programació amb Java · Fet amb ☕ i paciència</span>
     </div>
   </div>
 </footer>
