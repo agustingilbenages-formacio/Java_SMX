@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ca" data-tema="clar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 8 · Programar amb IA — Introducció a la Programació amb Java</title>
+<meta name="description" content="Tema 8 del curs d'introducció a la programació amb Java (Optativa SMX): com usar la intel·ligència artificial com a assistent de programació, prompts efectius i limitacions. Material creat per Agustín Gil - IES La vereda 2026. CC BY-NC 4.0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estils.css">
+</head>
+<body data-pptx-nom="Tema_8_Programar_amb_IA">
+
+<div class="barra-progres" id="barraProgres"></div>
+<header class="capcalera">
+  <div class="capcalera__inner">
+    <a class="marca" href="index.html" aria-label="Portada del curs">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#gmar)"/><path d="M12 10l-3.5 6H12l-3.5 6M20 10l3.5 6H20l3.5 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gmar" x1="2" y1="2" x2="30" y2="30"><stop stop-color="#1d5de8"/><stop offset="1" stop-color="#089cc0"/></linearGradient></defs></svg>
+      Java <em>· SMX</em>
+    </a>
+    <nav class="nav" id="nav" aria-label="Seccions del tema">
+      <a href="#intro" data-seccio="intro">Intro</a>
+      <a href="#teoria" data-seccio="teoria">Teoria</a>
+      <a href="#guiada" data-seccio="guiada">Guiada</a>
+      <a href="#activitats" data-seccio="activitats">Activitats</a>
+      <a href="#resum" data-seccio="resum">Resum</a>
+    </nav>
+    <div class="accions">
+      <span class="autoria">Material creat per Agustín Gil - IES La vereda 2026</span>
+      <button class="boto-tema" id="btnTema" type="button" title="Canvia el tema" aria-label="Canvia el tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button class="boto boto--sec" id="btnImprimir" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Imprimir PDF</button>
+      <button class="boto boto--pri" id="btnPptx" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M9 7l3 3 3-3M12 10V7"/></svg> Crear PowerPoint</button>
+    </div>
+    <button class="menu-mobil" id="menuMobil" type="button" aria-label="Obri el menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero tema-hero" id="inici">
+  <div class="hero__fons" aria-hidden="true"></div>
+  <div class="contenidor hero__inner">
+    <a class="torna no-print" href="index.html">← Portada del curs</a>
+    <span class="hero__num">Tema 8</span>
+    <h1>Programar amb IA</h1>
+    <p class="hero__sub">La intel·ligència artificial ja escriu codi. Però <strong>qui pilota eres tu</strong>: hui aprenem a usar-la com a copilot, a parlar-li bé (prompts) i a no creure's tot el que diu.</p>
+    <div class="hero__metes">
+      <span class="xip">⏱ 3 hores</span>
+      <span class="xip">🤖 IA com a assistent</span>
+      <span class="xip">💬 Prompts efectius</span>
+      <span class="xip">⚠️ Les seues limitacions</span>
+    </div>
+    <p class="hero__autor">Material creat per Agustín Gil - IES La vereda 2026 · Llicència CC BY-NC 4.0</p>
+  </div>
+</section>
+
+<section class="seccio" id="intro">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">1 · Introducció</span><h2>El copilot, no el pilot</h2></header>
+    <p class="seccio__intro reveal">Mira què passa ací: si li demanes a una IA «fes-me un programa», t'escupirà 80 línies en 3 segons. Algunes perfectes… i alguna amb un error tan subtil que no el veuràs. <strong>La IA no substitueix el programador: l'amplifica.</strong> Si saps programar, la IA et multiplica. Si no saps, et confon.</p>
+    <figure class="figura figura--foto reveal" data-pptx>
+      <img src="assets/img/ia-codi.jpg" alt="Persona programant amb assistència d'intel·ligència artificial a la pantalla" loading="lazy">
+      <figcaption><strong>Figura 0.</strong> La IA com a copilot: suggereix, explica i accelera… però el volant el portes tu. 🤖</figcaption>
+    </figure>
+    <div class="torn reveal">
+      <p class="torn__text">Si no entens el codi que t'ha fet la IA, no controles el programa. I un programa que no controles, tard o prompte, et controla a tu.</p>
+      <span class="torn__autor">— la regla d'or del tema</span>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="aprendrem">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">2 · Què aprendrem?</span><h2>Objectius del tema</h2></header>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>Usar la IA com a assistent</strong>: explicar, generar idees, revisar.</li>
+      <li><strong>Escriure prompts efectius</strong>: context, objectiu i condicions.</li>
+      <li><strong>Revisar el codi que et donen</strong>: llegir-lo, entendre'l, provar-lo.</li>
+      <li><strong>Conèixer les limitacions</strong>: la IA s'equivoca amb molta seguretat.</li>
+      <li><strong>Usar-la per a aprendre</strong>, no per a saltar-se l'aprenentatge.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccio" id="teoria">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">3 · Teoria</span><h2>Una idea, un exemple</h2></header>
+
+    <h3 class="reveal">3.1 · Per a què serveix (i per a què no)</h3>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>Explicar</strong>: «explica'm esta línia com si tinguera 16 anys».</li>
+      <li><strong>Donar idees</strong>: «dona'm 5 idees de programes amb arrays».</li>
+      <li><strong>Trobar errors</strong>: «este programa hauria de fer X i fa Y; què falla?».</li>
+      <li><strong>Millorar</strong>: «com faries este codi més llegible?».</li>
+      <li><strong>NO serveix</strong> per a fer la faena sense entendre-la: això no és aprendre, és copiar.</li>
+    </ul>
+
+    <h3 class="reveal">3.2 · Un prompt bo i un prompt roín</h3>
+    <div class="codi reveal" data-pptx data-fitxer="prompt roín ❌">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">prompt roín ❌</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>Fes-me un programa</code></pre>
+    </div>
+    <div class="codi reveal" data-pptx data-fitxer="prompt bo ✅">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">prompt bo ✅</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>Estic aprenent Java (nivell principiant: sé variables, if,
+bucles i arrays; encara NO classes ni excepcions).
+
+Escriu un programa en Java que demane 5 notes (0-10),
+les valide amb un bucle while, i mostre la mitjana i
+quants alumnes han aprovat.
+
+Usa només Scanner, if/else i for. Explica cada part
+amb comentaris curts en valencià.</code></pre>
+    </div>
+    <p class="reveal">La diferència? El prompt bo té <strong>context</strong> (què sé), <strong>objectiu</strong> (què vull) i <strong>condicions</strong> (què pot i què no pot usar). La IA no pot endevinar el que no li dius.</p>
+
+    <h3 class="reveal">3.3 · Una conversa real</h3>
+    <p class="reveal">Prompt: <em>«Tinc este codi que hauria de calcular la mitjana però em dona 7 en lloc de 7.5. Què falla?»</em> + el codi enganxat. La IA respon: «La divisió és entre enters: <code>7 / 2 = 3</code>. Converteix a double…» — exacte! Però <strong>tu has de comprovar-ho</strong>: executa el codi arreglat i mira el resultat.</p>
+
+    <h3 class="reveal">3.4 · Les seues limitacions</h3>
+    <div class="errors-grid reveal" data-pptx>
+      <div class="error-card"><h4>S'equivoca amb seguretat</h4><dl><dt>Què: </dt><dd>«al·lucinacions»: inventa mètodes que no existeixen.</dd><dt>Antídot: </dt><dd>prova sempre el codi; si no compila, la culpa no és teua.</dd></dl></div>
+      <div class="error-card"><h4>No sap el que no li has dit</h4><dl><dt>Què: </dt><dd>et dona solucions amb temes que encara no has vist.</dd><dt>Antídot: </dt><dd>digues-li el teu nivell al prompt (com a l'exemple).</dd></dl></div>
+      <div class="error-card"><h4>Seguretat i privadesa</h4><dl><dt>Què: </dt><dd>el que escrius a la IA pot quedar guardat.</dd><dt>Antídot: </dt><dd>mai hi poses dades personals, contrasenyes ni treballs d'altres.</dd></dl></div>
+      <div class="error-card"><h4>No aprén per tu</h4><dl><dt>Què: </dt><dd>si copies sense entendre, a l'examen (i a la vida) vas venut.</dd><dt>Antídot: </dt><dd>després d'usar-la, reescriu el codi de memòria.</dd></dl></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="guiada">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">4 · Programació guiada</span><h2>Programem junts amb la IA 🤝</h2></header>
+    <p class="seccio__intro reveal">Anem a resoldre un problema de veritat usant la IA com a assistent, pas a pas, sense perdre mai el control.</p>
+
+    <div class="pas reveal"><span class="pas__num">1</span><div>
+      <h4>Primer, pensa tu</h4>
+      <p>El problema: «un programa que compte les lletres d'una frase». Abans d'obrir la IA, escriu TU els passos en paper. Si no tens un pla, no sabràs jutjar la resposta.</p>
+      <div class="codi" data-pptx data-fitxer="pas 1"><pre><code>1. Llegir la frase (Scanner + nextLine)
+2. Llegir la lletra a comptar
+3. Recórrer la frase lletra a lletra (for + charAt)
+4. Si coincideix, comptador++
+5. Mostrar el resultat</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">2</span><div>
+      <h4>Escriu un prompt amb context</h4>
+      <p>Ara sí: prompt complet amb el teu nivell, l'objectiu i les condicions. Fixa't que ja dius què vols perquè siga fàcil de comparar amb el teu pla.</p>
+      <div class="codi" data-pptx data-fitxer="pas 2"><pre><code>Estic aprenent Java (sé if, for, arrays i String; res de classes).
+Escriu un programa que demane una frase i una lletra, i compte
+quantes vegades apareix la lletra a la frase (majúscules i
+minúscules compten igual). Només amb el que sé. Comentaris curts.</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">3</span><div>
+      <h4>Revisa contra el teu pla</h4>
+      <p>La IA respon amb codi. Compara: segueix els teus 5 passos? Usa algo que no has vist? Si usa <code>.toLowerCase()</code>: perfecte, ho coneixes; si usa <code>.chars().filter()</code>: demana-li que ho faça més senzill.</p>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">4</span><div>
+      <h4>Prova amb casos teus</h4>
+      <p>Executa-ho amb els teus casos de prova: una frase normal, una lletra que no hi és, una frase buida. La IA no els ha provat: <strong>tu sí</strong>.</p>
+      <div class="codi" data-pptx data-fitxer="pas 4"><pre><code>Frase: "Mississipí"   Lletra: "s"  → 4  ✔
+Frase: "Hola"         Lletra: "z"  → 0  ✔
+Frase: ""             Lletra: "a"  → 0  ✔ (i no peta!)</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">5</span><div>
+      <h4>Fes-te-la teua</h4>
+      <p>Últim pas, el més important: tanca la IA i <strong>reescriu el programa de memòria</strong>. Després, demana-li: «explica'm la línia X com si tinguera 16 anys». Si alguna part no l'entens: «De moment no necessitem entendre esta part; ja arribarem més avant»… però marca-la i torna-hi.</p>
+    </div></div>
+  </div>
+</section>
+
+<section class="seccio" id="errors">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">5 · Errors habituals</span><h2>Errors d'usar la IA</h2></header>
+    <div class="errors-grid reveal" data-pptx>
+      <div class="error-card"><h4>Copiar i pegar a cegues</h4><dl><dt>Què: </dt><dd>codi que funciona… i no saps per què.</dd><dt>Per què: </dt><dd>has saltat els passos de revisar i entendre.</dd><dt>Detectar-ho: </dt><dd>no sabries explicar cap línia.</dd><dt>Corregir-ho: </dt><dd>explica el codi en veu alta abans d'acceptar-lo.</dd></dl></div>
+      <div class="error-card"><h4>Confiar sense provar</h4><dl><dt>Què: </dt><dd>«la IA diu que està bé»… però no ho has executat.</dd><dt>Per què: </dt><dd>autoritat falsa: parla molt bé, però no ha provat res.</dd><dt>Detectar-ho: </dt><dd>el codi no s'ha executat mai.</dd><dt>Corregir-ho: </dt><dd>prova sempre amb els teus casos.</dd></dl></div>
+      <div class="error-card"><h4>Prompts massa vagues</h4><dl><dt>Què: </dt><dd>«arregla'm açò» sense context ni codi.</dd><dt>Per què: </dt><dd>la IA ha d'endevinar què vols.</dd><dt>Detectar-ho: </dt><dd>respostes genèriques que no serveixen.</dd><dt>Corregir-ho: </dt><dd>context + objectiu + condicions + el codi enganxat.</dd></dl></div>
+      <div class="error-card"><h4>Usar-la per a no aprendre</h4><dl><dt>Què: </dt><dd>entregues perfectes, cervell buit.</dd><dt>Per què: </dt><dd>has externalitzat el pensament.</dd><dt>Detectar-ho: </dt><dd>sense IA no saps començar.</dd><dt>Corregir-ho: </dt><dd>primer intenta-ho tu; la IA, després.</dd></dl></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="resum">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">6 · Resum visual</span><h2>Idees que es queden</h2></header>
+    <div class="resum-grid reveal" data-pptx>
+      <div class="resum-item"><span class="icona">🤖</span>La IA és el <strong>copilot</strong>; el pilot eres tu.</div>
+      <div class="resum-item"><span class="icona">💬</span>Bon prompt = context + objectiu + condicions.</div>
+      <div class="resum-item"><span class="icona">🔍</span>Revisa sempre: compara amb el teu pla.</div>
+      <div class="resum-item"><span class="icona">🧪</span>Prova el codi amb els teus casos. Sempre.</div>
+      <div class="resum-item"><span class="icona">⚠️</span>La IA s'equivoca amb molta seguretat.</div>
+      <div class="resum-item"><span class="icona">🔒</span>Mai dades personals ni contrasenyes als prompts.</div>
+      <div class="resum-item"><span class="icona">🧠</span>Ús estrella: que t'explique, no que et substituïsca.</div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio" id="activitats">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">7 · Activitats</span><h2>Tres sales d'entrenament</h2></header>
+
+    <h3 class="reveal">Mini exercicis (ràpids, a classe)</h3>
+    <ol class="mini-ex reveal" data-pptx>
+      <li>Millora este prompt: «fes un joc». Escriu la versió amb context, objectiu i condicions.</li>
+      <li>Què li diries a la IA perquè t'explique el <code>switch</code> amb un exemple de menús de mòbil?</li>
+      <li>Escriu 3 casos de prova per a un programa que convertisca Celsius a Fahrenheit.</li>
+      <li>La IA t'ha donat un codi amb <code>try/catch</code> (tema que no has vist). Què fas?</li>
+      <li>Posa-li el títol de prompt bo i prompt roín a estos dos: «explica'm Arrays» / «estic en 1r de SMX, expliqueu-me què és un array en Java amb un exemple de notes d'alumnes, màxim 15 línies».</li>
+      <li>Pensa: quines dades NUNCA posaries en un prompt?</li>
+    </ol>
+
+    <div class="pestanyes no-print" role="tablist" aria-label="Activitats del tema">
+      <button class="pestanya" id="tab-test" role="tab" aria-selected="true" aria-controls="panell-test" type="button"><span class="num">1</span> Autoavaluació</button>
+      <button class="pestanya" id="tab-fes" role="tab" aria-selected="false" aria-controls="panell-fes" type="button"><span class="num">2</span> Fes el programa</button>
+      <button class="pestanya" id="tab-reptes" role="tab" aria-selected="false" aria-controls="panell-reptes" type="button"><span class="num">3</span> Reptes</button>
+    </div>
+
+    <div id="panell-test" role="tabpanel" aria-labelledby="tab-test">
+      <div class="test__accions no-print">
+        <button class="boto boto--pri" id="btnTotesSolucions" type="button">Mostra totes les solucions</button>
+        <button class="boto boto--sec" id="btnReiniciaTest" type="button">Reinicia el test</button>
+      </div>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 01</div>
+        <p class="pregunta__enunciat">El millor paper de la IA quan aprens a programar és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Fer-te els exercicis perquè aprenga ella</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Assistent: explicar, donar idees i revisar</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Substituir el professor</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Decorar el codi</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Copilot, no pilot: t'acompanya, però la faena de pensar és teua.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 02</div>
+        <p class="pregunta__enunciat">Un prompt efectiu conté…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Només l'ordre: «fes-ho»</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>El màxim de paraules possibles</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Context, objectiu i condicions</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>La solució, perquè la copie</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> «Sé açò (context), vull allò (objectiu), amb estes regles (condicions)».</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 03</div>
+        <p class="pregunta__enunciat">Una «al·lucinació» de la IA és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Quan inventa algo fals (un mètode que no existeix) amb total seguretat</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Quan la pantalla fa coses rares</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Quan va lenta</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Quan et diu que no sap fer-ho</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> Error + seguretat absoluta = combinació perillosa. Per això cal provar-ho tot.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 04</div>
+        <p class="pregunta__enunciat">La IA t'ha donat un codi. Què fas abans de donar-lo per bo?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Entregar-lo: si l'ha fet ella, està bé</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Preguntar-li «estàs segura?»</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Canviar-li el nom a les variables</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Llegir-lo, entendre'l i executar-lo amb casos de prova</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> La prova de veritat és l'execució, no la confiança.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 05</div>
+        <p class="pregunta__enunciat">La regla d'or del tema és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>«La IA sempre té raó»</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>«Si no entens el codi de la IA, no controles el programa»</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>«Millor no usar mai la IA»</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>«Com més promptes, millor nota»</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Entendre el codi és innegociable: és el que et fa programador, no copista.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 06</div>
+        <p class="pregunta__enunciat">Per a APRENDRE amb la IA, el millor ús és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Que et faça els exercicis sencers</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Que et done les respostes dels tests</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Que t'explique el que no entens, pas a pas i amb el teu nivell</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Que escriga els comentaris del codi</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> «Explica'm esta línia com si tinguera 16 anys» és el prompt estrella.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 07</div>
+        <p class="pregunta__enunciat">La IA et dona codi que usa <code>try/catch</code>, un tema que encara no has vist. Millor opció…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Demanar-li que ho faça només amb el que saps, o marcar-ho per a més avant</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Copiar-ho igual: ja ho entendré</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Esborrar les línies que no entenc</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Canviar de llenguatge de programació</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> «De moment no necessitem entendre esta part; ja arribarem més avant» — però primer, intenta que te la llevi del mig.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 08</div>
+        <p class="pregunta__enunciat">Què NUNCA hauries de posar en un prompt?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>El teu codi</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>El teu nivell de Java</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Exemples d'eixida esperada</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Contrasenyes, DNI o dades personals d'altres</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> El que escrius a la IA pot quedar guardat: privadesa sempre.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 09</div>
+        <p class="pregunta__enunciat">Després que la IA t'ajude a fer un programa, el millor exercici és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Fer-ne un altre amb la IA</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Tancar la IA i reescriure'l de memòria</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Canviar els colors de la consola</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Guardar-lo i no tocar-lo mai més</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Si el saps reescriure sol, és que l'has aprés de veritat.</div>
+      </article>
+    </div>
+
+    <div id="panell-fes" role="tabpanel" aria-labelledby="tab-fes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 1</div>
+        <h4>El professor particular 🎓</h4>
+        <p>Agafa el programa de la biblioteca del tema 7 i demana a la IA que te l'explique línia a línia «com si tingueres 16 anys». Escriu al costat de cada bloc, amb les teues paraules, què fa. Marca les línies que no entengues i demana-ne una explicació extra.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq">
+          <p><strong>Com comprovar que ho has fet bé:</strong> al final, tapa el codi i explica en veu alta què fa cada mètode. Si te'n ix sense mirar, ho tens. Prompt d'exemple:</p>
+          <div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">prompt</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>Estic en 1r de SMX i este és el meu programa de biblioteca.
+Explica'm CADA línia en valencià, com si tinguera 16 anys,
+agrupant-les per blocs i dient què passaria si l'esborrara.
+[enganxa ací el teu codi]</code></pre></div>
+        </div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 2</div>
+        <h4>El detectiu d'errors 🕵️</h4>
+        <p>Este codi té 3 errors. Primer troba'ls TU (executa'l i observa). Després, pega'l a la IA amb un bon prompt i compara: n'ha trobat més? n'ha trobat de falsos?</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Buggy.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>// hauria de sumar 5 números i dir la mitjana
+int total = 1;                          // ← error 1: havia de ser 0
+for (int i = 0; i &lt;= 5; i++) {          // ← error 2: fa 6 voltes
+    System.out.print("Número: ");
+    int n = tec.nextInt();
+    total += n;
+}
+System.out.println("Mitjana: " + total / 5);   // ← error 3: divisió entera</code></pre></div>
+          <p>Els 3 errors: acumulador que no comença a 0, bucle que es passa una volta, i divisió d'enters que talla decimals. Si la IA en troba algun de fals, apunta'l: també és informació útil!</p>
+        </div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 3</div>
+        <h4>El programa per encàrrec 📬</h4>
+        <p>Escriu un prompt complet (context + objectiu + condicions) per a demanar un programa de «compte arrere de Cap d'Any» que demane l'any actual i el de Cap d'Any i mostre els anys que falten amb un missatge diferent si ja ha passat. Dona'l a la IA, revisa el codi i prova'l amb 3 casos: any futur, any passat i el mateix any.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">prompt suggerit</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>Sóc estudiant de 1r de SMX aprenent Java (variables, if,
+bucles; res de classes). Escriu un programa que demane
+l'any actual i l'any del pròxim Cap d'Any, i mostre quants
+anys falten. Si l'any del Cap d'Any ja ha passat, ha de
+dir «Ja ha passat!» i si és el mateix any, «És hui! 🎉».
+Només amb Scanner, if/else i aritmètica bàsica. Comentaris
+curts en valencià.</code></pre></div>
+          <p><strong>Casos de prova:</strong> 2026→2030 = «Falten 4 anys»; 2026→2020 = «Ja ha passat!»; 2026→2026 = «És hui! 🎉».</p>
+        </div>
+      </article>
+    </div>
+
+    <div id="panell-reptes" role="tabpanel" aria-labelledby="tab-reptes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte 1</div>
+        <h4>🐛 La IA com a depuradora</h4>
+        <p>Agafa el teu programa del tema 7 (o el repte que estigues fent) i, sense dir-li on és el problema, descriu-li només el símptoma: «quan afig un llibre amb espais al títol, el següent camp se'l menja». Aconseguirà la IA trobar el famós problema del <code>nextInt()</code>? Compara la seua solució amb la que ja coneixes i queda't amb la que entengues millor.</p>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte 2</div>
+        <h4>🎤 Explica-ho tu a la IA</h4>
+        <p>Al revés! Explica-li TU a la IA com funciona un bucle for, amb les teues paraules i un exemple. Després demana-li: «he explicat bé el bucle for? què m'he deixat o he explicat malament?». Aprendre ensenyant és el nivell final: si la IA et corregeix algo, ja has guanyat la sessió.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__grid">
+      <div>
+        <p class="peu__autor">Material creat per Agustín Gil - IES La vereda 2026</p>
+        <p>Tema 8 · Programar amb IA — Optativa SMX, Introducció a la programació amb Java.</p>
+        <div class="peu__llicencia"><span class="peu__cc">CC BY-NC 4.0</span><p>Llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a>.</p></div>
+      </div>
+      <div>
+        <h4>Continua el camí</h4>
+        <ul class="llista">
+          <li><a href="index.html">← Portada del curs</a></li>
+          <li><a href="tema7.html">← Tema 7 · Un programa complet</a></li>
+          <li><a href="tema9.html">Tema 9 · I ara què? El futur →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="peu__baix"><span>© 2026 Agustín Gil · IES La Vereda</span><span>Tema 8 · IA</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@4.0.1/dist/pptxgen.bundle.js"></script>
+<script>window.PptxGenJS || document.write('<script src="js/vendor/pptxgen.bundle.js"><\/script>');</script>
+<script src="js/app.js"></script>
+<script src="js/pptx.js"></script>
+</body>
+</html>

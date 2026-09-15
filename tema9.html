@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ca" data-tema="clar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 9 · I ara què? El futur — Introducció a la Programació amb Java</title>
+<meta name="description" content="Tema 9 del curs d'introducció a la programació amb Java (Optativa SMX): què ve després, per on continuar aprenent i el repte final obert. Material creat per Agustín Gil - IES La vereda 2026. CC BY-NC 4.0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estils.css">
+</head>
+<body data-pptx-nom="Tema_9_El_futur">
+
+<div class="barra-progres" id="barraProgres"></div>
+<header class="capcalera">
+  <div class="capcalera__inner">
+    <a class="marca" href="index.html" aria-label="Portada del curs">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#gmar)"/><path d="M12 10l-3.5 6H12l-3.5 6M20 10l3.5 6H20l3.5 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gmar" x1="2" y1="2" x2="30" y2="30"><stop stop-color="#1d5de8"/><stop offset="1" stop-color="#089cc0"/></linearGradient></defs></svg>
+      Java <em>· SMX</em>
+    </a>
+    <nav class="nav" id="nav" aria-label="Seccions del tema">
+      <a href="#intro" data-seccio="intro">Intro</a>
+      <a href="#teoria" data-seccio="teoria">Teoria</a>
+      <a href="#guiada" data-seccio="guiada">Guiada</a>
+      <a href="#activitats" data-seccio="activitats">Activitats</a>
+      <a href="#resum" data-seccio="resum">Resum</a>
+    </nav>
+    <div class="accions">
+      <span class="autoria">Material creat per Agustín Gil - IES La vereda 2026</span>
+      <button class="boto-tema" id="btnTema" type="button" title="Canvia el tema" aria-label="Canvia el tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button class="boto boto--sec" id="btnImprimir" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Imprimir PDF</button>
+      <button class="boto boto--pri" id="btnPptx" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M9 7l3 3 3-3M12 10V7"/></svg> Crear PowerPoint</button>
+    </div>
+    <button class="menu-mobil" id="menuMobil" type="button" aria-label="Obri el menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero tema-hero" id="inici">
+  <div class="hero__fons" aria-hidden="true"></div>
+  <div class="contenidor hero__inner">
+    <a class="torna no-print" href="index.html">← Portada del curs</a>
+    <span class="hero__num">Tema 9</span>
+    <h1>I ara què? El futur</h1>
+    <p class="hero__sub">Has arribat al final del curs… que en realitat és <strong>el principi</strong>. Ara ja no mires el codi com a màgia: saps com està fet. Este tema és el mapa del que ve després i el llançament del teu <strong>projecte final</strong>.</p>
+    <div class="hero__metes">
+      <span class="xip">⏱ 3 hores</span>
+      <span class="xip">🗺️ El mapa del que has aprés</span>
+      <span class="xip">🚀 Per on continuar</span>
+      <span class="xip">🏆 Repte final obert</span>
+    </div>
+    <p class="hero__autor">Material creat per Agustín Gil - IES La vereda 2026 · Llicència CC BY-NC 4.0</p>
+  </div>
+</section>
+
+<section class="seccio" id="intro">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">1 · Introducció</span><h2>Mira arrere un segon</h2></header>
+    <p class="seccio__intro reveal">El primer dia, un <code>System.out.println</code> era un encanteri. Hui escrius classes, mètodes, arrays i menús complets… i fins i tot saps manar una IA. <strong>Açò no ho sap tothom.</strong> Ara toca mirar avant: què pots fer amb el que saps i per on es continua.</p>
+    <figure class="figura figura--foto reveal" data-pptx>
+      <img src="assets/img/futur-2026.jpg" alt="Horitzó futurista amb tecnologia, representant el futur de la programació" loading="lazy">
+      <figcaption><strong>Figura 0.</strong> El futur no és dels que saben un llenguatge: és dels que saben aprendre el següent. 🌅</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="aprendrem">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">2 · Què aprendrem?</span><h2>Objectius del tema</h2></header>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>Fer el mapa</strong> de tot el que has aprés al curs.</li>
+      <li><strong>Conèixer els camins</strong> que s'obrin des d'ací (SMX, DAM, projectes propis).</li>
+      <li><strong>Descobrir on va la programació</strong>: IA, ciberseguretat, núvol, IoT.</li>
+      <li><strong>Planificar el teu projecte final</strong> amb fites i dates.</li>
+      <li><strong>Llançar el repte final obert</strong>: un programa complet, teu de veritat.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccio" id="teoria">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">3 · Teoria</span><h2>El mapa i els camins</h2></header>
+
+    <h3 class="reveal">3.1 · El que ja saps (el mapa)</h3>
+    <div class="resum-grid reveal" data-pptx>
+      <div class="resum-item"><span class="icona">📦</span><strong>Variables</strong>: guardar dades (tema 1).</div>
+      <div class="resum-item"><span class="icona">🔀</span><strong>Decisions</strong>: if/else, switch (tema 2).</div>
+      <div class="resum-item"><span class="icona">🔁</span><strong>Bucles</strong>: repetir amb cap (tema 3).</div>
+      <div class="resum-item"><span class="icona">🗂️</span><strong>Arrays</strong>: moltes dades juntes (tema 4).</div>
+      <div class="resum-item"><span class="icona">🧩</span><strong>Mètodes</strong>: codi amb nom (tema 5).</div>
+      <div class="resum-item"><span class="icona">📐</span><strong>Classes</strong>: modelar el món (tema 6).</div>
+      <div class="resum-item"><span class="icona">🏗️</span><strong>Programes complets</strong>: integrar-ho tot (tema 7).</div>
+      <div class="resum-item"><span class="icona">🤖</span><strong>IA</strong>: copilot sota control (tema 8).</div>
+    </div>
+    <p class="reveal">Açò és la base de la base… i és la mateixa base de TOT: canvia el llenguatge i estos conceptes viatgen amb tu. Java, Python, JavaScript, C#… tots tenen variables, bucles i funcions.</p>
+
+    <h3 class="reveal">3.2 · Per on continuar</h3>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>A SMX mateix</strong>: scripting (Bash, PowerShell, Python) per a automatitzar tasques d'administració; la programació també és eina de sistemes.</li>
+      <li><strong>Si vols dedicar-t'hi</strong>: el grau superior <strong>DAM</strong> (Desenvolupament d'Aplicacions Multiplataforma) comença on este curs acaba, i Java n'és el llenguatge principal.</li>
+      <li><strong>Projectes propis</strong>: un joc de consola, un gestor de la teua col·lecció, un bot senzill… la millor escola és el que t'interessa a tu.</li>
+      <li><strong>Recursos</strong>: la documentació oficial de Java, exercicis de repte i comunitats on preguntar (sempre intentant-ho tu primer).</li>
+    </ul>
+
+    <h3 class="reveal">3.3 · On va la programació</h3>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>IA</strong>: els programadors que saben usar-la (com has aprés al tema 8) van per davant.</li>
+      <li><strong>Ciberseguretat</strong>: entendre codi és mig camí per a entendre atacs i defenses.</li>
+      <li><strong>Núvol i servidors</strong>: les apps viuen en ordinadors remots que algú programa i administra.</li>
+      <li><strong>IoT</strong>: cotxes, rellotges, neveres… tot porta programari dins.</li>
+    </ul>
+
+    <h3 class="reveal">3.4 · Com continuar aprenent (de veritat)</h3>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>Poc i sovint</strong> val més que molt i de colp: 20 minuts al dia.</li>
+      <li><strong>Projectes, no tutorials infinits</strong>: construeix algo teu, per xicotet que siga.</li>
+      <li><strong>Trenca coses a propòsit</strong>: canvia una línia i observa què passa; així s'entén de veritat.</li>
+      <li><strong>Demanar ajuda no és fer trampa</strong>: tots els programadors del món ho fan cada dia.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="guiada">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">4 · Programació guiada</span><h2>Com es llança un projecte final 🚀</h2></header>
+    <p class="seccio__intro reveal">El repte final no es programa a lo boig: es llança com un projecte de veritat. Estes són les fases.</p>
+
+    <div class="pas reveal"><span class="pas__num">1</span><div>
+      <h4>Tria la idea (xicoteta!)</h4>
+      <p>La regla d'or dels projectes: <strong>pensa en gran, comença en xicotet</strong>. «Un joc» és massa gran; «un joc d'endevinar paraules amb puntuació» és perfecte. Escriu la idea en UNA frase.</p>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">2</span><div>
+      <h4>Defineix la versió 1.0 mínima</h4>
+      <p>Què ha de fer SÍ o SÍ perquè estiga acabat? Fes la llista de 3-4 funcions bàsiques. Tot la resta serà «versió 2.0, si hi ha temps».</p>
+      <div class="codi" data-pptx data-fitxer="fitxa del projecte"><pre><code>PROJECTE: El penjat
+1.0 mínima:
+  - Paraula secreta (d'una llista de 5)
+  - Demanar lletres i dir si hi són
+  - 6 intents i fi de partida
+2.0 (si hi ha temps):
+  - Dibuixar el penjat amb caràcters
+  - Rànquing de partides</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">3</span><div>
+      <h4>Marca fites amb data</h4>
+      <p>Una <strong>fita</strong> és un tros acabat i provat. Cada sessió de classe, una fita. Si una fita es complica, la partes en dues: mai deixes una fita «a mitges per sempre».</p>
+      <div class="codi" data-pptx data-fitxer="fites"><pre><code>Fita 1: menú que funciona i no peta
+Fita 2: llegir una lletra i comprovar-la
+Fita 3: comptar intents i acabar la partida
+Fita 4: llista de paraules + informe final</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">4</span><div>
+      <h4>Construeix i prova, fita a fita</h4>
+      <p>Tema 7 en estat pur: prova cada tros abans de continuar, amb casos normals, límits i rares. I quan et blocks: 10 minuts pensant, després pregunta (a un company, al profe o a la IA amb un bon prompt).</p>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">5</span><div>
+      <h4>Presenta'l com toca</h4>
+      <p>Un projecte també s'explica: 2 minuts mostrant què fa, una decisió de disseny de la que estigues orgullós/os i un error que vas tindre i com el vas resoldre. Eixa última part és la que demostra que has aprés.</p>
+    </div></div>
+  </div>
+</section>
+
+<section class="seccio" id="errors">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">5 · Errors habituals</span><h2>Errors de projecte final</h2></header>
+    <div class="errors-grid reveal" data-pptx>
+      <div class="error-card"><h4>Projecte gegant</h4><dl><dt>Què: </dt><dd>«faré un Fortnite»… i a la sessió 3 no tens ni menú.</dd><dt>Per què: </dt><dd>has confós el somni amb la versió 1.0.</dd><dt>Detectar-ho: </dt><dd>la llista de funcions no cap en un full.</dd><dt>Corregir-ho: </dt><dd>retalla fins que la 1.0 càpiga en 3 sessions.</dd></dl></div>
+      <div class="error-card"><h4>Rendir-se al primer mur</h4><dl><dt>Què: </dt><dd>un error i «açò no funciona, ho deixe».</dd><dt>Per què: </dt><dd>confons «encara no ho sé» amb «no se pot».</dd><dt>Detectar-ho: </dt><dd>portaves 5 minuts intentant-ho.</dd><dt>Corregir-ho: </dt><dd>divideix l'error, imprimeix, i demana ajuda amb el que ja has provat.</dd></dl></div>
+      <div class="error-card"><h4>No provar fins al final</h4><dl><dt>Què: </dt><dd>el dia de la presentació apareixen 14 errors.</dd><dt>Per què: </dt><dd>has construït sense provar per camí.</dd><dt>Detectar-ho: </dt><dd>fa setmanes que no executes el programa.</dd><dt>Corregir-ho: </dt><dd>cada fita acaba amb el programa funcionant.</dd></dl></div>
+      <div class="error-card"><h4>Fer-ho tot sols/a</h4><dl><dt>Què: </dt><dd>bloquejat 3 sessions pel mateix error tonto.</dd><dt>Per què: </dt><dd>«demanar ajuda és de roïns» (fals!).</dd><dt>Detectar-ho: </dt><dd>has rellegit la línia 50 vegades.</dd><dt>Corregir-ho: </dt><dd>explica el problema en veu alta a algú: sovint te n'adones tu mateix/a.</dd></dl></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="resum">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">6 · Resum visual</span><h2>El que t'emportes</h2></header>
+    <div class="resum-grid reveal" data-pptx>
+      <div class="resum-item"><span class="icona">🧱</span>Variables, decisions, bucles, arrays, mètodes, classes: la base viatja a qualsevol llenguatge.</div>
+      <div class="resum-item"><span class="icona">🗺️</span>Camins oberts: scripting a SMX, DAM, projectes propis.</div>
+      <div class="resum-item"><span class="icona">🚀</span>Projectes: idea xicoteta, fites amb data, provar sempre.</div>
+      <div class="resum-item"><span class="icona">🤝</span>Demanar ajuda és habilitat professional, no debilitat.</div>
+      <div class="resum-item"><span class="icona">🤖</span>La IA premia els que saben programar: tu ja estàs en eixe bàndol.</div>
+      <div class="resum-item"><span class="icona">🎯</span>Idees que es queden: constància, curiositat i ganes de trencar coses per a entendre-les.</div>
+    </div>
+    <div class="cita reveal" data-pptx>
+      <p>Després d'este curs, no diràs «jo no sé programar». Diràs: <strong>«sé agafar un problema, dividir-lo en passos i intentar convertir-lo en un programa.»</strong> I això, cregues-me, és el que fa un programador.</p>
+    </div>
+  </div>
+</section>
+
+<section class="seccio" id="activitats">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">7 · Activitats</span><h2>Tres sales d'entrenament</h2></header>
+
+    <h3 class="reveal">Mini exercicis (ràpids, a classe)</h3>
+    <ol class="mini-ex reveal" data-pptx>
+      <li>Escriu en una frase la idea del teu projecte final. Passa-la a un company: l'entén? Si no, retalla.</li>
+      <li>Fes la llista de la «versió 1.0 mínima» del teu projecte: màxim 4 funcions.</li>
+      <li>Defineix 4 fites amb data per al teu projecte.</li>
+      <li>Quins temes del curs usarà el teu projecte? Fes la llista (pista: segur que són quasi tots).</li>
+      <li>Escriu 3 casos de prova per a la funció principal del teu projecte.</li>
+      <li>Pensa el teu «pitch» de 30 segons: què fa el teu programa i per què mola?</li>
+    </ol>
+
+    <div class="pestanyes no-print" role="tablist" aria-label="Activitats del tema">
+      <button class="pestanya" id="tab-test" role="tab" aria-selected="true" aria-controls="panell-test" type="button"><span class="num">1</span> Autoavaluació</button>
+      <button class="pestanya" id="tab-fes" role="tab" aria-selected="false" aria-controls="panell-fes" type="button"><span class="num">2</span> Fes el programa</button>
+      <button class="pestanya" id="tab-reptes" role="tab" aria-selected="false" aria-controls="panell-reptes" type="button"><span class="num">3</span> Reptes</button>
+    </div>
+
+    <div id="panell-test" role="tabpanel" aria-labelledby="tab-test">
+      <div class="test__accions no-print">
+        <button class="boto boto--pri" id="btnTotesSolucions" type="button">Mostra totes les solucions</button>
+        <button class="boto boto--sec" id="btnReiniciaTest" type="button">Reinicia el test</button>
+      </div>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 01</div>
+        <p class="pregunta__enunciat">El que has aprés en este curs (variables, bucles, funcions…)…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Només serveix per a Java</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Queda antic en 2 anys</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>És la base de quasi tots els llenguatges de programació</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Només serveix per a exàmens</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> Els conceptes viatgen: Python, JavaScript o C# tenen els mateixos blocs amb altre nom.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 02</div>
+        <p class="pregunta__enunciat">Si vols continuar estudiant programació després de SMX, el camí natural és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>El grau superior DAM (Desenvolupament d'Aplicacions Multiplataforma)</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Deixar-ho: ja ho saps tot</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Aprendre només HTML</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Estudiar només amb vídeos, sense practicar</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> DAM comença on este curs acaba… i Java n'és el llenguatge estrella.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 03</div>
+        <p class="pregunta__enunciat">La millor manera de continuar millorant és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Vore tutorials durant hores sense practicar</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Fer projectes propis, per xicotets que siguen, i practicar un poc cada dia</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Memoritzar la sintaxi de Java</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Esperar a tindre un ordinador millor</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Construir algo teu ensenya més que 10 hores de vídeo passiu.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 04</div>
+        <p class="pregunta__enunciat">Programar a SMX també serveix per a…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Res: els sistemes no tenen codi</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Només per a fer jocs</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Només per a pàgines web</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Automatitzar tasques amb scripts, ciberseguretat i administrar sistemes</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> Bash, PowerShell o Python són eines diàries d'un administrador de sistemes.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 05</div>
+        <p class="pregunta__enunciat">Una «fita» de projecte és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Una línia de codi important</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>La data d'entrega final</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Un tros del projecte acabat i provat</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Un error greu</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> Cada fita deixa el programa funcionant; així mai estàs «a mitges de tot».</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 06</div>
+        <p class="pregunta__enunciat">Quan comences un projecte personal, la millor estratègia és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Començar xicotet i créixer quan cada part funcione</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Començar per la funció més difícil</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Copiar un projecte sencer i canviar-li el nom</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Planificar durant un mes sense programar</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> Pensa en gran, comença en xicotet: una 1.0 que funcione val més que una 5.0 imaginària.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 07</div>
+        <p class="pregunta__enunciat">Portes 3 sessions bloquejat amb el mateix error. Millor moviment…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Reescriure tot el projecte des de zero</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Explicar el problema a un company, al profe o a la IA amb un bon prompt</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Esborrar la part que falla i fer com si no existira</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Canviar d'idea de projecte</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Demanar ajuda explicant el que ja has provat és com treballen els professionals.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 08</div>
+        <p class="pregunta__enunciat">Amb la IA al món, el programador que té futur és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>El que no la usa mai</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>El que la deixa fer-ho tot</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>El que se'n fa creus</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>El que entén el codi i usa la IA com a copilot</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> Exacte el que has practicat al tema 8: entendre primer, accelerar després.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 09</div>
+        <p class="pregunta__enunciat">En acabar este curs, la frase que millor descriu el que has aconseguit és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>«Ja sé tot Java»</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>«Sé copiar codi que funciona»</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>«Sé agafar un problema, dividir-lo en passos i intentar convertir-lo en un programa»</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>«Sé fer servir un IDE»</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> Eixa és la definició real de programar. La resta venen soles amb la pràctica. 🎓</div>
+      </article>
+    </div>
+
+    <div id="panell-fes" role="tabpanel" aria-labelledby="tab-fes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 1</div>
+        <h4>La fitxa del projecte 📋</h4>
+        <p>Ompli la fitxa oficial del teu projecte final: idea en una frase, versió 1.0 mínima (3-4 funcions), versió 2.0 (extres), temes del curs que usaràs i 4 fites amb data.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">fitxa-projecte.txt</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>NOM DEL PROJECTE: ...
+IDEA (1 frase): ...
+VERSIÓ 1.0 (sí o sí):
+  1. ...
+  2. ...
+  3. ...
+VERSIÓ 2.0 (si hi ha temps): ...
+TEMES QUE USARÉ: variables, ..., classes
+FITES:
+  Sessió 1: menú + estructura bàsica
+  Sessió 2: funció principal
+  Sessió 3: dades i informe final
+  Sessió 4: polir, provar i presentar
+CASOS DE PROVA: (3 situacions rares que provaré)</code></pre></div>
+          <p>Exemple complet al bloc de la guiada: «El penjat». El teu pot ser qualsevol cosa: la clau és que la 1.0 càpiga en 3 sessions.</p>
+        </div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 2</div>
+        <h4>L'esquelet del projecte 🦴</h4>
+        <p>Abans de la lògica, construeix l'esquelet: el menú que no peta, amb totes les opcions (encara buides) i l'opció 0 per a eixir. Quan això funcione, la Fita 1 està feta.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">ElMeuProjecte.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>import java.util.Scanner;
+
+public class ElMeuProjecte {
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        boolean eixir = false;
+        while (!eixir) {
+            System.out.println("\n=== EL MEU PROJECTE ===");
+            System.out.println("1 · Funció A");
+            System.out.println("2 · Funció B");
+            System.out.println("3 · Funció C");
+            System.out.println("0 · Eixir");
+            System.out.print("Tria: ");
+            int opcio = tec.nextInt();
+            switch (opcio) {
+                case 1: System.out.println("(ací vindrà la funció A)"); break;
+                case 2: System.out.println("(ací vindrà la funció B)"); break;
+                case 3: System.out.println("(ací vindrà la funció C)"); break;
+                case 0: eixir = true; System.out.println("Adéu!"); break;
+                default: System.out.println("Opció no vàlida");
+            }
+        }
+    }
+}</code></pre></div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 3</div>
+        <h4>El diari de bord 📓</h4>
+        <p>Crea un fitxer <code>diari.md</code> (o de text pla) per al teu projecte. Cada sessió, tres línies: què he fet, què m'ha bloquejat, què faré la pròxima. El dia de la presentació, el diari és el teu millor argument.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">diari.md</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>## Sessió 3
+- FET: funció de comprovar lletres acabada i provada
+- BLOCAT: no comptava bé les lletres repetides (era el comptador)
+- PRÒXIMA: dibuixar la paraula amb guions i acabar la Fita 3</code></pre></div>
+        </div>
+      </article>
+    </div>
+
+    <div id="panell-reptes" role="tabpanel" aria-labelledby="tab-reptes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">🏆 Repte final del curs</div>
+        <h4>El teu programa, de principi a fi</h4>
+        <p>Construeix un programa complet, triat per tu, que integre <strong>tot</strong> el curs: variables, decisions, bucles, arrays, mètodes i classes. Requisits mínims:</p>
+        <ul class="llista" style="margin-top:.6rem">
+          <li>Menú amb while + switch i opció per a eixir.</li>
+          <li>Almenys una classe creada per tu, amb atributs i mètodes.</li>
+          <li>Un array que guarde dades durant tota la sessió.</li>
+          <li>Almenys 3 mètodes propis (a banda del main).</li>
+          <li>Validació de dades: que no peta amb entrades rares.</li>
+          <li>Un informe final amb alguna estadística (mitjana, màxim, recompte…).</li>
+        </ul>
+        <p style="margin-top:.8rem">Idees per si et cal inspiració: gestor de biblioteca, botiga amb carret, torneig de la classe, joc del penjat, agenda de contactes, gestor de partits d'un equip… <strong>Recordeu: no hi ha solució publicada.</strong> Esta vegada, la solució la escrius tu. I si et blocks: fita més xicoteta, prints, i a demanar ajuda. Sort! 🍀</p>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte extra</div>
+        <h4>🌍 Publica el teu codi</h4>
+        <p>Crea un compte a GitHub (gratuït), puja el teu projecte final a un repositori i escriu un <code>README.md</code> senzill: què fa, com s'executa i una captura. Acabes de fer el primer pas del teu portfoli professional: el que demanen a totes les ofertes de treball del sector.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__grid">
+      <div>
+        <p class="peu__autor">Material creat per Agustín Gil - IES La vereda 2026</p>
+        <p>Tema 9 · I ara què? El futur — Optativa SMX, Introducció a la programació amb Java.</p>
+        <div class="peu__llicencia"><span class="peu__cc">CC BY-NC 4.0</span><p>Llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a>.</p></div>
+      </div>
+      <div>
+        <h4>Continua el camí</h4>
+        <ul class="llista">
+          <li><a href="index.html">← Portada del curs</a></li>
+          <li><a href="tema8.html">← Tema 8 · Programar amb IA</a></li>
+          <li><strong>Has arribat al final del curs. Enhorabona! 🎓</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="peu__baix"><span>© 2026 Agustín Gil · IES La Vereda</span><span>Tema 9 · El futur</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@4.0.1/dist/pptxgen.bundle.js"></script>
+<script>window.PptxGenJS || document.write('<script src="js/vendor/pptxgen.bundle.js"><\/script>');</script>
+<script src="js/app.js"></script>
+<script src="js/pptx.js"></script>
+</body>
+</html>

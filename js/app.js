@@ -70,7 +70,7 @@
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['curs', 'temari', 'estructura', 'norma', 'arquitectura', 'recursos'].forEach((id) => {
+    enllacos.map((a) => a.dataset.seccio).filter(Boolean).forEach((id) => {
       const s = document.getElementById(id);
       if (s) spy.observe(s);
     });

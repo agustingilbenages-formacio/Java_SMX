@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ca" data-tema="clar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 4 · Treballar amb moltes dades: els arrays — Introducció a la Programació amb Java</title>
+<meta name="description" content="Tema 4 del curs d'introducció a la programació amb Java (Optativa SMX): arrays, índexs, recorreguts amb for, cerca, màxim i mínim, i introducció a String. Material creat per Agustín Gil - IES La vereda 2026. CC BY-NC 4.0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estils.css">
+</head>
+<body data-pptx-nom="Tema_4_Arrays">
+
+<div class="barra-progres" id="barraProgres"></div>
+<header class="capcalera">
+  <div class="capcalera__inner">
+    <a class="marca" href="index.html" aria-label="Portada del curs">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#gmar)"/><path d="M12 10l-3.5 6H12l-3.5 6M20 10l3.5 6H20l3.5 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gmar" x1="2" y1="2" x2="30" y2="30"><stop stop-color="#1d5de8"/><stop offset="1" stop-color="#089cc0"/></linearGradient></defs></svg>
+      Java <em>· SMX</em>
+    </a>
+    <nav class="nav" id="nav" aria-label="Seccions del tema">
+      <a href="#intro" data-seccio="intro">Intro</a>
+      <a href="#teoria" data-seccio="teoria">Teoria</a>
+      <a href="#guiada" data-seccio="guiada">Guiada</a>
+      <a href="#activitats" data-seccio="activitats">Activitats</a>
+      <a href="#resum" data-seccio="resum">Resum</a>
+    </nav>
+    <div class="accions">
+      <span class="autoria">Material creat per Agustín Gil - IES La vereda 2026</span>
+      <button class="boto-tema" id="btnTema" type="button" title="Canvia el tema" aria-label="Canvia el tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button class="boto boto--sec" id="btnImprimir" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Imprimir PDF</button>
+      <button class="boto boto--pri" id="btnPptx" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M9 7l3 3 3-3M12 10V7"/></svg> Crear PowerPoint</button>
+    </div>
+    <button class="menu-mobil" id="menuMobil" type="button" aria-label="Obri el menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero tema-hero" id="inici">
+  <div class="hero__fons" aria-hidden="true"></div>
+  <div class="contenidor hero__inner">
+    <a class="torna no-print" href="index.html">← Portada del curs</a>
+    <span class="hero__num">Tema 4</span>
+    <h1>Treballar amb moltes dades: els arrays</h1>
+    <p class="hero__sub">Vint-i-cinc alumnes, vint-i-cinc notes. Vint-i-cinc variables? Ni parlar-ne. Un <strong>array</strong> és un calaix amb molts compartiments numerats: una sola variable per a guardar-ho tot.</p>
+    <div class="hero__metes">
+      <span class="xip">⏱ 3 hores</span>
+      <span class="xip">📦 Arrays i índexs</span>
+      <span class="xip">🔁 Recórrer amb for</span>
+      <span class="xip">🔍 Cercar, comptar, màxim i mínim</span>
+      <span class="xip">✍️ Introducció a String</span>
+    </div>
+    <p class="hero__autor">Material creat per Agustín Gil - IES La vereda 2026 · Llicència CC BY-NC 4.0</p>
+  </div>
+</section>
+
+<section class="seccio" id="intro">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">1 · Introducció</span><h2>Les dades de tota la classe, en un lloc</h2></header>
+    <p class="seccio__intro reveal">Mira què passa ací: un videojoc guarda les puntuacions de totes les partides, el mòbil guarda tots els teus contactes, i l'institut guarda les notes de tots els alumnes. <strong>Coses del mateix tipre, moltes i juntes.</strong> Els arrays són la primera eina que usa tot programador per a organitzar-les.</p>
+    <figure class="figura figura--foto reveal" data-pptx>
+      <img src="assets/img/videojoc-retro.jpg" alt="Consola i arcade retro amb pantalla de puntuacions, metàfora de guardar moltes dades juntes" loading="lazy">
+      <figcaption><strong>Figura 0.</strong> La taula de <em>HIGH SCORES</em> d'un arcade: un array de noms i puntuacions. Sense arrays, no hi hauria videojocs. 🕹️</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="aprendrem">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">2 · Què aprendrem?</span><h2>Objectius del tema</h2></header>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>Crear arrays</strong> i entendre els índexs (compten des de 0!).</li>
+      <li><strong>Recórrer un array</strong> amb un bucle for.</li>
+      <li><strong>Operacions bàsiques</strong>: sumar, comptar, cercar, màxim i mínim.</li>
+      <li><strong>Evitar l'error número u</strong>: eixir-se dels marges de l'array.</li>
+      <li><strong>Conèixer <code>String</code></strong> com a «array de lletres» i els seus mètodes bàsics.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccio" id="teoria">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">3 · Teoria</span><h2>Una idea, un exemple</h2></header>
+
+    <h3 class="reveal">3.1 · Crear un array</h3>
+    <div class="codi reveal" data-pptx data-fitxer="Notes.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Notes.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>int[] notes = new int[5];      // un calaix de 5 compartiments
+
+notes[0] = 7;                  // el primer compartiment és el 0!
+notes[1] = 9;
+notes[2] = 5;
+notes[3] = 8;
+notes[4] = 6;
+
+System.out.println(notes[0]);          // 7
+System.out.println(notes.length);      // 5 — quantitat de compartiments</code></pre>
+    </div>
+    <figure class="figura reveal" data-pptx>
+      <div class="figura__marc">
+        <svg viewBox="0 0 900 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Array de notes amb índexs de 0 a 4">
+          <text x="450" y="30" text-anchor="middle" font-family="monospace" font-size="20" font-weight="700" fill="#12244a">int[] notes</text>
+          <g>
+            <rect x="130" y="60" width="120" height="70" fill="#e8f1ff" stroke="#2f7bff" stroke-width="3"/>
+            <rect x="250" y="60" width="120" height="70" fill="#e8f1ff" stroke="#2f7bff" stroke-width="3"/>
+            <rect x="370" y="60" width="120" height="70" fill="#e8f1ff" stroke="#2f7bff" stroke-width="3"/>
+            <rect x="490" y="60" width="120" height="70" fill="#e8f1ff" stroke="#2f7bff" stroke-width="3"/>
+            <rect x="610" y="60" width="120" height="70" fill="#e8f1ff" stroke="#2f7bff" stroke-width="3"/>
+            <text x="190" y="105" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="800" fill="#12244a">7</text>
+            <text x="310" y="105" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="800" fill="#12244a">9</text>
+            <text x="430" y="105" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="800" fill="#12244a">5</text>
+            <text x="550" y="105" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="800" fill="#12244a">8</text>
+            <text x="670" y="105" text-anchor="middle" font-family="sans-serif" font-size="30" font-weight="800" fill="#12244a">6</text>
+          </g>
+          <g font-family="monospace" font-size="18" font-weight="700" fill="#7a3c14">
+            <text x="190" y="160" text-anchor="middle">índex 0</text>
+            <text x="310" y="160" text-anchor="middle">1</text>
+            <text x="430" y="160" text-anchor="middle">2</text>
+            <text x="550" y="160" text-anchor="middle">3</text>
+            <text x="670" y="160" text-anchor="middle">4</text>
+          </g>
+          <text x="450" y="196" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#3d4e70">notes[2] és el tercer element: val 5</text>
+        </svg>
+      </div>
+      <figcaption><strong>Figura 1.</strong> Els índexs comencen en 0: el primer element és <code>notes[0]</code> i l'últim <code>notes[4]</code>. No existeix <code>notes[5]</code>!</figcaption>
+    </figure>
+
+    <h3 class="reveal">3.2 · Recórrer l'array amb for</h3>
+    <p class="reveal">Ací és on comença a tindre gràcia: els índexs són números, així que un bucle pot passejar-se per tots els compartiments.</p>
+    <div class="codi reveal" data-pptx data-fitxer="Recorregut.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Recorregut.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>int total = 0;
+for (int i = 0; i &lt; notes.length; i++) {
+    total += notes[i];                     // acumula cada nota
+}
+System.out.println("Mitjana: " + ((double) total / notes.length));</code></pre>
+    </div>
+    <p class="reveal">Fixa't: <code>i &lt; notes.length</code> (sense <code>=</code>), perquè l'últim índex vàlid és <code>length - 1</code>.</p>
+
+    <h3 class="reveal">3.3 · Cercar, comptar, màxim i mínim</h3>
+    <p class="reveal">Les tres operacions estrella. Totes segueixen el mateix patró: recorrer i comparar.</p>
+    <div class="codi reveal" data-pptx data-fitxer="Operacions.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Operacions.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>// COMPTAR aprovats
+int aprovats = 0;
+for (int i = 0; i &lt; notes.length; i++) {
+    if (notes[i] &gt;= 5) {
+        aprovats++;
+    }
+}
+
+// MÀXIM: comença pensant que el primer és el millor
+int maxima = notes[0];
+for (int i = 1; i &lt; notes.length; i++) {
+    if (notes[i] &gt; maxima) {
+        maxima = notes[i];
+    }
+}</code></pre>
+    </div>
+
+    <h3 class="reveal">3.4 · String: text que es pot examinar</h3>
+    <p class="reveal">Un <code>String</code> és text, i es comporta com una fila de lletres amb el seu índex. Els seus mètodes bàsics:</p>
+    <div class="codi reveal" data-pptx data-fitxer="Text.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Text.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>String nom = "Maria";
+
+nom.length()          // 5 lletres
+nom.charAt(0)         // 'M' — la primera
+nom.toUpperCase()     // "MARIA"
+nom.equals("Maria")   // true — comparar text SEMPRE amb .equals()
+
+String[] classe = {"Maria", "Joan", "Aina"};
+System.out.println(classe[0] + " és la primera");</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="guiada">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">4 · Programació guiada</span><h2>El butlletí de notes 📋</h2></header>
+    <p class="seccio__intro reveal">Un programa de profe: guarda 5 notes, calcula la mitjana i diu la nota més alta i la més baixa. A poc a poc.</p>
+
+    <div class="pas reveal"><span class="pas__num">1</span><div>
+      <h4>Crea l'array i ompli'l</h4>
+      <p>Cinq compartiments i les notes escrites a mà (després les demanarem per teclat).</p>
+      <div class="codi" data-pptx data-fitxer="pas 1"><pre><code>int[] notes = {7, 9, 5, 8, 6};   // forma ràpida d'omplir-lo</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">2</span><div>
+      <h4>Mostra-les totes</h4>
+      <p>Un for que imprimeix cada nota amb el seu índex.</p>
+      <div class="codi" data-pptx data-fitxer="pas 2"><pre><code>for (int i = 0; i &lt; notes.length; i++) {
+    System.out.println("Nota " + i + ": " + notes[i]);
+}</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">3</span><div>
+      <h4>Calcula la mitjana</h4>
+      <p>Acumulador + suma, com al tema 3. Compte amb la divisió: converteix a <code>double</code> per a no perdre decimals!</p>
+      <div class="codi" data-pptx data-fitxer="pas 3"><pre><code>int total = 0;
+for (int i = 0; i &lt; notes.length; i++) {
+    total += notes[i];
+}
+double mitjana = (double) total / notes.length;</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">4</span><div>
+      <h4>La millor i la pitjor</h4>
+      <p>Dos recorreguts (o un de sol amb dos ifs): màxim i mínim, començant sempre pel primer element.</p>
+      <div class="codi" data-pptx data-fitxer="pas 4"><pre><code>int maxima = notes[0], minima = notes[0];
+for (int i = 1; i &lt; notes.length; i++) {
+    if (notes[i] &gt; maxima) maxima = notes[i];
+    if (notes[i] &lt; minima) minima = notes[i];
+}</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">5</span><div>
+      <h4>Resultat complet</h4>
+      <p>Imprimeix mitjana, màxima i mínima. I si l'usuari posa una altra cosa… per exemple, vol saber quants han aprovat? Afig un comptador amb <code>if (notes[i] &gt;= 5)</code>.</p>
+      <div class="codi" data-pptx data-fitxer="pas 5"><pre><code>System.out.println("Mitjana: " + mitjana);
+System.out.println("Millor nota: " + maxima);
+System.out.println("Pitjor nota: " + minima);
+System.out.println("Aprovats: " + aprovats + " de " + notes.length);</code></pre></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="seccio" id="errors">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">5 · Errors habituals</span><h2>Els clàssics dels arrays</h2></header>
+    <div class="errors-grid reveal" data-pptx>
+      <div class="error-card"><h4>Eixir-se de l'array 💥</h4><dl><dt>Què: </dt><dd>error <em>ArrayIndexOutOfBoundsException</em> (o un valor rar).</dd><dt>Per què: </dt><dd>has demanat un índex que no existeix (començar en 1, o <code>i &lt;= length</code>).</dd><dt>Detectar-ho: </dt><dd>el missatge d'error diu l'índex culpable.</dd><dt>Corregir-ho: </dt><dd>els índexs van de 0 a <code>length - 1</code>.</dd></dl></div>
+      <div class="error-card"><h4>Mitjana sense decimals</h4><dl><dt>Què: </dt><dd>la mitjana de 7 i 8 dona 7.</dd><dt>Per què: </dt><dd>divisió d'enters: Java talla els decimals (tema 1!).</dd><dt>Detectar-ho: </dt><dd>resultats «redons» sospitosos.</dd><dt>Corregir-ho: </dt><dd><code>(double) total / notes.length</code>.</dd></dl></div>
+      <div class="error-card"><h4>Comparar text amb ==</h4><dl><dt>Què: </dt><dd>dos textos iguals no «són iguals».</dd><dt>Per què: </dt><dd><code>==</code> compara on viuen, no què diuen.</dd><dt>Detectar-ho: </dt><dd>la comparació falla «per casualitat».</dd><dt>Corregir-ho: </dt><dd><code>nom.equals("Maria")</code>, sempre.</dd></dl></div>
+      <div class="error-card"><h4>Màxim que comença en 0</h4><dl><dt>Què: </dt><dd>el màxim d'unes notes negatives (o un mínim fals) no s'encerta.</dd><dt>Per què: </dt><dd>has suposat que tot seria positiu.</dd><dt>Detectar-ho: </dt><dd>resultat 0 quan cap valor no ho era.</dd><dt>Corregir-ho: </dt><dd>inicia màxim/mínim amb <code>array[0]</code>, no amb 0.</dd></dl></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="resum">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">6 · Resum visual</span><h2>Idees que es queden</h2></header>
+    <div class="resum-grid reveal" data-pptx>
+      <div class="resum-item"><span class="icona">📦</span><strong>Array</strong> = moltes dades del mateix tipus en una sola variable.</div>
+      <div class="resum-item"><span class="icona">0️⃣</span>Els índexs comencen en <strong>0</strong>; l'últim és <code>length - 1</code>.</div>
+      <div class="resum-item"><span class="icona">🔁</span>Recorregut clàssic: <code>for (i = 0; i &lt; a.length; i++)</code>.</div>
+      <div class="resum-item"><span class="icona">🧮</span>Suma, mitjana, comptar, cercar, màxim i mínim: tot és recorrer + comparar.</div>
+      <div class="resum-item"><span class="icona">✍️</span><strong>String</strong>: <code>.length()</code>, <code>.charAt()</code>, <code>.toUpperCase()</code>, <code>.equals()</code>.</div>
+      <div class="resum-item"><span class="icona">🚫</span>Compara text amb <code>.equals()</code>, mai amb <code>==</code>.</div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio" id="activitats">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">7 · Activitats</span><h2>Tres sales d'entrenament</h2></header>
+
+    <h3 class="reveal">Mini exercicis (ràpids, a classe)</h3>
+    <ol class="mini-ex reveal" data-pptx>
+      <li>Crea un array amb les edats de 4 amics i mostra-les totes amb un for.</li>
+      <li>Quants elements té <code>int[] a = new int[10];</code>? Quin és l'últim índex vàlid?</li>
+      <li>Recorre l'array d'edats i mostra només les majors de 16.</li>
+      <li>Compta quants valors d'un array són parells.</li>
+      <li>Crea <code>String[] dies</code> amb els dies de la setmana i imprimeix el del mig.</li>
+      <li>Què val <code>"Programació".charAt(3)</code>? Comprova-ho comptant des de 0.</li>
+    </ol>
+
+    <div class="pestanyes no-print" role="tablist" aria-label="Activitats del tema">
+      <button class="pestanya" id="tab-test" role="tab" aria-selected="true" aria-controls="panell-test" type="button"><span class="num">1</span> Autoavaluació</button>
+      <button class="pestanya" id="tab-fes" role="tab" aria-selected="false" aria-controls="panell-fes" type="button"><span class="num">2</span> Fes el programa</button>
+      <button class="pestanya" id="tab-reptes" role="tab" aria-selected="false" aria-controls="panell-reptes" type="button"><span class="num">3</span> Reptes</button>
+    </div>
+
+    <div id="panell-test" role="tabpanel" aria-labelledby="tab-test">
+      <div class="test__accions no-print">
+        <button class="boto boto--pri" id="btnTotesSolucions" type="button">Mostra totes les solucions</button>
+        <button class="boto boto--sec" id="btnReiniciaTest" type="button">Reinicia el test</button>
+      </div>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 01</div>
+        <p class="pregunta__enunciat">Quin és l'índex del PRIMER element d'un array?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>1</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>0</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>-1</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Depén del tipus</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Sempre 0. El primer és <code>array[0]</code>.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 02</div>
+        <p class="pregunta__enunciat">En <code>int[] notes = new int[5];</code>, quin és l'últim índex vàlid?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>5</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>6</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>4</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>0</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> Índexs 0, 1, 2, 3 i 4 → l'últim és <code>length - 1</code> = 4.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 03</div>
+        <p class="pregunta__enunciat">Amb <code>int[] notes = {7, 9, 5, 8, 6};</code>, què val <code>notes[2]</code>?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>5</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>9</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>8</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>7</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> Índex 0→7, 1→9, 2→5. El tercer element val 5.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 04</div>
+        <p class="pregunta__enunciat">Què passa si executes <code>notes[5]</code> en un array de 5 elements?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Mostra 0</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Mostra l'últim element</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>No passa res</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>El programa peta (ArrayIndexOutOfBoundsException)</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> L'índex 5 no existeix: Java para el programa i t'avisa amb eixe nom tan llarg.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 05</div>
+        <p class="pregunta__enunciat">Per a recórrer un array sencer amb for, la condició correcta és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>i &lt;= a.length</code></span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>i &lt; a.length</code></span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>i &lt; a.length - 1</code></span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>i &lt; 100</code></span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Amb <code>&lt;=</code> t'eixiries de l'array en l'última volta. La C es deixaria l'últim element.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 06</div>
+        <p class="pregunta__enunciat">Què fa <code>nom.charAt(0)</code> si <code>nom = "Maria"</code>?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Mostra "Maria" sencer</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Compta les lletres</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Retorna la lletra 'M'</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Retorna 'a'</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> <code>charAt</code> retorna la lletra de l'índex indicat; la primera (índex 0) és la 'M'.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 07</div>
+        <p class="pregunta__enunciat">Què imprimeix este codi?</p>
+        <div class="codi" style="margin-top:.5rem"><pre><code>int[] a = {2, 4, 6};
+int suma = 0;
+for (int i = 0; i &lt; a.length; i++) {
+    suma += a[i];
+}
+System.out.println(suma);</code></pre></div>
+        <div class="pregunta__opcions" style="margin-top:.8rem">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>12</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>6</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>246</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>0</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> 2 + 4 + 6 = 12, acumulat volta a volta.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 08</div>
+        <p class="pregunta__enunciat">Per a comprovar si dos <code>String</code> tenen el mateix text s'usa…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>==</code></span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>=</code></span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>.length()</code></span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>.equals()</code></span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> <code>nom.equals("text")</code>. El <code>==</code> compara referències, no contingut.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 09</div>
+        <p class="pregunta__enunciat">Per a calcular el MÀXIM d'un array, com l'inicialitzes?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>int max = 0;</code></span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>int max = a[0];</code></span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>int max = 999999;</code></span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>No cal inicialitzar-lo</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Començant pel primer element funciona sempre, encara que tots els valors siguen negatius.</div>
+      </article>
+    </div>
+
+    <div id="panell-fes" role="tabpanel" aria-labelledby="tab-fes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 1</div>
+        <h4>L'inventari de la botiga 🛒</h4>
+        <p>Array amb 5 preus. Mostra cada preu, el total, el més car i el més barat.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Inventari.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>public class Inventari {
+    public static void main(String[] args) {
+        double[] preus = {2.50, 7.90, 1.20, 12.00, 4.75};
+
+        double total = 0, car = preus[0], barat = preus[0];
+        for (int i = 0; i &lt; preus.length; i++) {
+            System.out.println("Producte " + i + ": " + preus[i] + " €");
+            total += preus[i];
+            if (preus[i] &gt; car) car = preus[i];
+            if (preus[i] &lt; barat) barat = preus[i];
+        }
+        System.out.println("Total: " + total + " €");
+        System.out.println("El més car: " + car + " € · El més barat: " + barat + " €");
+    }
+}</code></pre></div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 2</div>
+        <h4>Cerca el teu nom</h4>
+        <p>Array amb 6 noms. Demana un nom i digues si hi és i en quina posició (o que no l'has trobat).</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">CercaNom.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>import java.util.Scanner;
+
+public class CercaNom {
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        String[] noms = {"Maria", "Joan", "Aina", "Pau", "Laia", "Marc"};
+
+        System.out.print("Quin nom busques? ");
+        String buscat = tec.nextLine();
+
+        boolean trobat = false;
+        for (int i = 0; i &lt; noms.length; i++) {
+            if (noms[i].equals(buscat)) {
+                System.out.println("El tenim a la posició " + i);
+                trobat = true;
+            }
+        }
+        if (!trobat) {
+            System.out.println(buscat + " no està a la llista");
+        }
+    }
+}</code></pre></div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 3</div>
+        <h4>Notes demanades per teclat</h4>
+        <p>Demana 5 notes (0-10, valida-les amb while), guarda-les en un array i mostra mitjana, aprovats i suspensos.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Butlleti.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>import java.util.Scanner;
+
+public class Butlleti {
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        int[] notes = new int[5];
+
+        for (int i = 0; i &lt; notes.length; i++) {
+            System.out.print("Nota " + (i + 1) + " (0-10): ");
+            notes[i] = tec.nextInt();
+            while (notes[i] &lt; 0 || notes[i] &gt; 10) {
+                System.out.print("No val! Torna-ho a provar: ");
+                notes[i] = tec.nextInt();
+            }
+        }
+
+        int total = 0, aprovats = 0;
+        for (int i = 0; i &lt; notes.length; i++) {
+            total += notes[i];
+            if (notes[i] &gt;= 5) aprovats++;
+        }
+        System.out.println("Mitjana: " + ((double) total / notes.length));
+        System.out.println("Aprovats: " + aprovats + " · Suspesos: " + (notes.length - aprovats));
+    }
+}</code></pre></div>
+      </article>
+    </div>
+
+    <div id="panell-reptes" role="tabpanel" aria-labelledby="tab-reptes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte 1</div>
+        <h4>🏆 La millor nota té nom</h4>
+        <p>Dos arrays paral·lels: <code>noms</code> i <code>notes</code>. Mostra el nom (i la nota) de qui ha tret la millor puntuació. Pista: quan trobes una nota millor, guarda també el seu índex.</p>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte 2</div>
+        <h4>📊 Informe de la classe</h4>
+        <p>Amb un array de 10 notes: mitjana, quants aprovats/suspensos, la millor i la pitjor nota, i un missatge final: si la mitjana és 5 o més «Bona feina, classe!», si no «A recuperar!». Afig un bucle de barres senzill: per cada nota, imprimeix tants <code>#</code> com punts té.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__grid">
+      <div>
+        <p class="peu__autor">Material creat per Agustín Gil - IES La vereda 2026</p>
+        <p>Tema 4 · Treballar amb moltes dades: els arrays — Optativa SMX, Introducció a la programació amb Java.</p>
+        <div class="peu__llicencia"><span class="peu__cc">CC BY-NC 4.0</span><p>Llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a>.</p></div>
+      </div>
+      <div>
+        <h4>Continua el camí</h4>
+        <ul class="llista">
+          <li><a href="index.html">← Portada del curs</a></li>
+          <li><a href="tema3.html">← Tema 3 · Els bucles</a></li>
+          <li><a href="tema5.html">Tema 5 · Mètodes: donar nom als trossets →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="peu__baix"><span>© 2026 Agustín Gil · IES La Vereda</span><span>Tema 4 · Arrays</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@4.0.1/dist/pptxgen.bundle.js"></script>
+<script>window.PptxGenJS || document.write('<script src="js/vendor/pptxgen.bundle.js"><\/script>');</script>
+<script src="js/app.js"></script>
+<script src="js/pptx.js"></script>
+</body>
+</html>

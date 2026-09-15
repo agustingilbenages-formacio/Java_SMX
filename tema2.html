@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ca" data-tema="clar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tema 2 · Prendre decisions — Introducció a la Programació amb Java</title>
+<meta name="description" content="Tema 2 del curs d'introducció a la programació amb Java (Optativa SMX): comparacions, if/else, operadors lògics i switch. Material creat per Agustín Gil - IES La vereda 2026. CC BY-NC 4.0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estils.css">
+</head>
+<body data-pptx-nom="Tema_2_Decisions">
+
+<div class="barra-progres" id="barraProgres"></div>
+<header class="capcalera">
+  <div class="capcalera__inner">
+    <a class="marca" href="index.html" aria-label="Portada del curs">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="url(#gmar)"/><path d="M12 10l-3.5 6H12l-3.5 6M20 10l3.5 6H20l3.5 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gmar" x1="2" y1="2" x2="30" y2="30"><stop stop-color="#1d5de8"/><stop offset="1" stop-color="#089cc0"/></linearGradient></defs></svg>
+      Java <em>· SMX</em>
+    </a>
+    <nav class="nav" id="nav" aria-label="Seccions del tema">
+      <a href="#intro" data-seccio="intro">Intro</a>
+      <a href="#teoria" data-seccio="teoria">Teoria</a>
+      <a href="#guiada" data-seccio="guiada">Guiada</a>
+      <a href="#activitats" data-seccio="activitats">Activitats</a>
+      <a href="#resum" data-seccio="resum">Resum</a>
+    </nav>
+    <div class="accions">
+      <span class="autoria">Material creat per Agustín Gil - IES La vereda 2026</span>
+      <button class="boto-tema" id="btnTema" type="button" title="Canvia el tema" aria-label="Canvia el tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button class="boto boto--sec" id="btnImprimir" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Imprimir PDF</button>
+      <button class="boto boto--pri" id="btnPptx" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M9 7l3 3 3-3M12 10V7"/></svg> Crear PowerPoint</button>
+    </div>
+    <button class="menu-mobil" id="menuMobil" type="button" aria-label="Obri el menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero tema-hero" id="inici">
+  <div class="hero__fons" aria-hidden="true"></div>
+  <div class="contenidor hero__inner">
+    <a class="torna no-print" href="index.html">← Portada del curs</a>
+    <span class="hero__num">Tema 2</span>
+    <h1>Prendre decisions</h1>
+    <p class="hero__sub">El mòbil et deixa entrar si la contrasenya és correcta; el videojoc et puja de nivell si tens prou punts. Hui els nostres programes aprenen a dir «si passa això, fes allò».</p>
+    <div class="hero__metes">
+      <span class="xip">⏱ 3 hores</span>
+      <span class="xip">⚖️ Comparacions i lògica</span>
+      <span class="xip">🔀 if / else / else if</span>
+      <span class="xip">🎚️ Primer contacte amb switch</span>
+    </div>
+    <p class="hero__autor">Material creat per Agustín Gil - IES La vereda 2026 · Llicència CC BY-NC 4.0</p>
+  </div>
+</section>
+
+<section class="seccio" id="intro">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">1 · Introducció</span><h2>Quina condició ha de complir-se?</h2></header>
+    <p class="seccio__intro reveal">Obri el mòbil amb la cara: <em>si</em> la càmera reconeix la teua cara, es desbloqueja; <em>si no</em>, et demana el PIN. Eixa pregunta —«quina condició ha de complir-se perquè passe açò?»— és la pregunta estrella del tema. La farem servir tant que la somniaràs. 😄</p>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="aprendrem">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">2 · Què aprendrem?</span><h2>Objectius del tema</h2></header>
+    <ul class="llista reveal" data-pptx>
+      <li><strong>Comparar dades</strong> amb <code>== != &lt; &gt; &lt;= &gt;=</code>.</li>
+      <li><strong>Combinar condicions</strong> amb <code>&amp;&amp;</code> (i), <code>||</code> (o) i <code>!</code> (no).</li>
+      <li><strong>Dirigir el programa</strong> amb <code>if</code>, <code>else</code> i <code>else if</code>.</li>
+      <li><strong>Triar entre moltes opcions</strong> amb un <code>switch</code> senzill.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="seccio" id="teoria">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">3 · Teoria</span><h2>Una idea, un exemple</h2></header>
+
+    <h3 class="reveal">3.1 · Preguntes amb resposta true/false</h3>
+    <p class="reveal">Tota decisió naix d'una <strong>condició</strong>: una pregunta que Java respon amb <code>true</code> o <code>false</code>. Els operadors per a preguntar:</p>
+    <div class="codi reveal" data-pptx data-fitxer="Preguntes.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Preguntes.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>int edat = 16;
+
+System.out.println(edat == 16);   // true  (igual que)
+System.out.println(edat != 16);   // false (distint de)
+System.out.println(edat &gt;= 18);   // false (major o igual)
+System.out.println(edat &lt; 18);    // true  (menor que)</code></pre>
+    </div>
+    <div class="targeta targeta--error reveal no-print">
+      <div class="targeta__titol"><span class="icona">🚨</span> El clàssic dels clàssics: = no és ==</div>
+      <p><code>=</code> <strong>assigna</strong> (fica un valor a la caixa); <code>==</code> <strong>pregunta</strong> si són iguals. Confondre'ls és l'error número u del Tema 2.</p>
+    </div>
+
+    <h3 class="reveal">3.2 · if / else: el carril de les decisions</h3>
+    <div class="codi reveal" data-pptx data-fitxer="Acces.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Acces.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>String contrasenya = "somnis2026";
+String escrita = "somnis2026";   // imagina que la llig del teclat
+
+if (escrita.equals(contrasenya)) {
+    System.out.println("Desbloquejat ✔");
+} else {
+    System.out.println("Contrasenya incorrecta ✖");
+}</code></pre>
+    </div>
+    <p class="reveal">Per a comparar text usem <code>.equals()</code> (el <code>==</code> amb text fa coses rares que ja veurem molt més avant). Mira el flux:</p>
+    <figure class="figura reveal" data-pptx>
+      <div class="figura__marc">
+        <svg viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flux d'un if else">
+          <defs><marker id="mT2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L8,4.5 L0,9 z" fill="#2f7bff"/></marker></defs>
+          <rect x="370" y="12" width="160" height="46" rx="23" fill="#123c8c"/>
+          <text x="450" y="41" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Inici</text>
+          <line x1="450" y1="58" x2="450" y2="92" stroke="#2f7bff" stroke-width="2.5" marker-end="url(#mT2)"/>
+          <path d="M450 98 L640 170 L450 242 L260 170 Z" fill="#fff6ee" stroke="#e8681a" stroke-width="2.5"/>
+          <text x="450" y="166" text-anchor="middle" font-family="monospace" font-size="15" font-weight="700" fill="#7a3c14">escrita.equals(</text>
+          <text x="450" y="186" text-anchor="middle" font-family="monospace" font-size="15" font-weight="700" fill="#7a3c14">contrasenya) ?</text>
+          <line x1="640" y1="170" x2="750" y2="170" stroke="#0c8a56" stroke-width="2.5" marker-end="url(#mT2)"/>
+          <text x="695" y="156" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="800" fill="#0c8a56">true</text>
+          <line x1="260" y1="170" x2="150" y2="170" stroke="#c9243c" stroke-width="2.5" marker-end="url(#mT2)"/>
+          <text x="205" y="156" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="800" fill="#c9243c">false</text>
+          <rect x="754" y="142" width="130" height="56" rx="12" fill="#e7f9f0" stroke="#0c8a56" stroke-width="2"/>
+          <text x="819" y="176" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#0c5c3c">«Desbloquejat»</text>
+          <rect x="16" y="142" width="130" height="56" rx="12" fill="#fdecec" stroke="#c9243c" stroke-width="2"/>
+          <text x="81" y="176" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#8c2723">«Incorrecta»</text>
+          <line x1="819" y1="200" x2="819" y2="290" stroke="#8fa3c8" stroke-width="2"/>
+          <line x1="81" y1="200" x2="81" y2="290" stroke="#8fa3c8" stroke-width="2"/>
+          <line x1="81" y1="290" x2="372" y2="290" stroke="#8fa3c8" stroke-width="2" marker-end="url(#mT2)"/>
+          <line x1="819" y1="290" x2="528" y2="290" stroke="#8fa3c8" stroke-width="2" marker-end="url(#mT2)"/>
+          <rect x="376" y="266" width="148" height="46" rx="23" fill="#f4f7ff" stroke="#8fa3c8" stroke-width="2"/>
+          <text x="450" y="295" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#2c3a5c">Fi</text>
+        </svg>
+      </div>
+      <figcaption><strong>Figura 1.</strong> Una pregunta, dos camins, un sol final.</figcaption>
+    </figure>
+
+    <h3 class="reveal">3.3 · else if: més de dos camins</h3>
+    <div class="codi reveal" data-pptx data-fitxer="Nivells.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Nivells.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>int punts = 850;
+
+if (punts &gt;= 1000) {
+    System.out.println("Nivell OR 🥇");
+} else if (punts &gt;= 500) {
+    System.out.println("Nivell PLATA 🥈");   // 850 cau ací
+} else {
+    System.out.println("Nivell BRONZE 🥉");
+}</code></pre>
+    </div>
+    <p class="reveal">Java comprova de dalt a baix i <strong>només entra en el primer camí que complisca</strong>. Per això l'ordre de les condicions importa molt.</p>
+
+    <h3 class="reveal">3.4 · I, O, NO: combinar preguntes</h3>
+    <div class="codi reveal" data-pptx data-fitxer="Entrada.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Entrada.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>int edat = 16;
+boolean ambAdult = false;
+
+// Entrada al parc: majors de 12, O menors acompanyats
+if (edat &gt; 12 || (edat &lt;= 12 &amp;&amp; ambAdult)) {
+    System.out.println("Pots passar!");
+} else {
+    System.out.println("Encara no, menudet.");
+}
+
+// El ! nega: "no està connectat"
+boolean connectat = false;
+if (!connectat) {
+    System.out.println("Connecta't al wifi primer!");
+}</code></pre>
+    </div>
+    <ul class="llista reveal" data-pptx>
+      <li><code>&amp;&amp;</code> = «i»: les dues han de ser certes.</li>
+      <li><code>||</code> = «o»: amb que una siga certa, n'hi ha prou.</li>
+      <li><code>!</code> = «no»: li dona la volta a la resposta.</li>
+    </ul>
+
+    <h3 class="reveal">3.5 · switch: el menú del dia</h3>
+    <p class="reveal">Quan compares <strong>un valor contra opcions concretes</strong>, el <code>switch</code> queda més net. Amb fletxes <code>-&gt;</code> no cal ni <code>break</code>.</p>
+    <div class="codi reveal" data-pptx data-fitxer="Menu.java">
+      <div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Menu.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>int opcio = 2;
+
+switch (opcio) {
+    case 1 -&gt; System.out.println("Jugar partida");
+    case 2 -&gt; System.out.println("Vore rècords");
+    case 3 -&gt; System.out.println("Eixir del joc");
+    default -&gt; System.out.println("Opció no vàlida");
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="guiada">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">4 · Programació guiada</span><h2>El porter de la discoteca 🎟️</h2></header>
+    <p class="seccio__intro reveal">Fem un programa que decidix qui entra a una sala: majoria d'edat i entrada comprada. Pas a pas, com sempre.</p>
+
+    <div class="pas reveal"><span class="pas__num">1</span><div>
+      <h4>Demana les dades</h4>
+      <p>Llig l'edat i si té entrada (<code>1</code> sí, <code>0</code> no, guardat en un <code>int</code> de moment).</p>
+      <div class="codi" data-pptx data-fitxer="pas 1"><pre><code>Scanner tec = new Scanner(System.in);
+System.out.print("Quants anys tens? ");
+int edat = tec.nextInt();
+System.out.print("Tens entrada? (1/0) ");
+int entrada = tec.nextInt();</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">2</span><div>
+      <h4>La primera decisió</h4>
+      <p>Si és major d'edat, missatge de «cap avant»; si no, «ho sentim, encara no».</p>
+      <div class="codi" data-pptx data-fitxer="pas 2"><pre><code>if (edat &gt;= 18) {
+    System.out.println("Cap avant!");
+} else {
+    System.out.println("Ho sentim, encara no.");
+}</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">3</span><div>
+      <h4>Ara li peguem una volta: dues condicions</h4>
+      <p>Només entra si és major <strong>i</strong> té entrada. Combina amb <code>&amp;&amp;</code>. Prova els quatre casos: 20 amb entrada, 20 sense, 15 amb i 15 sense.</p>
+      <div class="codi" data-pptx data-fitxer="pas 3"><pre><code>if (edat &gt;= 18 &amp;&amp; entrada == 1) {
+    System.out.println("Benvingut/da a la sala!");
+} else {
+    System.out.println("No pots entrar.");
+}</code></pre></div>
+    </div></div>
+
+    <div class="pas reveal"><span class="pas__num">4</span><div>
+      <h4>El detall pro: preu segons edat</h4>
+      <p>Abans de decidir si entra, mostra el preu de l'entrada: 5 € si és menor de 18 (acompanyat), 12 € si no, amb <code>else if</code>.</p>
+      <div class="codi" data-pptx data-fitxer="pas 4"><pre><code>if (edat &lt; 18) {
+    System.out.println("Entrada juvenil: 5 €");
+} else {
+    System.out.println("Entrada adulta: 12 €");
+}</code></pre></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="seccio" id="errors">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">5 · Errors habituals</span><h2>Trampes del Tema 2</h2></header>
+    <div class="errors-grid reveal" data-pptx>
+      <div class="error-card"><h4><code>=</code> en lloc de <code>==</code></h4><dl><dt>Què: </dt><dd><code>if (edat = 18)</code> no compara: assigna.</dd><dt>Per què: </dt><dd>un sol = és assignació.</dd><dt>Detectar-ho: </dt><dd>«incompatible types» o comportament raríssim.</dd><dt>Corregir-ho: </dt><dd>dos signes iguals per a preguntar.</dd></dl></div>
+      <div class="error-card"><h4>Condicions impossibles</h4><dl><dt>Què: </dt><dd><code>if (nota &gt;= 5 &amp;&amp; nota &lt; 5)</code> mai és certa.</dd><dt>Per què: </dt><dd>cap número complix les dues alhora.</dd><dt>Detectar-ho: </dt><dd>el camí mai s'executa, encara que compile.</dd><dt>Corregir-ho: </dt><dd>pensa en la recta numèrica; potser volies <code>||</code>.</dd></dl></div>
+      <div class="error-card"><h4>Oblidar les claus</h4><dl><dt>Què: </dt><dd>sense <code>{ }</code>, l'<code>if</code> només «agarra» la primera línia.</dd><dt>Per què: </dt><dd>Java agrupa així per defecte.</dd><dt>Detectar-ho: </dt><dd>línies que s'executen «sempre».</dd><dt>Corregir-ho: </dt><dd>claus sempre, encara que siga una línia.</dd></dl></div>
+      <div class="error-card"><h4>Comparar text amb ==</h4><dl><dt>Què: </dt><dd><code>if (nom == "Pau")</code> falla «sense motiu».</dd><dt>Per què: </dt><dd>amb cadenes, <code>==</code> compara una altra cosa (ja ho veurem).</dd><dt>Detectar-ho: </dt><dd>condicions que pareixen certes i donen false.</dd><dt>Corregir-ho: </dt><dd><code>nom.equals("Pau")</code>.</dd></dl></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio seccio--tintada" id="resum">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">6 · Resum visual</span><h2>Idees que es queden</h2></header>
+    <div class="resum-grid reveal" data-pptx>
+      <div class="resum-item"><span class="icona">❓</span>Tota condició acaba en <strong>true o false</strong>.</div>
+      <div class="resum-item"><span class="icona">⚖️</span><code>== != &lt; &gt; &lt;= &gt;=</code> per a comparar.</div>
+      <div class="resum-item"><span class="icona">🔗</span><code>&amp;&amp;</code> les dues · <code>||</code> una basta · <code>!</code> nega.</div>
+      <div class="resum-item"><span class="icona">🔀</span><code>if / else if / else</code>: de dalt a baix, primer que complisca.</div>
+      <div class="resum-item"><span class="icona">🎚️</span><code>switch</code> per a opcions concretes (menús!).</div>
+      <div class="resum-item"><span class="icona">📝</span>Text es compara amb <code>.equals()</code>.</div>
+      <div class="resum-item"><span class="icona">🧠</span>Pregunta màgica: <strong>«quina condició ha de complir-se?»</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="seccio" id="activitats">
+  <div class="contenidor">
+    <header class="seccio__cap reveal"><span class="seccio__etiqueta">7 · Activitats</span><h2>Tres sales d'entrenament</h2></header>
+
+    <h3 class="reveal">Mini exercicis (ràpids, a classe)</h3>
+    <ol class="mini-ex reveal" data-pptx>
+      <li>Escriu les condicions: «edat entre 13 i 19», «nota distinta de 5», «no connectat».</li>
+      <li><code>int a = 4, b = 9;</code> — què dona <code>a &gt; b</code>? I <code>a &lt; b || a == 4</code>? Comprova-ho amb println.</li>
+      <li>if/else: imprimeix «majoria d'edat» o «menoria» segons l'edat llegida.</li>
+      <li>Cadena d'else if: nota ≥9 Excel·lent, ≥7 Notable, ≥5 Aprovat, altrament Suspés.</li>
+      <li>switch amb el número de dia de la setmana (1-7) que imprima si és cap de setmana.</li>
+      <li>Què passa si poses <code>if (edat = 18)</code>? Llig l'error i explica'l.</li>
+    </ol>
+
+    <div class="pestanyes no-print" role="tablist" aria-label="Activitats del tema">
+      <button class="pestanya" id="tab-test" role="tab" aria-selected="true" aria-controls="panell-test" type="button"><span class="num">1</span> Autoavaluació</button>
+      <button class="pestanya" id="tab-fes" role="tab" aria-selected="false" aria-controls="panell-fes" type="button"><span class="num">2</span> Fes el programa</button>
+      <button class="pestanya" id="tab-reptes" role="tab" aria-selected="false" aria-controls="panell-reptes" type="button"><span class="num">3</span> Reptes</button>
+    </div>
+
+    <div id="panell-test" role="tabpanel" aria-labelledby="tab-test">
+      <div class="test__accions no-print">
+        <button class="boto boto--pri" id="btnTotesSolucions" type="button">Mostra totes les solucions</button>
+        <button class="boto boto--sec" id="btnReiniciaTest" type="button">Reinicia el test</button>
+      </div>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 01</div>
+        <p class="pregunta__enunciat">Per a preguntar «edat igual a 16» escrivim…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>edat = 16</code></span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>edat != 16</code></span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>edat == 16</code></span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>edat =&lt; 16</code></span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> Doble igual per a comparar; un de sol assigna.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 02</div>
+        <p class="pregunta__enunciat"><code>int nota = 4;</code> Què imprimeix <code>if (nota &gt;= 5) { println("Aprovat"); } else { println("Suspés"); }</code>?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Suspés</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Aprovat</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Les dues línies</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Res</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> 4 &gt;= 5 és false, així que es fa el camí de l'else.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 03</div>
+        <p class="pregunta__enunciat">L'operador que exigix que les dues condicions siguen certes és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>||</code></span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>&amp;&amp;</code></span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>!</code></span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>==</code></span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> <code>&amp;&amp;</code> és el «i»: tot ha de ser true.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 04</div>
+        <p class="pregunta__enunciat"><code>boolean plou = false;</code> — quan és certa la condició <code>!plou</code>?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Mai</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Quan plou és true</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Només si també fa sol</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Quan plou és false</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> El <code>!</code> nega: si no plou (false), <code>!plou</code> és true.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 05</div>
+        <p class="pregunta__enunciat">En una cadena <code>if / else if / else</code>, quants camins s'executen com a màxim?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Tots els que complisquen</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Només un: el primer que complisca (o l'else)</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Dos sempre</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Depén del dia</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> De dalt a baix, entra en el primer true i salta la resta.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="2">
+        <div class="pregunta__num">Pregunta 06</div>
+        <p class="pregunta__enunciat">Per a comparar el text de la variable <code>nom</code> amb "Pau" usem…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>nom == "Pau"</code></span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>nom = "Pau"</code></span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>nom.equals("Pau")</code></span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>equals nom, "Pau"</code></span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: C.</strong> Les cadenes es comparen amb <code>.equals()</code>; el <code>==</code> enganya.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="0">
+        <div class="pregunta__num">Pregunta 07</div>
+        <p class="pregunta__enunciat">Quina condició expressa «edat entre 13 i 19, tots dos inclosos»?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span><code>edat &gt;= 13 &amp;&amp; edat &lt;= 19</code></span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span><code>13 &lt;= edat &lt;= 19</code></span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span><code>edat &gt;= 13 || edat &lt;= 19</code></span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span><code>edat &gt;= 13 &amp;&amp; edat &gt;= 19</code></span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: A.</strong> En Java cal escriure les dues comparacions unides per <code>&amp;&amp;</code>; la B és com ho faríem en paper, però no compila com pensem; la C seria «qualsevol edat».</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="3">
+        <div class="pregunta__num">Pregunta 08</div>
+        <p class="pregunta__enunciat"><code>int a = 5;</code> — què val <code>a &gt; 3 || a &gt; 10</code> ?</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>false, perquè 5 no és major que 10</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Error de compilació</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>false, perquè calen les dues</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>true, perquè la primera ja és certa</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: D.</strong> Amb <code>||</code> n'hi ha prou amb una de certa: 5 &gt; 3 ja val true.</div>
+      </article>
+      <article class="pregunta reveal" data-solucio="1">
+        <div class="pregunta__num">Pregunta 09</div>
+        <p class="pregunta__enunciat">Per a un menú amb les opcions 1, 2 i 3, l'estructura més neta és…</p>
+        <div class="pregunta__opcions">
+          <button class="opcio" type="button" data-i="0"><span class="lletra">A</span><span>Tres <code>if</code> separats sense else</span></button>
+          <button class="opcio" type="button" data-i="1"><span class="lletra">B</span><span>Un <code>switch</code> amb case 1, 2, 3 i default</span></button>
+          <button class="opcio" type="button" data-i="2"><span class="lletra">C</span><span>Un bucle</span></button>
+          <button class="opcio" type="button" data-i="3"><span class="lletra">D</span><span>Una variable per opció</span></button>
+        </div>
+        <button class="boto boto--sec pregunta__boto" type="button">Mostrar solució</button>
+        <div class="pregunta__solucio"><strong>Solució: B.</strong> Valors concrets contra opcions concretes: territori natural del switch.</div>
+      </article>
+    </div>
+
+    <div id="panell-fes" role="tabpanel" aria-labelledby="tab-fes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 1</div>
+        <h4>Aprovat o suspés, amb missatge personalitzat</h4>
+        <p>Llig una nota decimal. Si és 5 o més, «Aprovat 🎉»; si no, «A recuperar-se 💪». I si és exactament un 10, afig «Matrícula d'honor!».</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Nota.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>import java.util.Scanner;
+
+public class Nota {
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        System.out.print("Quina nota has tret? ");
+        double nota = tec.nextDouble();
+
+        if (nota &gt;= 5) {
+            System.out.println("Aprovat!");
+            if (nota == 10) {
+                System.out.println("Matrícula d'honor!");
+            }
+        } else {
+            System.out.println("A recuperar-se!");
+        }
+    }
+}</code></pre></div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 2</div>
+        <h4>El preu del cinema</h4>
+        <p>Entrada de cine: 6 € si tens menys de 13 anys, 8 € si en tens entre 13 i 64, i 5 € a partir de 65. Llig l'edat i mostra el preu amb <code>if / else if / else</code>.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Cine.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>import java.util.Scanner;
+
+public class Cine {
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        System.out.print("Quants anys tens? ");
+        int edat = tec.nextInt();
+
+        if (edat &lt; 13) {
+            System.out.println("Entrada infantil: 6 €");
+        } else if (edat &lt;= 64) {
+            System.out.println("Entrada general: 8 €");
+        } else {
+            System.out.println("Entrada major: 5 €");
+        }
+    }
+}</code></pre></div>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Exercici 3</div>
+        <h4>Contrasenya amb dues comprovacions</h4>
+        <p>Demana usuari i contrasenya. Només entra si l'usuari és "admin" <strong>i</strong> la contrasenya és "1234". Si falla només una de les dues, diga quina ha fallat.</p>
+        <button class="boto boto--sec solucio-boto" type="button">Mostrar solució</button>
+        <div class="solucio-bloq"><div class="codi"><div class="codi__cap"><span class="codi__dots"><i></i><i></i><i></i></span><span class="codi__nom">Login.java</span><button class="codi__copia" type="button">Copia</button></div>
+<pre><code>import java.util.Scanner;
+
+public class Login {
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        System.out.print("Usuari: ");
+        String usuari = tec.next();
+        System.out.print("Contrasenya: ");
+        String clau = tec.next();
+
+        if (usuari.equals("admin") &amp;&amp; clau.equals("1234")) {
+            System.out.println("Dins! Hola, admin.");
+        } else if (!usuari.equals("admin")) {
+            System.out.println("L'usuari no existeix.");
+        } else {
+            System.out.println("Contrasenya incorrecta.");
+        }
+    }
+}</code></pre></div>
+      </article>
+    </div>
+
+    <div id="panell-reptes" role="tabpanel" aria-labelledby="tab-reptes" hidden>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte 1</div>
+        <h4>🏆 Classificació de rangs</h4>
+        <p>Segons els punts d'una partida (0-1000), mostra el rang: Bronze (&lt;300), Plata (300-699), Or (700-999) i Diamant (1000). A més, si el rang és Bronze i els punts són &gt; 250, afig «a punt de pujar!». Pensa bé l'ordre dels else if.</p>
+      </article>
+      <article class="exercici reveal">
+        <div class="exercici__num">Repte 2</div>
+        <h4>🎫 El porter intel·ligent</h4>
+        <p>Amplia el programa guiat: els menors de 16 entraran només si van amb adult <strong>i</strong> és abans de les 22 h (demana l'hora com a enter). Els de 16-17, fins a les 24 h. Els majors, sempre. Massa condicions? Exacte: ací és on comença a tindre gràcia. 😉</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="peu">
+  <div class="contenidor">
+    <div class="peu__grid">
+      <div>
+        <p class="peu__autor">Material creat per Agustín Gil - IES La vereda 2026</p>
+        <p>Tema 2 · Prendre decisions — Optativa SMX, Introducció a la programació amb Java.</p>
+        <div class="peu__llicencia"><span class="peu__cc">CC BY-NC 4.0</span><p>Llicència <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons Reconeixement-NoComercial 4.0 Internacional</a>.</p></div>
+      </div>
+      <div>
+        <h4>Continua el camí</h4>
+        <ul class="llista">
+          <li><a href="index.html">← Portada del curs</a></li>
+          <li><a href="tema1.html">← Tema 1 · Variables</a></li>
+          <li><a href="tema3.html">Tema 3 · Repetir: els bucles →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="peu__baix"><span>© 2026 Agustín Gil · IES La Vereda</span><span>Tema 2 · Prendre decisions</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@4.0.1/dist/pptxgen.bundle.js"></script>
+<script>window.PptxGenJS || document.write('<script src="js/vendor/pptxgen.bundle.js"><\/script>');</script>
+<script src="js/app.js"></script>
+<script src="js/pptx.js"></script>
+</body>
+</html>
